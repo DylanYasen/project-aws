@@ -52,7 +52,9 @@ public class DeckManager : MonoBehaviour
 
     public void InitStarterDeck()
     {
-        AddCardToDeck("Cold Start Strike", 2);
+        AddCardToDeck("Instant Invoke", 2);
+
+        AddCardToDeck("Cold Start Strike", 1);
         AddCardToDeck("Burst Scaling", 1);
 
         AddCardToDeck("Error Retry", 2);
