@@ -1,4 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+
+[System.Serializable]
+public class CardEffectEntry
+{
+    public CardEffect cardEffect;
+    public int effectValue;
+}
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject
@@ -9,6 +18,8 @@ public class Card : ScriptableObject
     public Sprite cardArt; // Optional: Add visuals later
     public CardEffectType effectType; // Enum for Attack, Defense, Utility, etc.
     public int effectValue; // Damage, block amount, etc.
+
+    public List<CardEffectEntry> effects = new List<CardEffectEntry>();
 }
 
 public enum CardEffectType
