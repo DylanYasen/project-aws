@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public TMP_Text cardNameText;
     public TMP_Text descriptionText;
@@ -12,9 +12,14 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Card card;
 
     private Vector3 originalScale;
+    private Vector3 originalPosition;
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
 
-    private void Start()
+    private void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
         originalScale = transform.localScale;
     }
 
@@ -32,7 +37,10 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnCardClicked()
     {
         Debug.Log($"Playing card: {card.cardName}");
-        // Handle card logic here (apply effect, deduct cost, etc.)
+
+        GameManager.Instance.SelectCard(card);
+
+        transform.position += new Vector3(0, 20, 0); // Raise card
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -44,5 +52,34 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = originalScale; // Reset scale
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        originalPosition = rectTransform.position;
+        canvasGroup.blocksRaycasts = false; // Make card ignore raycasts while dragging
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        rectTransform.position = eventData.position; // Follow the cursor
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        canvasGroup.blocksRaycasts = true; // reenable raycasts
+
+        Debug.Log($"Dropped card: {card.cardName} on {eventData.pointerEnter?.name}");
+
+        // Check if the card was dropped on a valid target
+        if (eventData.pointerEnter == null || !eventData.pointerEnter.CompareTag("PlayZone"))
+        {
+            rectTransform.position = originalPosition; // Snap back to original position
+        }
+        else
+        {
+            GameManager.Instance.PlayCard(card);
+            Destroy(gameObject); // Remove card from hand
+        }
     }
 }
