@@ -8,26 +8,10 @@ public class GameManager : MonoBehaviour
 
     public int energy = 3;
 
-    public Card selectedCard;
-
     private void Awake()
     {
         Instance = this;
         combatManager = new CombatManager();
-    }
-
-    public void SelectCard(Card card)
-    {
-        selectedCard = card;
-    }
-
-    public void TargetEnemy(Enemy enemy)
-    {
-        if (selectedCard != null)
-        {
-            PlayCard(selectedCard);
-            selectedCard = null;
-        }
     }
 
     public void PlayCard(Card card, GameObject target = null)
