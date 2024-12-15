@@ -16,6 +16,7 @@ public class Card : ScriptableObject
     public string description;
     public int cost; // Energy cost to play
     public Sprite cardArt; // Optional: Add visuals later
+    public bool requiresTarget;
 
     public List<CardEffectEntry> effects = new();
 }

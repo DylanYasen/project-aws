@@ -16,8 +16,7 @@ MonoBehaviour:
   description: A swift execution. Deals 6 damage.
   cost: 1
   cardArt: {fileID: 0}
-  effectType: 0
-  effectValue: 5
+  requiresTarget: 1
   effects:
   - cardEffect: {fileID: 11400000, guid: b1d94a5b4a9c0394895ec62958251336, type: 2}
     effectValue: 6
