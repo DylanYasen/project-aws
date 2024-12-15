@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class DeckManager : MonoBehaviour
 {
@@ -43,12 +44,19 @@ public class DeckManager : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            if (deck.Count == 0) return;
+            if (deck.Count == 0)
+            {
+                ReshuffleDiscardPile();
+            }
+
+            Assert.IsTrue(deck.Count > 0, "Deck is empty, cannot draw cards.");
 
             Card drawnCard = deck[0];
             deck.RemoveAt(0);
             hand.Add(drawnCard);
 
+
+            // @todo: pool these
             GameObject cardObject = Instantiate(cardPrefab, handArea);
             CardUI display = cardObject.GetComponent<CardUI>();
             display.Setup(drawnCard);
@@ -85,5 +93,24 @@ public class DeckManager : MonoBehaviour
         {
             deck.Add(cardToAdd);
         }
+    }
+
+    public void DiscardCard(Card card)
+    {
+        if (hand.Contains(card))
+        {
+            hand.Remove(card);
+            discardPile.Add(card);
+            Debug.Log($"Card {card.cardName} discarded.");
+        }
+    }
+
+    private void ReshuffleDiscardPile()
+    {
+        deck.AddRange(discardPile);
+        discardPile.Clear();
+        ShuffleDeck();
+
+        Debug.Log("Discard pile reshuffled into the deck.");
     }
 }
