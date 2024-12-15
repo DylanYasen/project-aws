@@ -5,13 +5,16 @@ public class DeckManager : MonoBehaviour
 {
     public static DeckManager Instance { get; private set; }
 
-    public CardDatabase cardDatabase;
+    [Header("UI")]
+    public Transform handArea; // Parent object for displaying cards in the UI
+    public GameObject cardPrefab;
 
+    [Header("Data")]
+    public CardDatabase cardDatabase;
     public List<Card> deck;
     public List<Card> hand;
     public List<Card> discardPile;
-    public Transform handArea; // Parent object for displaying cards in the UI
-    public GameObject cardPrefab;
+
 
     private void Awake()
     {
@@ -21,6 +24,8 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         InitStarterDeck();
+
+        DrawCards(5);
     }
 
     public void ShuffleDeck()
