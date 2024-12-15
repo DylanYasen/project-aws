@@ -4,9 +4,7 @@ public class TargetingArrow : MonoBehaviour
 {
     public static TargetingArrow Instance { get; private set; }
 
-    private LineRenderer lineRenderer; // Reference to the LineRenderer
-    public GameObject arrowheadPrefab; // Prefab for the arrowhead
-
+    private LineRenderer lineRenderer;
     public GameObject arrowheadInstance;
 
     private void Awake()
@@ -21,10 +19,7 @@ public class TargetingArrow : MonoBehaviour
         }
 
         lineRenderer = GetComponent<LineRenderer>();
-
-        // // Instantiate the arrowhead
-        // arrowheadInstance = Instantiate(arrowheadPrefab, Vector3.zero, Quaternion.identity);
-        arrowheadInstance.SetActive(false); // Hide initially
+        arrowheadInstance.SetActive(false);
     }
 
     public void UpdateArrow(Vector3 start, Vector3 end)
