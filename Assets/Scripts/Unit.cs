@@ -53,6 +53,7 @@ public class Unit : MonoBehaviour
 
     public virtual void Die()
     {
+        Destroy(combatStatUI.gameObject);
         Destroy(gameObject);
     }
 
