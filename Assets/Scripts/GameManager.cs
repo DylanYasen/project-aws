@@ -12,10 +12,18 @@ public class GameManager : MonoBehaviour
 
     public int energy = 3;
 
+    EnergyBarUI energyBarUI;
+
     private void Awake()
     {
         Instance = this;
         combatManager = new CombatManager();
+    }
+
+    void Start()
+    {
+        energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
+        energyBarUI.SetEnergy(energy);
     }
 
     public void PlayCard(Card card, GameObject target = null)
@@ -27,6 +35,8 @@ public class GameManager : MonoBehaviour
         }
 
         energy -= card.cost;
+        energyBarUI.SetEnergy(energy);
+
         ApplyCardEffect(card, target);
         // discardPile.Add(card);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
