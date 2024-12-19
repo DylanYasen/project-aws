@@ -4,7 +4,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    public CombatManager combatManager;
+    public CombatManager combatManager { get; private set; }
+
+
+    [Header("UI Prefab")]
+    public GameObject combatStatsUIPrefab;
 
     public int energy = 3;
 

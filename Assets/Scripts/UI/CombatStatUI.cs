@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class CombatStatUI : MonoBehaviour
 {
     public TMP_Text blockAmountText;
-    public TMP_Text currentHealthText;
-    public TMP_Text maxHealthText;
+    public TMP_Text healthText;
 
     public Image healthBar;
 
@@ -17,10 +16,12 @@ public class CombatStatUI : MonoBehaviour
 
     public void SetHealth(int currHealth, int maxHealth)
     {
-        // Update the health text
+        healthText.text = currHealth + "/" + maxHealth;
+        healthBar.fillAmount = (float)currHealth / (float)maxHealth;
     }
 
-    public void SetBlock(int block){
-
+    public void SetBlock(int block)
+    {
+        blockAmountText.text = block.ToString();
     }
 }
