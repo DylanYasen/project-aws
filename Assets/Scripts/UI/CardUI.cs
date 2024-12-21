@@ -39,11 +39,11 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
 
     public void OnCardClicked()
     {
-        Debug.Log($"Playing card: {card.cardName}");
+        // Debug.Log($"Playing card: {card.cardName}");
 
-        GameManager.Instance.SelectCard(card);
+        // GameManager.Instance.SelectCard(card);
 
-        transform.position += new Vector3(0, 20, 0); // Raise card
+        // transform.position += new Vector3(0, 20, 0); // Raise card
     }
 
     public void OnPointerEnter(PointerEventData eventData)
