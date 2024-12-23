@@ -44,6 +44,9 @@ public class Unit : MonoBehaviour
         {
             Die();
         }
+
+        // LeanTween.moveLocal(gameObject, -transform.right * 0.2f, 0.25f).setEasePunch();
+        LeanTween.color(gameObject, Color.red, 1f).setEasePunch();
     }
 
     public virtual void Heal(int amount)
@@ -68,12 +71,10 @@ public class Unit : MonoBehaviour
         combatStatUI?.SetBlock(block);
     }
 
-    protected static void ApplyCardEffect(Card card, GameObject targetObj)
+    protected static void ApplyCardEffect(Card card, Unit source, Unit target)
     {
         if (card.effects.Count > 0)
         {
-            var source = Player.Instance;
-            Unit target = targetObj ? targetObj.GetComponent<Unit>() : null;
             foreach (var effect in card.effects)
             {
                 if (effect.cardEffect is AttackEffect attackEffect)
