@@ -631,7 +631,9 @@ MonoBehaviour:
   block: 0
   maxEnergy: 3
   currentEnergy: 0
-  aICardWeights: []
+  aICardWeights:
+  - card: {fileID: 11400000, guid: a3871c71874284f42b050725a9316a02, type: 2}
+    weight: 1
 --- !u!61 &1234291035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -760,6 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45210a35559a6a742a37e33baa31a3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1234291034}
 --- !u!1 &1548688876
 GameObject:
   m_ObjectHideFlags: 0
