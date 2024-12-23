@@ -31,9 +31,10 @@ public class CombatManager
 
     public void ApplyBlock(Unit target, int blockAmount)
     {
+        Debug.Log($"ApplyBlock called to {target.name}");
         if (target == null) return;
 
-        target.block += blockAmount;
+        target.AddBlock(blockAmount);
         Debug.Log($"{target.name} gained {blockAmount} block.");
     }
 }
