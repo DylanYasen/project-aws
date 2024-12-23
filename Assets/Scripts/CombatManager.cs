@@ -28,4 +28,12 @@ public class CombatManager
         target.Heal(healAmount);
         Debug.Log($"{target.name} healed for {healAmount} HP.");
     }
+
+    public void ApplyBlock(Unit target, int blockAmount)
+    {
+        if (target == null) return;
+
+        target.block += blockAmount;
+        Debug.Log($"{target.name} gained {blockAmount} block.");
+    }
 }
