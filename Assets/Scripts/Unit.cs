@@ -75,12 +75,9 @@ public class Unit : MonoBehaviour
     {
         if (card.effects.Count > 0)
         {
-            foreach (var effect in card.effects)
+            foreach (var effectEntry in card.effects)
             {
-                if (effect.cardEffect is AttackEffect attackEffect)
-                {
-                    attackEffect.Execute(source, target, effect.effectValue);
-                }
+                effectEntry.cardEffect.Execute(source, target, effectEntry.effectValue);
             }
         }
     }
