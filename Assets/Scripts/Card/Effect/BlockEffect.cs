@@ -5,9 +5,6 @@ public class BlockEffect : CardEffect
 {
     public override void Execute(Unit source, Unit target, int effectValue)
     {
-        if (target != null)
-        {
-            CombatManager.Instance.ApplyBlock(target, effectValue);
-        }
+        CombatManager.Instance.ApplyBlock(target ? target : source, effectValue);
     }
 }
