@@ -22,14 +22,16 @@ public class Player : Unit
 
     public void PlayCard(Card card, GameObject target = null)
     {
-        if (currentHP < card.cost)
+        if (currentEnergy < card.cost)
         {
             Debug.Log("Not enough energy!");
             return;
         }
 
-        currentHP -= card.cost;
-        energyBarUI.SetEnergy(currentHP);
+        {
+            currentEnergy -= card.cost;
+            energyBarUI.SetEnergy(currentEnergy);
+        }
 
         ApplyCardEffect(card, target);
         // discardPile.Add(card);
