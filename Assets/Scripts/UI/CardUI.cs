@@ -16,7 +16,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
-
+    public int handIndex { get; private set; }
     public bool IsTargeting { get; private set; }
 
     private void Awake()
@@ -26,7 +26,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         originalScale = transform.localScale;
     }
 
-    public void Setup(Card cardData)
+    public void Setup(Card cardData, int handIndex)
     {
         card = cardData;
         cardNameText.text = card.cardName;
@@ -35,6 +35,8 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         {
             cardArtImage.sprite = card.cardArt;
         }
+
+        this.handIndex = handIndex;
     }
 
     public void OnCardClicked()
@@ -95,7 +97,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             }
             else
             {
-                Player.Instance.PlayCard(card);
+                Player.Instance.PlayCard(card, handIndex);
 
                 // @todo: pool
                 Destroy(gameObject);
@@ -145,7 +147,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
                 ExitTargetingMode();
-                Player.Instance.PlayCard(card, hit.collider.gameObject);
+                Player.Instance.PlayCard(card, handIndex, hit.collider.gameObject);
                 Destroy(gameObject);
             }
         }

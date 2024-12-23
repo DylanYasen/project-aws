@@ -31,7 +31,7 @@ public class Player : Unit
         DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
     }
 
-    public void PlayCard(Card card, GameObject target = null)
+    public void PlayCard(Card card, int handIndex, GameObject target = null)
     {
         if (currentEnergy < card.cost)
         {
@@ -45,9 +45,9 @@ public class Player : Unit
         }
 
         ApplyCardEffect(card, target);
-        // discardPile.Add(card);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
 
+        DeckManager.Instance.DiscardCard(handIndex);
 
         if (currentEnergy == 0)
         {

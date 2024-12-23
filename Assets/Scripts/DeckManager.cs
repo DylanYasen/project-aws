@@ -56,8 +56,8 @@ public class DeckManager : MonoBehaviour
 
             // @todo: pool these
             GameObject cardObject = Instantiate(cardPrefab, handArea);
-            CardUI display = cardObject.GetComponent<CardUI>();
-            display.Setup(drawnCard);
+            CardUI cardUI = cardObject.GetComponent<CardUI>();
+            cardUI.Setup(drawnCard, hand.Count - 1);
         }
     }
 
@@ -93,14 +93,12 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    public void DiscardCard(Card card)
+    public void DiscardCard(int handIndex)
     {
-        if (hand.Contains(card))
-        {
-            hand.Remove(card);
-            discardPile.Add(card);
-            Debug.Log($"Card {card.cardName} discarded.");
-        }
+        var card = hand[handIndex];
+        hand.RemoveAt(handIndex);
+        discardPile.Add(card);
+        Debug.Log($"Card {card.cardName} discarded.");
     }
 
     private void ReshuffleDiscardPile()
