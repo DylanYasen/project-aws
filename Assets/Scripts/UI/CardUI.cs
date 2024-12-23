@@ -81,6 +81,14 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         }
         else
         {
+            if (!Player.Instance.CanPlayCard(card))
+            {
+                // @todo: play a sound or something
+                Debug.Log("Cannot play card");
+                rectTransform.position = originalPosition; // Snap back to original position
+                return;
+            }
+
             if (card.requiresTarget)
             {
                 EnterTargetingMode();

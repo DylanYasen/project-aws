@@ -83,4 +83,9 @@ public class Unit : MonoBehaviour
             }
         }
     }
+
+    public bool CanPlayCard(Card card)
+    {
+        return card.cost <= currentEnergy;
+    }
 }
