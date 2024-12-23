@@ -22,11 +22,9 @@ public class DeckManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
+    public void Init()
     {
         InitStarterDeck();
-
-        DrawCards(5);
     }
 
     public void ShuffleDeck()

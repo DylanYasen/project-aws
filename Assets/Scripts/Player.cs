@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : Unit
 {
+    public int maxHandSize = 5;
     public static Player Instance { get; private set; }
 
     EnergyBarUI energyBarUI;
@@ -18,6 +19,13 @@ public class Player : Unit
 
         energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
         energyBarUI.SetEnergy(currentEnergy);
+    }
+
+    public override void StartTurn()
+    {
+        base.StartTurn();
+
+        DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
     }
 
     public void PlayCard(Card card, GameObject target = null)
@@ -37,4 +45,5 @@ public class Player : Unit
         // discardPile.Add(card);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
     }
+
 }

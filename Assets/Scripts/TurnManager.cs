@@ -1,27 +1,35 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum TurnState
+{
+    PlayerTurn,
+    EnemyTurn,
+    EndOfRound
+}
 
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
 
-    public int maxEnergy = 3;
-    public int currentEnergy;
+    private TurnState currentState;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
+    public void Init()
     {
         StartPlayerTurn();
     }
 
     public void StartPlayerTurn()
     {
-        currentEnergy = maxEnergy;
-        DeckManager.Instance.DrawCards(5); // Draw 5 cards at the start of the turn
+        currentState = TurnState.PlayerTurn;
+
+        Player.Instance.StartTurn();
         Debug.Log("Player turn started. Energy refreshed.");
     }
 

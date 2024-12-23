@@ -88,4 +88,9 @@ public class Unit : MonoBehaviour
     {
         return card.cost <= currentEnergy;
     }
+
+    public virtual void StartTurn()
+    {
+        currentEnergy = maxEnergy;
+    }
 }

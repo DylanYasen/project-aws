@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        DeckManager.Instance.Init();
+        TurnManager.Instance.Init();
     }
 
     public void EndTurn()
