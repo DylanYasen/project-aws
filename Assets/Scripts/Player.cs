@@ -25,6 +25,9 @@ public class Player : Unit
     {
         base.StartTurn();
 
+        currentEnergy = maxEnergy;
+        energyBarUI.SetEnergy(currentEnergy);
+
         DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
     }
 

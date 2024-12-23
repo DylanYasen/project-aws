@@ -30,13 +30,13 @@ public class TurnManager : MonoBehaviour
         currentState = TurnState.PlayerTurn;
 
         Player.Instance.StartTurn();
-        Debug.Log("Player turn started. Energy refreshed.");
+        Debug.Log("Player turn started.");
     }
 
     public void EndPlayerTurn()
     {
         currentState = TurnState.EnemyTurn;
-        
+
         Debug.Log("Player turn ended.");
         // // Discard remaining hand
         // foreach (Card card in DeckManager.Instance.hand)
