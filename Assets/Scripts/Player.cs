@@ -31,7 +31,7 @@ public class Player : Unit
         DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
     }
 
-    public void PlayCard(Card card, int handIndex, GameObject target = null)
+    public void PlayCard(Card card, int handIndex, GameObject targetObj = null)
     {
         if (currentEnergy < card.cost)
         {
@@ -44,7 +44,9 @@ public class Player : Unit
             energyBarUI.SetEnergy(currentEnergy);
         }
 
-        ApplyCardEffect(card, target);
+        var target = targetObj ? targetObj.GetComponent<Unit>() : null;
+
+        ApplyCardEffect(card, this, target);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
 
         DeckManager.Instance.DiscardCard(handIndex);
