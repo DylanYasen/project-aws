@@ -87,7 +87,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             }
             else
             {
-                GameManager.Instance.PlayCard(card);
+                Player.Instance.PlayCard(card);
 
                 // @todo: pool
                 Destroy(gameObject);
@@ -137,7 +137,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             {
                 ExitTargetingMode();
-                GameManager.Instance.PlayCard(card, hit.collider.gameObject);
+                Player.Instance.PlayCard(card, hit.collider.gameObject);
                 Destroy(gameObject);
             }
         }

@@ -6,6 +6,9 @@ public class Unit : MonoBehaviour
     public int currentHP;
     public int block;
 
+    public int maxEnergy = 3;
+    public int currentEnergy;
+
     CombatStatUI combatStatUI;
 
     SpriteRenderer spriteRenderer;
@@ -13,6 +16,7 @@ public class Unit : MonoBehaviour
     protected virtual void Start()
     {
         currentHP = maxHP;
+        currentEnergy = maxEnergy;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -62,5 +66,21 @@ public class Unit : MonoBehaviour
         this.block += block;
 
         combatStatUI?.SetBlock(block);
+    }
+
+    protected static void ApplyCardEffect(Card card, GameObject targetObj)
+    {
+        if (card.effects.Count > 0)
+        {
+            var source = Player.Instance;
+            Unit target = targetObj ? targetObj.GetComponent<Unit>() : null;
+            foreach (var effect in card.effects)
+            {
+                if (effect.cardEffect is AttackEffect attackEffect)
+                {
+                    attackEffect.Execute(source, target, effect.effectValue);
+                }
+            }
+        }
     }
 }
