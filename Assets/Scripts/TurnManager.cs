@@ -43,6 +43,12 @@ public class TurnManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        if (currentState != TurnState.PlayerTurn)
+        {
+            Debug.Log("EndPlayerTurn called but not player turn.");
+            return;
+        }
+
         currentState = TurnState.EnemyTurn;
 
         Debug.Log("Player turn ended.");
