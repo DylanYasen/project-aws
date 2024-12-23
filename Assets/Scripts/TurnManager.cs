@@ -66,6 +66,8 @@ public class TurnManager : MonoBehaviour
     {
         Debug.Log("Enemy turn started.");
 
+        yield return new WaitForSeconds(1.0f);
+
         foreach (Enemy enemy in enemies)
         {
             enemy.StartTurn();
