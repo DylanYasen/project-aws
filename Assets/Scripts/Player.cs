@@ -57,4 +57,10 @@ public class Player : Unit
         }
     }
 
+    public override void AddEnergy(int amount)
+    {
+        base.AddEnergy(amount);
+        energyBarUI.SetEnergy(currentEnergy);
+    }
+
 }

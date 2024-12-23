@@ -3,11 +3,11 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     public int maxHP = 100;
-    public int currentHP;
-    public int block;
-
     public int maxEnergy = 3;
-    public int currentEnergy;
+
+    public int currentHP { get; protected set; }
+    public int block { get; protected set; }
+    public int currentEnergy { get; protected set; }
 
     CombatStatUI combatStatUI;
 
@@ -37,6 +37,7 @@ public class Unit : MonoBehaviour
         currentHP -= damage;
 
         combatStatUI?.SetHealth(currentHP, maxHP);
+        combatStatUI?.SetBlock(block);
 
         Debug.Log($"{name} took {damage} damage. Remaining HP: {currentHP}");
 
@@ -58,15 +59,20 @@ public class Unit : MonoBehaviour
         Debug.Log($"{name} healed for {amount} HP. Current HP: {currentHP}");
     }
 
+    public virtual void AddEnergy(int amount)
+    {
+        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+    }
+
     public virtual void Die()
     {
         Destroy(combatStatUI.gameObject);
         Destroy(gameObject);
     }
 
-    public virtual void AddBlock(int block)
+    public virtual void AddBlock(int amount)
     {
-        this.block += block;
+        block = Mathf.Clamp(block + amount, 0, int.MaxValue); //@todo: max block?
 
         combatStatUI?.SetBlock(block);
     }

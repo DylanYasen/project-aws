@@ -14,7 +14,7 @@ public class CombatManager
         if (target == null) return;
 
         int damageAfterBlock = Mathf.Max(0, rawDamage - target.block);
-        target.block = Mathf.Max(0, target.block - rawDamage);
+        target.AddBlock(-rawDamage);
 
         target.TakeDamage(damageAfterBlock);
 

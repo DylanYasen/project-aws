@@ -5,13 +5,7 @@ public class Energy : CardEffect
 {
     public override void Execute(Unit source, Unit target, int effectValue)
     {
-        if (target != null)
-        {
-            target.currentEnergy += effectValue;
-            if (target.currentEnergy > target.maxEnergy)
-            {
-                target.currentEnergy = target.maxEnergy;
-            }
-        }
+        var t = target ? target : source;
+        t.AddEnergy(effectValue);
     }
 }
