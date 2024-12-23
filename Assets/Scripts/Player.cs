@@ -44,6 +44,12 @@ public class Player : Unit
         ApplyCardEffect(card, target);
         // discardPile.Add(card);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
+
+
+        if (currentEnergy == 0)
+        {
+            TurnManager.Instance.EndPlayerTurn();
+        }
     }
 
 }

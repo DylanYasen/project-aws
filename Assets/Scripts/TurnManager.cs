@@ -35,6 +35,8 @@ public class TurnManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        currentState = TurnState.EnemyTurn;
+        
         Debug.Log("Player turn ended.");
         // // Discard remaining hand
         // foreach (Card card in DeckManager.Instance.hand)
