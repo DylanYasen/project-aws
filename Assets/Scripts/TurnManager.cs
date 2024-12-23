@@ -13,6 +13,8 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance { get; private set; }
 
+    public Enemy[] enemies;
+
     private TurnState currentState;
 
     private void Awake()
@@ -23,6 +25,12 @@ public class TurnManager : MonoBehaviour
     public void Init()
     {
         StartPlayerTurn();
+
+
+        // @todo: hook this up to encounter spwaning
+        {
+            enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        }
     }
 
     public void StartPlayerTurn()
@@ -52,8 +60,13 @@ public class TurnManager : MonoBehaviour
     {
         Debug.Log("Enemy turn started.");
 
-        // @todo: Add enemy logic here
-        yield return new WaitForSeconds(2);
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.StartTurn();
+            yield return enemy.PlayTurn();
+        }
+
+        yield return new WaitForSeconds(1.0f);
 
         StartPlayerTurn();
     }
