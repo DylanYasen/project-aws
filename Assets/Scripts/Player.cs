@@ -50,11 +50,6 @@ public class Player : Unit
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
 
         DeckManager.Instance.DiscardCard(card);
-
-        if (currentEnergy == 0)
-        {
-            TurnManager.Instance.EndPlayerTurn();
-        }
     }
 
     public override void AddEnergy(int amount)
