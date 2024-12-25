@@ -12,6 +12,18 @@ namespace Map
         public string bossNodeName;
         public string configName; // similar to the act name in Slay the Spire
 
+        // aws thematic names 
+        public static readonly Dictionary<NodeType, string> NodeTypeNames = new()
+        {
+            { NodeType.MinorEnemy, "Request Load" },
+            { NodeType.EliteEnemy, "Outage Challenge" },
+            { NodeType.RestSite, "Service Optimization" },
+            { NodeType.Treasure, "Service Cache" },
+            { NodeType.Store, "Service Marketplace" },
+            { NodeType.Boss, "Critical Failure" },  // SEV1?
+            { NodeType.Mystery, "Random Event" }
+        };
+
         public Map(string configName, string bossNodeName, List<Node> nodes, List<Vector2Int> path)
         {
             this.configName = configName;
