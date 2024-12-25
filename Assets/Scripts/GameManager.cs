@@ -54,12 +54,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MapScene");
     }
 
-    public void EndTurn()
-    {
-        // energy = 3;
-        Debug.Log("Turn ended. Energy reset to 3.");
-    }
-
     public void StartCombatEncounter()
     {
         Debug.Log("Encounter started!");
