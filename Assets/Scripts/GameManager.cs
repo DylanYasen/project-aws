@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,12 +23,30 @@ public class GameManager : MonoBehaviour
         encounterManager = new EncounterManager();
 
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void StartCombatEncounter()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        DeckManager.Instance.Init();
-        TurnManager.Instance.Init();
+        Debug.Log($"Scene loaded: {scene.name}");
+
+        switch (scene.name)
+        {
+            case "MapScene":
+                break;
+            case "CombatScene":
+                DeckManager.Instance.Init();
+                TurnManager.Instance.Init();
+                break;
+            case "RestSiteScene":
+                break;
+            case "Menu":
+                break;
+            default:
+                Debug.Log("Unknown scene loaded.");
+                break;
+        }
     }
 
     public void StartGame()
