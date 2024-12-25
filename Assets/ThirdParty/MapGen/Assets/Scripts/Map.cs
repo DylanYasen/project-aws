@@ -15,12 +15,12 @@ namespace Map
         // aws thematic names 
         public static readonly Dictionary<NodeType, string> NodeTypeNames = new()
         {
-            { NodeType.MinorEnemy, "Request Load" },
-            { NodeType.EliteEnemy, "Outage Challenge" },
-            { NodeType.RestSite, "Service Optimization" },
-            { NodeType.Treasure, "Service Cache" },
-            { NodeType.Store, "Service Marketplace" },
-            { NodeType.Boss, "Critical Failure" },  // SEV1?
+            { NodeType.MinorEnemy, "Bug" },
+            { NodeType.EliteEnemy, "Outage" },
+            { NodeType.RestSite, "Maintenance" },
+            { NodeType.Treasure, "Cache" },
+            { NodeType.Store, "Marketplace" },
+            { NodeType.Boss, "SEV1" },  // SEV1?
             { NodeType.Mystery, "Random Event" }
         };
 
