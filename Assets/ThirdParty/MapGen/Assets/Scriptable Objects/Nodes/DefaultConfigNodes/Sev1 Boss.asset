@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5f491b607b1cd948b5bc856850b2616, type: 3}
-  m_Name: Executioner Boss
+  m_Name: Sev1 Boss
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ce3e47a1f6038d7458e5fdf7a431f186, type: 3}
+  sprite: {fileID: 21300000, guid: d498534d07e2fa54d95fb30d1bef9fad, type: 3}
   nodeType: 5
