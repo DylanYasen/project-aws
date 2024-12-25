@@ -26,6 +26,8 @@ public class Player : Unit
         base.StartTurn();
 
         currentEnergy = maxEnergy;
+
+        if (!energyBarUI) energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
         energyBarUI.SetEnergy(currentEnergy);
 
         DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
