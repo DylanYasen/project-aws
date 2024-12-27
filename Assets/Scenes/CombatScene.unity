@@ -220,10 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 20
-  currentHP: 0
-  block: 0
   maxEnergy: 3
-  currentEnergy: 0
   maxHandSize: 5
 --- !u!1 &463918023
 GameObject:
@@ -627,10 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
-  currentHP: 0
-  block: 0
   maxEnergy: 3
-  currentEnergy: 0
   aICardWeights:
   - card: {fileID: 11400000, guid: a3871c71874284f42b050725a9316a02, type: 2}
     weight: 1
@@ -1128,7 +1122,15 @@ PrefabInstance:
     - target: {fileID: 4854204715483118110, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1304549441}
+      objectReference: {fileID: 3220826276499248229}
+    - target: {fileID: 4854204715483118110, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTurnEndClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854204715483118110, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EndTurnButtonUI, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6562780011468119909, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
       propertyPath: m_Name
       value: UI EnergyBar
@@ -1136,8 +1138,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8984411418514873441, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3220826276499248229}
   m_SourcePrefab: {fileID: 100100000, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
+--- !u!1 &3220826276499248228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8984411418514873441, guid: 36ab1d0b0c50b4c4db1132e62a484d3e, type: 3}
+  m_PrefabInstance: {fileID: 3220826276499248227}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3220826276499248229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3220826276499248228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c56ae1b924c24c93bc59b26476bb1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7099619626985980015
 PrefabInstance:
   m_ObjectHideFlags: 0

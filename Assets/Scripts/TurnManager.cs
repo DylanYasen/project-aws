@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum TurnState
@@ -9,7 +8,7 @@ public enum TurnState
     EndOfRound
 }
 
-public class TurnManager : MonoBehaviour
+public class TurnManager
 {
     public static TurnManager Instance { get; private set; }
 
@@ -17,7 +16,7 @@ public class TurnManager : MonoBehaviour
 
     private TurnState currentState;
 
-    private void Awake()
+    public TurnManager()
     {
         if (Instance == null) Instance = this;
     }
@@ -29,7 +28,7 @@ public class TurnManager : MonoBehaviour
 
         // @todo: hook this up to encounter spwaning
         {
-            enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+            enemies = GameObject.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
         }
     }
 
@@ -43,6 +42,7 @@ public class TurnManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
+        Debug.Log("end player turn");
         if (currentState != TurnState.PlayerTurn)
         {
             Debug.Log("EndPlayerTurn called but not player turn.");
@@ -59,7 +59,7 @@ public class TurnManager : MonoBehaviour
         // }
         // DeckManager.Instance.hand.Clear();
 
-        StartCoroutine(EnemyTurn());
+        GameManager.Instance.StartCoroutine(EnemyTurn());
     }
 
     private IEnumerator EnemyTurn()

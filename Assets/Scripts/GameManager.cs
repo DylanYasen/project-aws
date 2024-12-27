@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public CombatManager combatManager { get; private set; }
+    public TurnManager turnManager { get; private set; }
     public EncounterManager encounterManager { get; private set; }
 
     [Header("UI Prefab")]
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        turnManager = new TurnManager();
         combatManager = new CombatManager();
         encounterManager = new EncounterManager();
 
