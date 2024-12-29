@@ -1,5 +1,4 @@
 ﻿using System;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -68,27 +67,26 @@ namespace Map
                 case NodeStates.Locked:
                     if (sr != null)
                     {
-                        sr.DOKill();
+                        LeanTween.cancel(sr.gameObject);
                         sr.color = MapView.Instance.lockedColor;
                     }
 
                     if (image != null)
                     {
-                        image.DOKill();
+                        LeanTween.cancel(gameObject);
                         image.color = MapView.Instance.lockedColor;
                     }
-
                     break;
                 case NodeStates.Visited:
                     if (sr != null)
                     {
-                        sr.DOKill();
+                        LeanTween.cancel(sr.gameObject);
                         sr.color = MapView.Instance.visitedColor;
                     }
                     
                     if (image != null)
                     {
-                        image.DOKill();
+                        LeanTween.cancel(gameObject);
                         image.color = MapView.Instance.visitedColor;
                     }
                     
@@ -96,21 +94,23 @@ namespace Map
                     if (circleImage != null) circleImage.gameObject.SetActive(true);
                     break;
                 case NodeStates.Attainable:
-                    // start pulsating from visited to locked color:
                     if (sr != null)
                     {
                         sr.color = MapView.Instance.lockedColor;
-                        sr.DOKill();
-                        sr.DOColor(MapView.Instance.visitedColor, 0.5f).SetLoops(-1, LoopType.Yoyo);
+                        LeanTween.cancel(sr.gameObject);
+                        LeanTween.value(sr.gameObject, (Color color) => sr.color = color, 
+                            MapView.Instance.lockedColor, MapView.Instance.visitedColor, 0.5f)
+                            .setLoopPingPong();
                     }
                     
                     if (image != null)
                     {
                         image.color = MapView.Instance.lockedColor;
-                        image.DOKill();
-                        image.DOColor(MapView.Instance.visitedColor, 0.5f).SetLoops(-1, LoopType.Yoyo);
+                        LeanTween.cancel(gameObject);
+                        LeanTween.value(gameObject, (Color color) => image.color = color,
+                            MapView.Instance.lockedColor, MapView.Instance.visitedColor, 0.5f)
+                            .setLoopPingPong();
                     }
-                    
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -121,14 +121,14 @@ namespace Map
         {
             if (sr != null)
             {
-                sr.transform.DOKill();
-                sr.transform.DOScale(initialScale * HoverScaleFactor, 0.3f);
+                LeanTween.cancel(sr.gameObject);
+                LeanTween.scale(sr.gameObject, Vector3.one * initialScale * HoverScaleFactor, 0.3f);
             }
 
             if (image != null)
             {
-                image.transform.DOKill();
-                image.transform.DOScale(initialScale * HoverScaleFactor, 0.3f);
+                LeanTween.cancel(gameObject);
+                LeanTween.scale(gameObject, Vector3.one * initialScale * HoverScaleFactor, 0.3f);
             }
         }
 
@@ -136,14 +136,14 @@ namespace Map
         {
             if (sr != null)
             {
-                sr.transform.DOKill();
-                sr.transform.DOScale(initialScale, 0.3f);
+                LeanTween.cancel(sr.gameObject);
+                LeanTween.scale(sr.gameObject, Vector3.one * initialScale, 0.3f);
             }
 
             if (image != null)
             {
-                image.transform.DOKill();
-                image.transform.DOScale(initialScale, 0.3f);
+                LeanTween.cancel(gameObject);
+                LeanTween.scale(gameObject, Vector3.one * initialScale, 0.3f);
             }
         }
 
@@ -169,21 +169,19 @@ namespace Map
             const float fillDuration = 0.3f;
             visitedCircleImage.fillAmount = 0;
 
-            DOTween.To(() => visitedCircleImage.fillAmount, x => visitedCircleImage.fillAmount = x, 1f, fillDuration);
+            LeanTween.value(gameObject, (float val) => visitedCircleImage.fillAmount = val, 0f, 1f, fillDuration);
         }
 
         private void OnDestroy()
         {
             if (image != null)
             {
-                image.transform.DOKill();
-                image.DOKill();
+                LeanTween.cancel(gameObject);
             }
 
             if (sr != null)
             {
-                sr.transform.DOKill();
-                sr.DOKill();
+                LeanTween.cancel(sr.gameObject);
             }
         }
     }

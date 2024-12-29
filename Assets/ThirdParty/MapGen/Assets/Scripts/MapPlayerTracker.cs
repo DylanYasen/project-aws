@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using DG.Tweening;
 using UnityEngine;
 
 namespace Map
@@ -56,7 +55,7 @@ namespace Map
             view.SetLineColors();
             mapNode.ShowSwirlAnimation();
 
-            DOTween.Sequence().AppendInterval(enterNodeDelay).OnComplete(() => EnterNode(mapNode));
+            LeanTween.delayedCall(enterNodeDelay, () => EnterNode(mapNode));
         }
 
         private static void EnterNode(MapNode mapNode)

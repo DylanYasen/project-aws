@@ -1,12 +1,11 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Map
 {
     public class ScrollNonUI : MonoBehaviour
     {
         public float tweenBackDuration = 0.3f;
-        public Ease tweenBackEase;
+        public LeanTweenType tweenBackEase = LeanTweenType.easeInOutQuad;
         public bool freezeX;
         public FloatMinMax xConstraints = new FloatMinMax();
         public bool freezeY;
@@ -27,7 +26,7 @@ namespace Map
         public void OnMouseDown()
         {
             pointerDisplacement = -transform.position + MouseInWorldCoords();
-            transform.DOKill();
+            LeanTween.cancel(gameObject);
             dragging = true;
         }
 
@@ -66,7 +65,7 @@ namespace Map
                     return;
 
                 float targetX = transform.localPosition.x < xConstraints.min ? xConstraints.min : xConstraints.max;
-                transform.DOLocalMoveX(targetX, tweenBackDuration).SetEase(tweenBackEase);
+                LeanTween.moveLocalX(gameObject, targetX, tweenBackDuration).setEase(tweenBackEase);
             }
             else if (freezeX)
             {
@@ -74,7 +73,7 @@ namespace Map
                     return;
 
                 float targetY = transform.localPosition.y < yConstraints.min ? yConstraints.min : yConstraints.max;
-                transform.DOLocalMoveY(targetY, tweenBackDuration).SetEase(tweenBackEase);
+                LeanTween.moveLocalY(gameObject, targetY, tweenBackDuration).setEase(tweenBackEase);
             }
         }
     }
