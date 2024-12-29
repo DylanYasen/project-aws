@@ -106,4 +106,10 @@ public class Enemy : Unit
         ApplyCardEffect(card, this, target);
         Debug.Log($"Enemy {name} played {card.cardName} to target {target?.name}");
     }
+
+    public override void Die()
+    {
+        EncounterManager.Instance.UnregisterEnemy(this);
+        base.Die();
+    }
 }
