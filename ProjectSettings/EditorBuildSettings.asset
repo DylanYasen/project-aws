@@ -27,5 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Truesure.unity
     guid: 202767d39ac361e4881715d78672714e
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 1d813583f876fd9498cf2b5488555c4d, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
