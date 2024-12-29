@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum TurnState
@@ -12,8 +13,6 @@ public class TurnManager
 {
     public static TurnManager Instance { get; private set; }
 
-    public Enemy[] enemies;
-
     private TurnState currentState;
 
     public TurnManager()
@@ -24,12 +23,6 @@ public class TurnManager
     public void Init()
     {
         StartPlayerTurn();
-
-
-        // @todo: hook this up to encounter spwaning
-        {
-            enemies = GameObject.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
-        }
     }
 
     public void StartPlayerTurn()
@@ -68,7 +61,7 @@ public class TurnManager
 
         yield return new WaitForSeconds(1.0f);
 
-        foreach (Enemy enemy in enemies)
+        foreach (Enemy enemy in EncounterManager.Instance.enemies)
         {
             enemy.StartTurn();
             yield return enemy.PlayTurn();
