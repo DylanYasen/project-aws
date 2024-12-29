@@ -60,4 +60,11 @@ public class Player : Unit
         energyBarUI.SetEnergy(currentEnergy);
     }
 
+    public override void Die()
+    {
+        GameManager.Instance.GameOver();
+        
+        base.Die();
+    }
+
 }
