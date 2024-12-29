@@ -100,4 +100,20 @@ public class GameManager : MonoBehaviour
         Debug.Log("Starting mystery event.");
         // Trigger a random event with unpredictable outcomes
     }
+
+    public void GameOver()
+    {
+        StopAllCoroutines(); // enemy turn coroutine is running on GM
+        turnManager.currentState = TurnState.EndOfRound;
+        CombatSceneUIReferences.Instance.gameOverUI.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        // @todo: kinda weird to clear map here but it's a quick workaround
+        PlayerPrefs.DeleteKey("Map");
+
+
+        SceneManager.LoadScene("Menu");
+    }
 }
