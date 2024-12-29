@@ -6,16 +6,11 @@ public class DeckManager : MonoBehaviour
 {
     public static DeckManager Instance { get; private set; }
 
-    [Header("UI")]
-    public Transform handArea; // Parent object for displaying cards in the UI
-    public GameObject cardPrefab;
-
     [Header("Data")]
     public CardDatabase cardDatabase;
     public List<Card> deck;
     public List<Card> hand;
     public List<Card> discardPile;
-
 
     private void Awake()
     {
@@ -55,6 +50,8 @@ public class DeckManager : MonoBehaviour
 
 
             // @todo: pool these
+            var handArea = CombatSceneUIReferences.Instance.handArea;
+            var cardPrefab = CombatSceneUIReferences.Instance.cardPrefab;
             GameObject cardObject = Instantiate(cardPrefab, handArea);
             CardUI cardUI = cardObject.GetComponent<CardUI>();
             cardUI.Setup(drawnCard);
