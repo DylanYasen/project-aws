@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Encounters
+  m_EditorClassIdentifier: 
+  m_GroupName: Encounters
+  m_GUID: 732b77c649240cb42a7115161f060002
+  m_SerializeEntries:
+  - m_GUID: 1a0a1a60912ebd542a481f65cf19c238
+    m_Address: Assets/Scripts/Encounter/SO/Small-Bugs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9021be70bfad00439ffdae88725ff15
+    m_Address: Assets/Scripts/Encounter/SO/Elite-1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df008a60b65330d42967cc8b3ec7c4b4
+    m_Address: Assets/Scripts/Encounter/SO/Small-Bugs2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 15b6925e3fd96a340899b65feef9657a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2dd1dc3662ed7af4396411fb36346fa9, type: 2}
+    - {fileID: 11400000, guid: 53e51bc1266b7d74ca1951d9153e1806, type: 2}
