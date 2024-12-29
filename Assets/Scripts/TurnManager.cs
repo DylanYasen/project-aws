@@ -13,7 +13,7 @@ public class TurnManager
 {
     public static TurnManager Instance { get; private set; }
 
-    private TurnState currentState;
+    public TurnState currentState;
 
     public TurnManager()
     {
@@ -27,6 +27,12 @@ public class TurnManager
 
     public void StartPlayerTurn()
     {
+        if (currentState == TurnState.EndOfRound)
+        {
+            Debug.Log("end of round");
+            return;
+        }
+
         currentState = TurnState.PlayerTurn;
 
         Player.Instance.StartTurn();
@@ -35,12 +41,20 @@ public class TurnManager
 
     public void EndPlayerTurn()
     {
-        Debug.Log("end player turn");
+
+        if (currentState == TurnState.EndOfRound)
+        {
+            Debug.Log("end of round");
+            return;
+        }
+
         if (currentState != TurnState.PlayerTurn)
         {
             Debug.Log("EndPlayerTurn called but not player turn.");
             return;
         }
+
+        Debug.Log("end player turn");
 
         currentState = TurnState.EnemyTurn;
 
