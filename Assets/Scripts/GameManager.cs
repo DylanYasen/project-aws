@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void Start()
+    {
+        // @todo: temp, streamline resource loading
+        encounterManager.LoadResources();
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"Scene loaded: {scene.name}");
@@ -38,6 +44,7 @@ public class GameManager : MonoBehaviour
             case "MapScene":
                 break;
             case "CombatScene":
+                encounterManager.SpawnEncounter();
                 DeckManager.Instance.Init();
                 TurnManager.Instance.Init();
                 break;
@@ -56,9 +63,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MapScene");
     }
 
-    public void StartCombatEncounter()
+    public void StartCombatEncounter(Map.NodeType nodeType)
     {
         Debug.Log("Encounter started!");
+
+        encounterManager.currentEncounterNodeType = nodeType;
 
         SceneManager.LoadScene("CombatScene"); // @todo: fix hardcode
     }
