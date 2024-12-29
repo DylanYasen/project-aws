@@ -68,10 +68,10 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy:
-                    GameManager.Instance.StartCombatEncounter();
+                    GameManager.Instance.StartCombatEncounter(mapNode.Node.nodeType);
                     break;
                 case NodeType.EliteEnemy:
-                    GameManager.Instance.StartCombatEncounter();
+                    GameManager.Instance.StartCombatEncounter(mapNode.Node.nodeType);
                     break;
                 case NodeType.RestSite:
                     break;
