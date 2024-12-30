@@ -61,7 +61,8 @@ public class Unit : MonoBehaviour
 
     public virtual void AddEnergy(int amount)
     {
-        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+        // currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+        currentEnergy += amount;
     }
 
     public virtual void Die()

@@ -15,8 +15,62 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 6276f4524e272d94084e2a4a187ea601
   m_SerializeEntries:
+  - m_GUID: 04c5c7bbbada24d709895ed9f2d5996d
+    m_Address: Assets/Trinkets/Auto-Scaling Relic.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0db439ae2c379489fa349a7287f0c323
+    m_Address: Assets/Trinkets/Adaptive Shield.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f7259f0bda924506a4d1f72593100c3
+    m_Address: Assets/Trinkets/Energy Overflow.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29ce14c52e98c420e8c145f546dbb3ad
+    m_Address: Assets/Trinkets/Error Logger.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e1f2afbc0fc14b7985120b3de629319
+    m_Address: Assets/Trinkets/API Monetizer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f8a581046e3441d2b0ffab8e804b657
+    m_Address: Assets/Trinkets/Card Accelerator.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a1c3c133c4984d81b1710095038aba7
+    m_Address: Assets/Trinkets/Elastic Buffers.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b89538273ca946e199460703a14bb90
+    m_Address: Assets/Trinkets/Lambda Dynamo.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4be3cc672014a44d391470011fafceab
     m_Address: Assets/Trinkets/gold on card played.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4caae5d34891d4ab38f546b55680746c
+    m_Address: Assets/Trinkets/Error Retry Handler.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
@@ -27,8 +81,104 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d885e09a8f984a2b9f437caa9d2ad47
+    m_Address: Assets/Trinkets/Latency Reducer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b29e29dd231d4c409237c8dd42873b3
+    m_Address: Assets/Trinkets/Throttling Resolver.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8168b6af3e0e24b0ab0600cdb3e5493a
+    m_Address: Assets/Trinkets/Lambda Booster.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 832df95ccccca40f88159168e3a18107
+    m_Address: Assets/Trinkets/Invocation Amplifier.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bfa0d1c0f816465e87397e24b6fd963
+    m_Address: Assets/Trinkets/Load Balancer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f0559a14ff894a1689630cca79f1620
+    m_Address: Assets/Trinkets/Investment Buffer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f3990c182d754ab3810b1fce324087b
+    m_Address: Assets/Trinkets/Service Watcher.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 948e489f9dd7d436cb922312cdf42bbc
     m_Address: Assets/Trinkets/block on turn end.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a34c434e404b941bcb9a018c67d9616d
+    m_Address: Assets/Trinkets/Service Tax.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a97a67244f3ce4a7da018c8207fca6ae
+    m_Address: Assets/Trinkets/Pre-Warmed Cache.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaf23ea045bf24283ae7bb04fa826874
+    m_Address: Assets/Trinkets/Overflow Circuit.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: addc413969a234fd9aa3053555b4499a
+    m_Address: Assets/Trinkets/CloudFormation Shield.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbbd8f67851a243ce84699d1a63ea35e
+    m_Address: Assets/Trinkets/Cache Purger.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c12b60488150841f6a56706df2939afa
+    m_Address: Assets/Trinkets/Reactive Defense.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce7664f56857040a9bd8e195607de2df
+    m_Address: Assets/Trinkets/Draw Amplifier.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4bd156b486c341d58517c71488a4488
+    m_Address: Assets/Trinkets/Throughput Enhancer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5cb267f6c83448c4b9f5750849f5572
+    m_Address: Assets/Trinkets/Data Miner.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
