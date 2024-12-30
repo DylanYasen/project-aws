@@ -6,6 +6,7 @@
 | **Reactive Defense**    | Deal 3 damage to all enemies when block is consumed.                                            | Epic          |
 | **Energy Overflow**     | Gain 1 energy at the start of your turn if your hand is empty.                                  | Rare          |
 | **Elastic Buffers**     | Retain up to 5 block between turns.                                                             | Legendary     |
+| **Fortification Framework** | Gain an additional 2 block whenever you gain block.                                         | Rare        |
 
 ---
 
@@ -39,6 +40,7 @@
 | **Invocation Amplifier**| When you use an ability that targets all enemies, deal 2 additional damage to each.             | Epic          |
 | **Throughput Enhancer** | Gain 1 energy every third card you play in a turn.                                              | Legendary     |
 | **Cache Purger**        | Remove all debuffs at the start of your turn.                                                   | Rare          |
+| **Engineering Excellence** | Doubles recovery effects during maintenance, ensuring peak performance through optimized processes. | Epic     |
 
 ---
 
