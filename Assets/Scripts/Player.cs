@@ -51,7 +51,7 @@ public class Player : Unit
         ApplyCardEffect(card, this, target);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
 
-        DeckManager.Instance.DiscardCard(card);
+        DeckManager.Instance.PlayCard(card);
     }
 
     public override void AddEnergy(int amount)

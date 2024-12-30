@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 902caddb772b74659a7a05bbb86b8d45, type: 3}
-  m_Name: block on turn end
+  m_Name: gold on card played
   m_EditorClassIdentifier: 
-  displayName: block on turn end
-  description: 
-  icon: {fileID: 21300000, guid: d02ac31126cfd4b408a2ab6d8ff409d6, type: 3}
+  displayName: gold on card
+  description: Gain gold equal to the cost of the card played.
+  icon: {fileID: 21300000, guid: db297c7636a275d40a8ea27e783068f9, type: 3}
   price: 0
-  rarity: 3
-  behavior: {fileID: 11400000, guid: f0671498f9f7c4cc8ae6ce2a9449991a, type: 2}
+  rarity: 2
+  behavior: {fileID: 11400000, guid: 9d479ae4aea514032a43bee1be01a3cf, type: 2}

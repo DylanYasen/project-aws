@@ -13,11 +13,11 @@ public class Trinket : ScriptableObject
 {
     [Header("Display")]
     public string displayName;
+    public string description;
     public Sprite icon;
 
     [Header("Properties")]
     public int price;
     public TrinketRarity rarity;
-    // Reference to the behavior implementation
     public TrinketBehavior behavior;
 }

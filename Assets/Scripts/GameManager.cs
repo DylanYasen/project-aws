@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
 
+    // Add gold property with event
+    public int Gold { get; private set; }
+    public event System.Action<int> OnGoldChanged;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -21,6 +25,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        Gold = 100; // Starting gold amount
         turnManager = new TurnManager();
         combatManager = new CombatManager();
         encounterManager = new EncounterManager();
@@ -121,7 +126,24 @@ public class GameManager : MonoBehaviour
         // @todo: kinda weird to clear map here but it's a quick workaround
         PlayerPrefs.DeleteKey("Map");
 
-
         SceneManager.LoadScene("Menu");
+    }
+
+    public void AddGold(int amount)
+    {
+        Gold += amount;
+        OnGoldChanged?.Invoke(Gold);
+        Debug.Log($"Gold added: {amount}. Total gold: {Gold}");
+    }
+
+    public bool SpendGold(int amount)
+    {
+        if (Gold >= amount)
+        {
+            Gold -= amount;
+            OnGoldChanged?.Invoke(Gold);
+            return true;
+        }
+        return false;
     }
 }

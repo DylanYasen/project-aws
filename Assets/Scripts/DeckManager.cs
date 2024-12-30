@@ -12,6 +12,8 @@ public class DeckManager : MonoBehaviour
     public List<Card> hand;
     public List<Card> discardPile;
 
+    public event System.Action<Card> OnCardPlayed;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -90,13 +92,9 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    public void DiscardCard(Card card)
+    public void PlayCard(Card card)
     {
-        if (!hand.Contains(card))
-        {
-            Debug.LogError("Trying to discard card not found in hand: " + card.cardName);
-            return;
-        }
+        OnCardPlayed?.Invoke(card);
 
         hand.Remove(card);
         discardPile.Add(card);

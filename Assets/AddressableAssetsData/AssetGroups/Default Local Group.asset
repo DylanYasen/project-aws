@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 6276f4524e272d94084e2a4a187ea601
   m_SerializeEntries:
+  - m_GUID: 4be3cc672014a44d391470011fafceab
+    m_Address: Assets/Trinkets/gold on card played.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 693347ca1e4174f6a9936ca099ed27f1
     m_Address: Assets/Trinkets/cardOnBlock.asset
     m_ReadOnly: 0
