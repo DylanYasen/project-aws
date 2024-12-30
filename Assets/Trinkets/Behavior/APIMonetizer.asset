@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86bef565af7f346aea0d27538444d0bf, type: 3}
-  m_Name: End Turn Block Trinket
+  m_Script: {fileID: 11500000, guid: 25470adf7ce004426bae12a0f7a552da, type: 3}
+  m_Name: APIMonetizer
   m_EditorClassIdentifier: 
-  blockAmount: 1
