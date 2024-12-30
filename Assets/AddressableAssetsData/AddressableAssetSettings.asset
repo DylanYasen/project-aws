@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 6276f4524e272d94084e2a4a187ea601
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 6dede92c670569d9f5768bd137a43772
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Encounters
+    - Trinkets
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 70ef60af8394d9b4cbbd23bbbb8ff231, type: 2}

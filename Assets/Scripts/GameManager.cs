@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public CombatManager combatManager { get; private set; }
     public TurnManager turnManager { get; private set; }
     public EncounterManager encounterManager { get; private set; }
+    public TrinketManager trinketManager { get; private set; }
 
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         turnManager = new TurnManager();
         combatManager = new CombatManager();
         encounterManager = new EncounterManager();
-
+        trinketManager = new TrinketManager();
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         // @todo: temp, streamline resource loading
         encounterManager.LoadResources();
+        trinketManager.LoadResources();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -44,6 +46,12 @@ public class GameManager : MonoBehaviour
             case "MapScene":
                 break;
             case "CombatScene":
+
+                // @temp
+                {
+                    var trinket = trinketManager.GetRandomTrinket(TrinketRarity.Epic);
+                    trinketManager.AddTrinketToPlayer(trinket);
+                }
                 encounterManager.SpawnEncounter();
                 DeckManager.Instance.Init();
                 TurnManager.Instance.Init();

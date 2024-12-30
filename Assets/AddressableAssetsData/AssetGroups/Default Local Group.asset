@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
   m_GUID: 6276f4524e272d94084e2a4a187ea601
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 693347ca1e4174f6a9936ca099ed27f1
+    m_Address: Assets/Trinkets/cardOnBlock.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 948e489f9dd7d436cb922312cdf42bbc
+    m_Address: Assets/Trinkets/block on turn end.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 15b6925e3fd96a340899b65feef9657a, type: 2}
   m_SchemaSet:

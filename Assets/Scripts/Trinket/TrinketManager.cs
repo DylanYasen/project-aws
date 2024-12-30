@@ -9,9 +9,33 @@ public class TrinketManager
 
     public Dictionary<TrinketRarity, List<Trinket>> availableTrinkets = new();
 
+    // Add this new property to store player's trinkets
+    public List<Trinket> playerTrinkets { get; private set; } = new List<Trinket>();
+
     public TrinketManager()
     {
         Instance = this;
+        playerTrinkets = new List<Trinket>();
+    }
+
+    // Add these new methods to manage player trinkets
+    public void AddTrinketToPlayer(Trinket trinket)
+    {
+        if (trinket != null)
+        {
+            playerTrinkets.Add(trinket);
+            trinket.behavior?.OnAcquired();
+            Debug.Log($"Added {trinket.name} to player's collection");
+        }
+    }
+
+    public void RemoveTrinketFromPlayer(Trinket trinket)
+    {
+        if (trinket != null && playerTrinkets.Contains(trinket))
+        {
+            playerTrinkets.Remove(trinket);
+            Debug.Log($"Removed {trinket.name} from player's collection");
+        }
     }
 
     public async void LoadResources()
@@ -76,6 +100,25 @@ public class TrinketManager
         if (availableTrinkets.TryGetValue(TrinketRarity.Common, out trinketPool) && trinketPool.Count > 0)
         {
             Debug.LogWarning($"No trinkets found for {selectedRarity} rarity, falling back to Common");
+            return trinketPool[Random.Range(0, trinketPool.Count)];
+        }
+
+        Debug.LogError("No trinkets available at all!");
+        return null;
+    }
+
+    public Trinket GetRandomTrinket(TrinketRarity rarity)
+    {
+        // Get trinkets of specified rarity from dictionary
+        if (availableTrinkets.TryGetValue(rarity, out List<Trinket> trinketPool) && trinketPool.Count > 0)
+        {
+            return trinketPool[Random.Range(0, trinketPool.Count)];
+        }
+
+        // If no trinkets found for specified rarity, fall back to Common
+        if (availableTrinkets.TryGetValue(TrinketRarity.Common, out trinketPool) && trinketPool.Count > 0)
+        {
+            Debug.LogWarning($"No trinkets found for {rarity} rarity, falling back to Common");
             return trinketPool[Random.Range(0, trinketPool.Count)];
         }
 
