@@ -96,5 +96,8 @@ public class Unit : MonoBehaviour
     public virtual void StartTurn()
     {
         currentEnergy = maxEnergy;
+
+        // @todo: block retention
+        block = 0;
     }
 }
