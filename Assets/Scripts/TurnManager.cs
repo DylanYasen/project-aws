@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,12 @@ public class TurnManager
     public static TurnManager Instance { get; private set; }
 
     public TurnState currentState;
+
+    // Add events for turn changes
+    public event Action OnPlayerTurnStart;
+    public event Action OnPlayerTurnEnd;
+    public event Action OnEnemyTurnStart;
+    public event Action OnEnemyTurnEnd;
 
     public TurnManager()
     {
@@ -34,6 +41,7 @@ public class TurnManager
         }
 
         currentState = TurnState.PlayerTurn;
+        OnPlayerTurnStart?.Invoke();
 
         Player.Instance.StartTurn();
         Debug.Log("Player turn started.");
@@ -41,7 +49,6 @@ public class TurnManager
 
     public void EndPlayerTurn()
     {
-
         if (currentState == TurnState.EndOfRound)
         {
             Debug.Log("end of round");
@@ -55,17 +62,12 @@ public class TurnManager
         }
 
         Debug.Log("end player turn");
+        OnPlayerTurnEnd?.Invoke();
 
         currentState = TurnState.EnemyTurn;
+        OnEnemyTurnStart?.Invoke();
 
         Debug.Log("Player turn ended.");
-        // // Discard remaining hand
-        // foreach (Card card in DeckManager.Instance.hand)
-        // {
-        //     DeckManager.Instance.discardPile.Add(card);
-        // }
-        // DeckManager.Instance.hand.Clear();
-
         GameManager.Instance.StartCoroutine(EnemyTurn());
     }
 
@@ -83,6 +85,7 @@ public class TurnManager
 
         yield return new WaitForSeconds(1.0f);
 
+        OnEnemyTurnEnd?.Invoke();
         StartPlayerTurn();
     }
 }
