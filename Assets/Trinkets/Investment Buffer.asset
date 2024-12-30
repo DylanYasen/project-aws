@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902caddb772b74659a7a05bbb86b8d45, type: 3}
+  m_Name: Investment Buffer
+  m_EditorClassIdentifier: 
+  displayName: Investment Buffer
+  description: Gain 10 gold at the start of combat but lose 5 gold if you end with
+    unspent energy.
+  icon: {fileID: 0}
+  price: 75
+  rarity: 1
+  behavior: {fileID: 11400000, guid: b0b85d917ad4b402dba9cfdcd989b0e3, type: 2}

@@ -94,6 +94,17 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public void AddCardToDeck(Card cardToAdd)
+    {
+        if (cardToAdd == null)
+        {
+            Debug.LogError("Cannot add null card to deck");
+            return;
+        }
+
+        deck.Add(cardToAdd);
+    }
+
     public void PlayCard(Card card)
     {
         OnCardPlayed?.Invoke(card);

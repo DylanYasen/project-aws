@@ -5,6 +5,7 @@ using UnityEngine;
 
 public enum TurnState
 {
+    StartOfRound,
     PlayerTurn,
     EnemyTurn,
     EndOfRound
@@ -21,6 +22,7 @@ public class TurnManager
     public event Action OnPlayerTurnEnd;
     public event Action OnEnemyTurnStart;
     public event Action OnEnemyTurnEnd;
+    public event Action OnCombatStart;
 
     public TurnManager()
     {
@@ -29,6 +31,7 @@ public class TurnManager
 
     public void Init()
     {
+        currentState = TurnState.StartOfRound;
         StartPlayerTurn();
     }
 
@@ -40,8 +43,14 @@ public class TurnManager
             return;
         }
 
+        if (currentState == TurnState.StartOfRound)
+        {
+            OnCombatStart?.Invoke();
+        }
+
         currentState = TurnState.PlayerTurn;
         OnPlayerTurnStart?.Invoke();
+
 
         Player.Instance.StartTurn();
         Debug.Log("Player turn started.");
