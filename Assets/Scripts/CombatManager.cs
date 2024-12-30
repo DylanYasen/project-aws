@@ -1,8 +1,11 @@
 using UnityEngine;
+using System;
 
 public class CombatManager
 {
-    public static CombatManager Instance; // Singleton for easy access
+    public static CombatManager Instance;
+
+    public event Action<Unit, int> OnBlockConsumed;
 
     public CombatManager()
     {
@@ -12,6 +15,12 @@ public class CombatManager
     public void ApplyDamage(Unit attacker, Unit target, int rawDamage)
     {
         if (target == null) return;
+
+        int blockConsumed = Mathf.Min(target.block, rawDamage);
+        if (blockConsumed > 0)
+        {
+            OnBlockConsumed?.Invoke(target, blockConsumed);
+        }
 
         int damageAfterBlock = Mathf.Max(0, rawDamage - target.block);
         target.AddBlock(-rawDamage);
