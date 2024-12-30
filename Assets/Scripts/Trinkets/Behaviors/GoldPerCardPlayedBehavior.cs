@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "GoldPerCardPlayedBehavior", menuName = "Trinkets/Behaviors/Gold Per Card Played")]
+[CreateAssetMenu(fileName = "GoldPerCardPlayedBehavior", menuName = "Game/Trinket Behaviors/Gold Per Card Played")]
 [Tooltip("Gain gold equal to the cost of the card played.")]
 public class GoldPerCardPlayedBehavior : TrinketBehavior
 {

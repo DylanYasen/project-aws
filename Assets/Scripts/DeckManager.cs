@@ -13,7 +13,7 @@ public class DeckManager : MonoBehaviour
     public List<Card> discardPile;
 
     public event System.Action<Card> OnCardPlayed;
-
+    public event System.Action<Card> OnCardDrawn;
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -57,6 +57,8 @@ public class DeckManager : MonoBehaviour
             GameObject cardObject = Instantiate(cardPrefab, handArea);
             CardUI cardUI = cardObject.GetComponent<CardUI>();
             cardUI.Setup(drawnCard);
+
+            OnCardDrawn?.Invoke(drawnCard);
         }
     }
 
