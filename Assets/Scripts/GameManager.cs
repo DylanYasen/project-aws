@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     public void StartRestSite()
     {
         Debug.Log("Starting rest site encounter.");
-        // Open rest site UI and allow player to heal or upgrade
+        SceneManager.LoadScene("RestSite");
     }
 
     public void StartTreasure()
