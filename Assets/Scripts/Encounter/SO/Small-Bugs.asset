@@ -15,5 +15,4 @@ MonoBehaviour:
   encounterNodeType: 0
   enemyPrefabs:
   - {fileID: 1793707760927693826, guid: 43d74de630f92c5498663d18981c15ba, type: 3}
-  - {fileID: 1793707760927693826, guid: 43d74de630f92c5498663d18981c15ba, type: 3}
   goldReward: 0
