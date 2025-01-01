@@ -14,6 +14,7 @@ public class TopStatusBarUI : MonoBehaviour
         GameManager.Instance.OnPlayerHealthChanged += UpdateHealthText;
         CombatManager.Instance.OnUnitHealthChanged += UpdatePlayerHealthText;
 
+        UpdateGoldText(GameManager.Instance.Gold);
         UpdateHealthText(GameManager.Instance.PlayerHealth, GameManager.Instance.PlayerMaxHealth);
     }
 
