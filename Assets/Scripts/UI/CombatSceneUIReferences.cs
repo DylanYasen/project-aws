@@ -8,6 +8,7 @@ public class CombatSceneUIReferences : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject gameOverUI;
     public EnergyBarUI energyBar;
+    public LootUI lootUI;
 
     private void Awake()
     {

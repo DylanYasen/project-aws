@@ -82,6 +82,11 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        EnterMapScene();
+    }
+
+    public void EnterMapScene()
+    {
         SceneManager.LoadScene("MapScene");
     }
 
@@ -99,8 +104,7 @@ public class GameManager : MonoBehaviour
         // @todo: save stuff
         PlayerHealth = Player.Instance.currentHP;
 
-        // @todo: loot
-        SceneManager.LoadScene("MapScene");
+        GenerateLoot();
     }
 
     public void StartRestSite()
@@ -180,5 +184,18 @@ public class GameManager : MonoBehaviour
         // @todo: add a delay and some juice before loading the map scene
 
         SceneManager.LoadScene("MapScene");
+    }
+
+
+    void GenerateLoot()
+    {
+        var encounter = encounterManager.currentEncounter;
+        int gold = encounter.goldReward;
+
+        AddGold(gold);
+
+        var lootUI = CombatSceneUIReferences.Instance.lootUI;
+        lootUI.gameObject.SetActive(true);
+        lootUI.ShowLoot(gold);
     }
 }
