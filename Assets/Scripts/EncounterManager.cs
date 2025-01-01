@@ -79,6 +79,8 @@ public class EncounterManager
         if (enemies.Count == 0)
         {
             Debug.Log("Encounter cleared");
+
+            GameManager.Instance.OnCombatEncounterEnd();
         }
     }
 }
