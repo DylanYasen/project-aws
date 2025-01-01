@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public int PlayerHealth { get; private set; }
     public int PlayerMaxHealth { get; private set; }
+    public event System.Action<int, int> OnPlayerHealthChanged;
 
     private void Awake()
     {
@@ -95,6 +96,10 @@ public class GameManager : MonoBehaviour
 
     public void OnCombatEncounterEnd()
     {
+        // @todo: save stuff
+        PlayerHealth = Player.Instance.currentHP;
+
+        // @todo: loot
         SceneManager.LoadScene("MapScene");
     }
 
@@ -158,11 +163,13 @@ public class GameManager : MonoBehaviour
     public void ModifyPlayerHealth(int amount)
     {
         PlayerHealth += amount;
+        OnPlayerHealthChanged?.Invoke(PlayerHealth, PlayerMaxHealth);
     }
 
     public void ModifyPlayerMaxHealth(int amount)
     {
         PlayerMaxHealth += amount;
+        OnPlayerHealthChanged?.Invoke(PlayerHealth, PlayerMaxHealth);
     }
 
     public void Maintance()

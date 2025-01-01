@@ -610,8 +610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f161bfaa7e909419cdd037d581eb92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCountText: {fileID: 0}
-  healthText: {fileID: 0}
+  goldCountText: {fileID: 5328983957046562175}
+  healthText: {fileID: 4302017618058559709}
 --- !u!1 &8540742871933028732
 GameObject:
   m_ObjectHideFlags: 0
