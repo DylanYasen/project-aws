@@ -11,6 +11,8 @@ public class TrinketBehavior_ReactiveDefense : TrinketBehavior
         {
             foreach (var enemy in EncounterManager.Instance.enemies)
             {
+                // @todo: this shouldnt really be insta applied. 
+                // need a sequence of some sort otherwise enemy could die mid action
                 enemy.TakeDamage(3);
             }
         }
