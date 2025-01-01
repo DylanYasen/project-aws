@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public int Gold { get; private set; }
     public event System.Action<int> OnGoldChanged;
 
+    public int PlayerHealth { get; private set; }
+    public int PlayerMaxHealth { get; private set; }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,6 +36,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        {
+            PlayerHealth = 100;
+            PlayerMaxHealth = 100;
+        }
     }
 
     void Start()
@@ -93,7 +101,7 @@ public class GameManager : MonoBehaviour
     public void StartRestSite()
     {
         Debug.Log("Starting rest site encounter.");
-        // Open rest site UI and allow player to heal or upgrade
+        SceneManager.LoadScene("RestSite");
     }
 
     public void StartTreasure()
@@ -145,5 +153,25 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void ModifyPlayerHealth(int amount)
+    {
+        PlayerHealth += amount;
+    }
+
+    public void ModifyPlayerMaxHealth(int amount)
+    {
+        PlayerMaxHealth += amount;
+    }
+
+    public void Maintance()
+    {
+        int healthToAdd = 10;
+        ModifyPlayerHealth(healthToAdd);
+
+        // @todo: add a delay and some juice before loading the map scene
+
+        SceneManager.LoadScene("MapScene");
     }
 }

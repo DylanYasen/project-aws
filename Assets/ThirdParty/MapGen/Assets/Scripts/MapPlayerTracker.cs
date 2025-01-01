@@ -74,6 +74,7 @@ namespace Map
                     GameManager.Instance.StartCombatEncounter(mapNode.Node.nodeType);
                     break;
                 case NodeType.RestSite:
+                    GameManager.Instance.StartRestSite();
                     break;
                 case NodeType.Treasure:
                     break;

@@ -17,6 +17,10 @@ public class Player : Unit
     {
         base.Start();
 
+        // @todo: feels weird but this is how we preserve the player's health across scenes
+        currentHP = GameManager.Instance.PlayerHealth;
+        maxHP = GameManager.Instance.PlayerMaxHealth;
+
         energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
         energyBarUI.SetEnergy(currentEnergy);
     }
