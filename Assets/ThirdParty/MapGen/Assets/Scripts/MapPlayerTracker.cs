@@ -79,6 +79,7 @@ namespace Map
                 case NodeType.Treasure:
                     break;
                 case NodeType.Store:
+                    GameManager.Instance.StartShop();
                     break;
                 case NodeType.Boss:
                     break;

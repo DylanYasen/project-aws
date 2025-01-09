@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -44,6 +45,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
+    void Update()
+    {
+        // @temp: some debug keys
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            StartShop();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StartRestSite();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            StartCombatEncounter(Map.NodeType.MinorEnemy);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            StartTreasure();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            StartMysteryEvent();
+        }
+    }
+#endif
     void Start()
     {
         // @todo: temp, streamline resource loading
@@ -119,10 +146,10 @@ public class GameManager : MonoBehaviour
         // Reward the player with a relic or powerful card
     }
 
-    public void StartStore()
+    public void StartShop()
     {
-        Debug.Log("Starting store encounter.");
-        // Open the store UI for purchasing items
+        Debug.Log("Starting shop encounter.");
+        SceneManager.LoadScene("Shop");
     }
 
     public void StartMysteryEvent()
