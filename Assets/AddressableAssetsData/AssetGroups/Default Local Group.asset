@@ -123,12 +123,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 948e489f9dd7d436cb922312cdf42bbc
-    m_Address: Assets/Trinkets/block on turn end.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Trinkets
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a34c434e404b941bcb9a018c67d9616d
     m_Address: Assets/Trinkets/Service Tax.asset
     m_ReadOnly: 0

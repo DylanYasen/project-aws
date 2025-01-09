@@ -21,11 +21,6 @@ public class ShopTrinketUI : MonoBehaviour
         trinketIcon.sprite = trinket.icon;
         priceText.text = trinket.price.ToString();
 
-        // price = itemPrice;
-        // TODO: Set actual trinket data
-        // trinketNameText.text = "Sample Trinket";
-        // trinketDescriptionText.text = "This is a sample description";
-        // priceText.text = $"{price} Gold";
         purchaseButton.onClick.AddListener(() => purchaseCallback?.Invoke(this));
     }
 

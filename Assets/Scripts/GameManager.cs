@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -87,12 +88,6 @@ public class GameManager : MonoBehaviour
             case "MapScene":
                 break;
             case "CombatScene":
-
-                // @temp
-                {
-                    var trinket = trinketManager.GetRandomTrinket(TrinketRarity.Epic);
-                    trinketManager.AddTrinketToPlayer(trinket);
-                }
                 encounterManager.SpawnEncounter();
                 DeckManager.Instance.Init();
                 TurnManager.Instance.Init();
@@ -100,6 +95,24 @@ public class GameManager : MonoBehaviour
             case "RestSiteScene":
                 break;
             case "Menu":
+                break;
+            case "Treasure":
+                {
+                    //  60% chance to get an epic trinket
+                    //  40% chance to get a legendary trinket
+                    const float epicChance = 0.6f;
+                    var rarity = Random.value < epicChance ? TrinketRarity.Epic : TrinketRarity.Legendary;
+
+                    // re-roll if play already has the same trinket
+                    Trinket trinket = trinketManager.GetRandomTrinket(rarity);
+                    while (trinketManager.playerTrinkets.Any(t => t.name == trinket.name))
+                    {
+                        trinket = trinketManager.GetRandomTrinket(rarity);
+                    }
+
+                    Debug.Log($"Treasure: {trinket.name} ({trinket.rarity})");
+                    TreasureUI.Instance.Present(trinket);
+                }
                 break;
             default:
                 Debug.Log("Unknown scene loaded.");
@@ -119,11 +132,11 @@ public class GameManager : MonoBehaviour
 
     public void StartCombatEncounter(Map.NodeType nodeType)
     {
-        Debug.Log("Encounter started!");
+        Debug.Log($"Encounter started! {nodeType}");
 
         encounterManager.currentEncounterNodeType = nodeType;
 
-        SceneManager.LoadScene("CombatScene"); // @todo: fix hardcode
+        SceneManager.LoadScene("CombatScene");
     }
 
     public void OnCombatEncounterEnd()
@@ -143,7 +156,7 @@ public class GameManager : MonoBehaviour
     public void StartTreasure()
     {
         Debug.Log("Starting treasure encounter.");
-        // Reward the player with a relic or powerful card
+        SceneManager.LoadScene("Treasure");
     }
 
     public void StartShop()
