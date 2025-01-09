@@ -13,6 +13,8 @@ public class EncounterManager
 
     public Map.NodeType currentEncounterNodeType;
 
+    public Encounter currentEncounter;
+
     public EncounterManager()
     {
         Instance = this;
@@ -47,6 +49,8 @@ public class EncounterManager
     {
         var encounters = nodeTypeToEncounters[currentEncounterNodeType];
         var encounter = encounters[Random.Range(0, encounters.Count)];
+
+        currentEncounter = encounter;
 
         SpawnEnemies(encounter);
     }
