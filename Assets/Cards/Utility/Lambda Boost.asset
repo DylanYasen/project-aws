@@ -17,5 +17,6 @@ MonoBehaviour:
     hand by 1 this turn.
   cost: 0
   cardArt: {fileID: 0}
-  effectType: 3
-  effectValue: 2
+  requiresTarget: 0
+  price: 10
+  effects: []

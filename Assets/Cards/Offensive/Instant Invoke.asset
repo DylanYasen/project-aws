@@ -17,6 +17,7 @@ MonoBehaviour:
   cost: 1
   cardArt: {fileID: 0}
   requiresTarget: 1
+  price: 10
   effects:
   - cardEffect: {fileID: 11400000, guid: b1d94a5b4a9c0394895ec62958251336, type: 2}
     effectValue: 6

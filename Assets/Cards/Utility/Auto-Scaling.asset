@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Adapt to increased demand. Gain 2 energy for this turn.
   cost: 0
   cardArt: {fileID: 0}
-  effectType: 3
-  effectValue: 2
+  requiresTarget: 0
+  price: 10
+  effects: []

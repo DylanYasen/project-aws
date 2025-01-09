@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Deploy a protective cloud layer. Gain 5 block and heal 3 HP.
   cost: 1
   cardArt: {fileID: 0}
-  effectType: 1
-  effectValue: 8
+  requiresTarget: 0
+  price: 10
+  effects: []

@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Quickly retrieve stored data. Draw 2 cards and gain 1 energy.
   cost: 1
   cardArt: {fileID: 0}
-  effectType: 2
-  effectValue: 10
+  requiresTarget: 0
+  price: 10
+  effects: []

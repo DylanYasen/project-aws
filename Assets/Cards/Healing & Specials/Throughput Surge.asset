@@ -16,5 +16,6 @@ MonoBehaviour:
   description: Optimize resource usage. Gain 3 energy but lose 5 HP.
   cost: 1
   cardArt: {fileID: 0}
-  effectType: 2
-  effectValue: 10
+  requiresTarget: 0
+  price: 10
+  effects: []
