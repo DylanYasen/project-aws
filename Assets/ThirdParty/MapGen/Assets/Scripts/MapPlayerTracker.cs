@@ -77,6 +77,7 @@ namespace Map
                     GameManager.Instance.StartRestSite();
                     break;
                 case NodeType.Treasure:
+                    GameManager.Instance.StartTreasure();
                     break;
                 case NodeType.Store:
                     GameManager.Instance.StartShop();
