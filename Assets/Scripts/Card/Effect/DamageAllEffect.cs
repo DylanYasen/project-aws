@@ -6,9 +6,11 @@ public class DamageAllEffect : CardEffect
 
     public override void Execute(Unit source, Unit target)
     {
-        foreach (var enemy in EncounterManager.Instance.enemies)
+        // doing it reversed, so we can remove enemies as they die
+        var enemies = EncounterManager.Instance.enemies;
+        for (int i = enemies.Count - 1; i >= 0; i--)
         {
-            CombatManager.Instance.ApplyDamage(source, enemy, damageAmount);
+            CombatManager.Instance.ApplyDamage(source, enemies[i], damageAmount);
         }
     }
 }
