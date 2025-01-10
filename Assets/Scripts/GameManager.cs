@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
 
     public void ModifyPlayerHealth(int amount)
     {
-        PlayerHealth += amount;
+        PlayerHealth = Mathf.Clamp(PlayerHealth + amount, 0, PlayerMaxHealth);
         OnPlayerHealthChanged?.Invoke(PlayerHealth, PlayerMaxHealth);
     }
 
