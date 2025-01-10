@@ -1,13 +1,15 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AttackEffect", menuName = "Card Effects/Attack")]
+[System.Serializable]
 public class AttackEffect : CardEffect
 {
-    public override void Execute(Unit source, Unit target, int effectValue)
+    public int damage;
+
+    public override void Execute(Unit source, Unit target)
     {
         if (target != null)
         {
-            CombatManager.Instance.ApplyDamage(source, target, effectValue);
+            CombatManager.Instance.ApplyDamage(source, target, damage);
         }
     }
 }

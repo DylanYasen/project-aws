@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [System.Serializable]
 public class CardEffectEntry
 {
+    [SerializeReference]
     public CardEffect cardEffect;
-    public int effectValue;
 }
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]

@@ -1,11 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Energy", menuName = "Card Effects/Energy")]
-public class Energy : CardEffect
+public class EnergyEffect : CardEffect
 {
-    public override void Execute(Unit source, Unit target, int effectValue)
+    public int energyAmount;
+    
+    public override void Execute(Unit source, Unit target)
     {
         var t = target ? target : source;
-        t.AddEnergy(effectValue);
+        t.AddEnergy(energyAmount);
     }
 }

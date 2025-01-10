@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public abstract class CardEffect : ScriptableObject
+[System.Serializable]
+public abstract class CardEffect
 {
-    public virtual void Execute(Unit source, Unit target, int effectValue)
+    public virtual void Execute(Unit source, Unit target)
     {
     }
 }

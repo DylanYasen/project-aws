@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BlockEffect", menuName = "Card Effects/Block")]
 public class BlockEffect : CardEffect
 {
-    public override void Execute(Unit source, Unit target, int effectValue)
+    public int blockAmount;
+    public override void Execute(Unit source, Unit target )
     {
-        CombatManager.Instance.ApplyBlock(target ? target : source, effectValue);
+        CombatManager.Instance.ApplyBlock(target ? target : source, blockAmount);
     }
 }
