@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
                 break;
             case "CombatScene":
                 encounterManager.SpawnEncounter();
-                DeckManager.Instance.Init();
+                DeckManager.Instance.InitForCombat();
                 TurnManager.Instance.Init();
                 break;
             case "RestSiteScene":

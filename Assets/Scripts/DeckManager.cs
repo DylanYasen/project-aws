@@ -23,9 +23,15 @@ public class DeckManager
         Instance = this;
     }
 
-    public void Init()
+    public void InitForCombat()
     {
-        InitStarterDeck();
+        if (this.deck.Count < 1)
+        {
+            InitStarterDeck();
+        }
+
+        this.hand.Clear();
+        this.discardPile.Clear();
     }
 
     public async void LoadResources()
