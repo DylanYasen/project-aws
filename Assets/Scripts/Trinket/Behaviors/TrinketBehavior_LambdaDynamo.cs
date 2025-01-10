@@ -5,6 +5,8 @@ public class TrinketBehavior_LambdaDynamo : TrinketBehavior
 {
     private void OnCombatStart()
     {
+        //@todo: there is a timing bug here. 
+        // this seems called before the player.instance is avaiable.
         Player.Instance.AddEnergy(1);
     }
 
