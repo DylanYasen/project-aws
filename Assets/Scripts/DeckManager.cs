@@ -29,9 +29,14 @@ public class DeckManager
         {
             InitStarterDeck();
         }
-
-        this.hand.Clear();
-        this.discardPile.Clear();
+        else
+        {
+            this.deck.AddRange(discardPile);
+            this.deck.AddRange(hand);
+            this.discardPile.Clear();
+            this.hand.Clear();
+        }
+        ShuffleDeck();
     }
 
     public async void LoadResources()
