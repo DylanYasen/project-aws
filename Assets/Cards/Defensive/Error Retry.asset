@@ -19,5 +19,12 @@ MonoBehaviour:
   requiresTarget: 0
   price: 10
   effects:
-  - cardEffect: {fileID: 11400000, guid: 370463be8e414df47b4dbc6d8b099f84, type: 2}
-    effectValue: 8
+  - cardEffect:
+      rid: 4438152529542643772
+  references:
+    version: 2
+    RefIds:
+    - rid: 4438152529542643772
+      type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
+      data:
+        blockAmount: 8
