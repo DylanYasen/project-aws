@@ -11,9 +11,9 @@ public class DeckManager
     public List<Card> allCards = new();
 
     private Dictionary<string, Card> allCardsByName = new();
-    public List<Card> deck;
-    public List<Card> hand;
-    public List<Card> discardPile;
+    public List<Card> deck = new();
+    public List<Card> hand = new();
+    public List<Card> discardPile = new();
 
     public event System.Action<Card> OnCardPlayed;
     public event System.Action<Card> OnCardDrawn;
@@ -22,6 +22,7 @@ public class DeckManager
     {
         Instance = this;
     }
+
     public void Init()
     {
         InitStarterDeck();
@@ -57,11 +58,6 @@ public class DeckManager
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
-    }
-
-    public void GetRandomCardsNoDuplicates(int count)
-    {
-
     }
 
     public void DrawCards(int count)
@@ -116,7 +112,8 @@ public class DeckManager
 
         for (int i = 0; i < count; i++)
         {
-            deck.Add(cardToAdd);
+            var cardInstance = Object.Instantiate(cardToAdd);
+            deck.Add(cardInstance);
         }
     }
 
@@ -128,7 +125,8 @@ public class DeckManager
             return;
         }
 
-        deck.Add(cardToAdd);
+        var cardInstance = Object.Instantiate(cardToAdd);
+        deck.Add(cardInstance);
     }
 
     public void PlayCard(Card card)
