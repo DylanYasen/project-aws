@@ -62,16 +62,14 @@ public class ShopManager : MonoBehaviour
     private void GenerateShopItems()
     {
         cards = new List<Card>(cardCount);
-        var cardDatabase = DeckManager.Instance.cardDatabase;
-        if (cardDatabase != null && cardDatabase.allCards.Count > 0)
+        var allCards = DeckManager.Instance.allCards;
+        int totalCardCount = allCards.Count;
+        if (totalCardCount > 0)
         {
-            var allCards = cardDatabase.allCards;
-            int totalCards = allCards.Count;
-
             // Fisher-Yates shuffle first n elements
-            for (int i = 0; i < cardCount && i < totalCards; i++)
+            for (int i = 0; i < cardCount && i < totalCardCount; i++)
             {
-                int randomIndex = Random.Range(i, totalCards);
+                int randomIndex = Random.Range(i, totalCardCount);
                 cards.Add(allCards[randomIndex]);
 
                 // Swap elements to avoid duplicates

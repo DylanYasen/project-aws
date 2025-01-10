@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TurnManager turnManager { get; private set; }
     public EncounterManager encounterManager { get; private set; }
     public TrinketManager trinketManager { get; private set; }
+    public DeckManager deckManager { get; private set; }
 
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
         combatManager = new CombatManager();
         encounterManager = new EncounterManager();
         trinketManager = new TrinketManager();
+        deckManager = new DeckManager();
+
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
         // @todo: temp, streamline resource loading
         encounterManager.LoadResources();
         trinketManager.LoadResources();
+        deckManager.LoadResources();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

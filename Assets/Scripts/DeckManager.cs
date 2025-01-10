@@ -1,27 +1,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class DeckManager : MonoBehaviour
+public class DeckManager
 {
     public static DeckManager Instance { get; private set; }
 
-    [Header("Data")]
-    public CardDatabase cardDatabase;
+    public List<Card> allCards = new();
+
+    private Dictionary<string, Card> allCardsByName = new();
     public List<Card> deck;
     public List<Card> hand;
     public List<Card> discardPile;
 
     public event System.Action<Card> OnCardPlayed;
     public event System.Action<Card> OnCardDrawn;
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-    }
 
+    public DeckManager()
+    {
+        Instance = this;
+    }
     public void Init()
     {
         InitStarterDeck();
+    }
+
+    public async void LoadResources()
+    {
+        var cardLoadHandle = Addressables.LoadAssetsAsync<Card>("Cards", card =>
+        {
+            Debug.Log($"Loaded card: {card.cardName}");
+            allCards.Add(card);
+            allCardsByName[card.cardName] = card;
+        });
+
+        await cardLoadHandle.Task;
+
+        if (cardLoadHandle.Status == AsyncOperationStatus.Succeeded)
+        {
+            Debug.Log("Successfully loaded all cards");
+        }
+        else
+        {
+            Debug.LogError("Failed to load cards");
+        }
     }
 
     public void ShuffleDeck()
@@ -33,6 +57,11 @@ public class DeckManager : MonoBehaviour
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
+    }
+
+    public void GetRandomCardsNoDuplicates(int count)
+    {
+
     }
 
     public void DrawCards(int count)
@@ -50,11 +79,10 @@ public class DeckManager : MonoBehaviour
             deck.RemoveAt(0);
             hand.Add(drawnCard);
 
-
             // @todo: pool these
             var handArea = CombatSceneUIReferences.Instance.handArea;
             var cardPrefab = CombatSceneUIReferences.Instance.cardPrefab;
-            GameObject cardObject = Instantiate(cardPrefab, handArea);
+            GameObject cardObject = GameObject.Instantiate(cardPrefab, handArea);
             CardUI cardUI = cardObject.GetComponent<CardUI>();
             cardUI.Setup(drawnCard);
 
@@ -80,9 +108,7 @@ public class DeckManager : MonoBehaviour
 
     public void AddCardToDeck(string cardName, int count)
     {
-        Card cardToAdd = cardDatabase.GetCardByName(cardName);
-
-        if (cardToAdd == null)
+        if (!allCardsByName.TryGetValue(cardName, out Card cardToAdd))
         {
             Debug.LogError("Card not found in database: " + cardName);
             return;

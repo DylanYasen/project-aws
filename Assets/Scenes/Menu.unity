@@ -851,7 +851,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1991026089}
   - component: {fileID: 1991026088}
-  - component: {fileID: 1991026090}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -887,22 +886,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1991026090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991026087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be92db2309f85ec4699b0c0aed4e8a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardDatabase: {fileID: 11400000, guid: 800e632c29ce26d48ab5e80012eece51, type: 2}
-  deck: []
-  hand: []
-  discardPile: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

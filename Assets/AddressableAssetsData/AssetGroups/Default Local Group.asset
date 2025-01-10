@@ -21,17 +21,53 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b57d4b40168ffc4db5baa8991a99a2b
+    m_Address: Assets/Cards/Defensive/Cloud Shield.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0db439ae2c379489fa349a7287f0c323
     m_Address: Assets/Trinkets/Adaptive Shield.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e942c92c4a556146bcd05346180a3cd
+    m_Address: Assets/Cards/Defensive/Latency Buffer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f7259f0bda924506a4d1f72593100c3
     m_Address: Assets/Trinkets/Energy Overflow.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 146aebefbf8dc8f429d0529c8a876c88
+    m_Address: Assets/Cards/Utility/Lambda Boost.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f8e4ae6f2278fc4d91b78b6d1d02325
+    m_Address: Assets/Cards/Healing & Specials/Lambda Invocation.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20d72e605a262a94f9f7abfa2eb5324b
+    m_Address: Assets/Cards/Defensive/Load Balancer.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23e09ec77725dfc41861c9010c0f1131
+    m_Address: Assets/Cards/Offensive/Burst Scaling.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29ce14c52e98c420e8c145f546dbb3ad
     m_Address: Assets/Trinkets/Error Logger.asset
@@ -50,6 +86,36 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 332f39d62d009954495e82825cdcdb81
+    m_Address: Assets/Cards/Healing & Specials/System Reboot.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37575192719e4784cbdda784f0c38f92
+    m_Address: Assets/Cards/Healing & Specials/Function Migration.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ae45b11c1cd3554da14e78c5260e522
+    m_Address: Assets/Cards/Healing & Specials/Throughput Surge.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e4986735cdfd1841a823b354fa1274d
+    m_Address: Assets/Cards/Offensive/DDoS Barrage.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4828cdb99d8c3a04480b56a32a8e6344
+    m_Address: Assets/Cards/Utility/Event Trigger.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a1c3c133c4984d81b1710095038aba7
     m_Address: Assets/Trinkets/Elastic Buffers.asset
@@ -105,6 +171,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a32e341b565da44798985eadd3f9dcf
+    m_Address: Assets/Cards/Utility/CloudWatch Logs.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a693edfb9f53d04fb120d27039b5ea9
+    m_Address: Assets/Cards/Offensive/Recursive Slash.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bfa0d1c0f816465e87397e24b6fd963
     m_Address: Assets/Trinkets/Load Balancer.asset
     m_ReadOnly: 0
@@ -129,6 +207,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3871c71874284f42b050725a9316a02
+    m_Address: Assets/Cards/Offensive/Instant Invoke.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a97a67244f3ce4a7da018c8207fca6ae
     m_Address: Assets/Trinkets/Pre-Warmed Cache.asset
     m_ReadOnly: 0
@@ -141,11 +225,23 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abcc73db3907c2740bdfd34f369bea50
+    m_Address: Assets/Cards/Utility/Auto-Scaling.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: addc413969a234fd9aa3053555b4499a
     m_Address: Assets/Trinkets/CloudFormation Shield.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7f3fd4d3ecc15b4a8f374c082c5d5f5
+    m_Address: Assets/Cards/Defensive/Circuit Breaker.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bbbd8f67851a243ce84699d1a63ea35e
     m_Address: Assets/Trinkets/Cache Purger.asset
@@ -165,6 +261,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db560e3d2cf99794ea81683b8a37fe15
+    m_Address: Assets/Cards/Utility/Retry Logic.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dca68cce20106ff4990714f84976e4d2
+    m_Address: Assets/Cards/Healing & Specials/Cache Hit.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3ffb45a73840ae48a15f334f9ec161b
+    m_Address: Assets/Cards/Defensive/Error Retry.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4bd156b486c341d58517c71488a4488
     m_Address: Assets/Trinkets/Throughput Enhancer.asset
     m_ReadOnly: 0
@@ -176,6 +290,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8c973928feec1449ab5982452cc8f90
+    m_Address: Assets/Cards/Offensive/Cold Start Strike.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 15b6925e3fd96a340899b65feef9657a, type: 2}
