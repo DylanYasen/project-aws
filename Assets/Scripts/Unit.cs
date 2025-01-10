@@ -84,7 +84,7 @@ public class Unit : MonoBehaviour
         {
             foreach (var effectEntry in card.effects)
             {
-                effectEntry.cardEffect.Execute(source, target, effectEntry.effectValue);
+                effectEntry.cardEffect.Execute(source, target);
             }
         }
     }
