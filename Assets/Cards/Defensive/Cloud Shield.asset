@@ -18,4 +18,13 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: -2
+  - cardEffect:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

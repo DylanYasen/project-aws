@@ -18,4 +18,19 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 4438152483666657542
+  - cardEffect:
+      rid: 4438152483666657543
+  references:
+    version: 2
+    RefIds:
+    - rid: 4438152483666657542
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        drawAmount: 2
+    - rid: 4438152483666657543
+      type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        energyAmount: 1
