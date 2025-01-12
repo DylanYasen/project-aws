@@ -21,7 +21,7 @@ public class MysteryEventManager
 
     public async void LoadResources()
     {
-        var eventLoadHandle = Addressables.LoadAssetsAsync<MysteryEvent>("MysteryEvent", mysteryEvent =>
+        var eventLoadHandle = Addressables.LoadAssetsAsync<MysteryEvent>("MysteryEvents", mysteryEvent =>
         {
             Debug.Log($"Loaded mystery event: {mysteryEvent.name}");
 

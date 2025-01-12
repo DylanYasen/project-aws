@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 6276f4524e272d94084e2a4a187ea601
   m_currentHash:
     serializedVersion: 2
-    Hash: 7d8c0518e948351575b49d7b0366c467
+    Hash: a40d210f7ebd1b778c777167f17638f9
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -103,6 +103,7 @@ MonoBehaviour:
     - Encounters
     - Trinkets
     - Cards
+    - MysteryEvents
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 70ef60af8394d9b4cbbd23bbbb8ff231, type: 2}

@@ -147,6 +147,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d034fb3e31024d2fb16e42025f418e8
+    m_Address: Assets/MysteryEvents/Forgotten S3 Bucket.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MysteryEvents
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 693347ca1e4174f6a9936ca099ed27f1
     m_Address: Assets/Trinkets/cardOnBlock.asset
     m_ReadOnly: 0
@@ -176,6 +182,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 837d0aa570cbe4196993ff2a105dbdbc
+    m_Address: Assets/MysteryEvents/Lambda Uptime Boost.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MysteryEvents
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 885236695d5214edb99e89cf127195f8
     m_Address: Assets/Cards/Debuff/Open Port.asset
@@ -302,6 +314,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7e8df7a8697e440c91ce3c2e1d26913
+    m_Address: Assets/MysteryEvents/Corrupted Deployment.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MysteryEvents
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8c973928feec1449ab5982452cc8f90
     m_Address: Assets/Cards/Offensive/Cold Start Strike.asset
