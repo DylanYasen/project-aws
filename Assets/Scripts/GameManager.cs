@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public EncounterManager encounterManager { get; private set; }
     public TrinketManager trinketManager { get; private set; }
     public DeckManager deckManager { get; private set; }
+    public StatusEffectManager statusEffectManager { get; private set; }
 
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
         encounterManager = new EncounterManager();
         trinketManager = new TrinketManager();
         deckManager = new DeckManager();
+        statusEffectManager = new StatusEffectManager();
 
         DontDestroyOnLoad(gameObject);
 

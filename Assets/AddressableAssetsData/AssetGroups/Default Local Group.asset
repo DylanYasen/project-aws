@@ -111,6 +111,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Cards
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fcbea91c801d45c58b2a5cfafb53b79
+    m_Address: Assets/Cards/Debuff/Kernel Panic.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4828cdb99d8c3a04480b56a32a8e6344
     m_Address: Assets/Cards/Utility/Event Trigger.asset
     m_ReadOnly: 0
@@ -170,6 +176,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 885236695d5214edb99e89cf127195f8
+    m_Address: Assets/Cards/Debuff/Open Port.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cards
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a32e341b565da44798985eadd3f9dcf
     m_Address: Assets/Cards/Utility/CloudWatch Logs.asset

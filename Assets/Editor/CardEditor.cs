@@ -7,23 +7,90 @@ using System.Reflection;
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
 {
+    private void DrawStatusEffectProperties(SerializedProperty statusEffectRef)
+    {
+        if (statusEffectRef.managedReferenceValue == null) return;
+
+        var statusEffectType = statusEffectRef.managedReferenceValue.GetType();
+        
+        EditorGUILayout.Space(5);
+        EditorGUILayout.LabelField("Status Effect Properties", EditorStyles.boldLabel);
+        EditorGUI.indentLevel++;
+
+        var fields = statusEffectType.GetFields(BindingFlags.Public | BindingFlags.Instance)
+            .Where(field => field.IsPublic || field.GetCustomAttribute<SerializeField>() != null)
+            .Where(field => field.GetCustomAttribute<HideInInspector>() == null);
+
+        foreach (var field in fields)
+        {
+            if (field.Name == "m_Script") continue;
+            
+            SerializedProperty prop = statusEffectRef.FindPropertyRelative(field.Name);
+            if (prop != null)
+            {
+                string niceName = ObjectNames.NicifyVariableName(field.Name);
+                EditorGUILayout.PropertyField(prop, new GUIContent(niceName));
+            }
+        }
+
+        EditorGUI.indentLevel--;
+    }
+
     private void DrawEffectProperties(SerializedProperty effectRef, Type effectType)
     {
         if (effectType == null) return;
 
-        // Get all fields that should be shown in inspector
-        var fields = effectType.GetFields(BindingFlags.Public | BindingFlags.Instance)
-            .Where(field => field.IsPublic || field.GetCustomAttribute<SerializeField>() != null)
-            .Where(field => field.GetCustomAttribute<HideInInspector>() == null);
-
-        // Get all properties that should be shown in inspector
-        var properties = effectType.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-            .Where(prop => prop.GetCustomAttribute<SerializeField>() != null)
-            .Where(prop => prop.GetCustomAttribute<HideInInspector>() == null);
-
         EditorGUILayout.Space(5);
         EditorGUILayout.LabelField("Effect Properties", EditorStyles.boldLabel);
         EditorGUI.indentLevel++;
+
+        // Special handling for ApplyStatusEffect
+        if (effectType == typeof(ApplyStatusEffect))
+        {
+            var statusEffectRef = effectRef.FindPropertyRelative("statusEffect");
+            
+            // Get all status effect types
+            var statusEffectTypes = TypeCache.GetTypesDerivedFrom<StatusEffect>()
+                .Where(t => !t.IsAbstract)
+                .ToArray();
+
+            // Create names for popup
+            var statusEffectNames = statusEffectTypes.Select(t => t.Name).ToArray();
+
+            // Find current selection
+            int currentIndex = -1;
+            if (statusEffectRef.managedReferenceValue != null)
+            {
+                currentIndex = Array.IndexOf(statusEffectTypes, statusEffectRef.managedReferenceValue.GetType());
+            }
+
+            // Show dropdown
+            int newIndex = EditorGUILayout.Popup("Status Effect Type", currentIndex, statusEffectNames);
+            if (newIndex != currentIndex)
+            {
+                if (newIndex >= 0)
+                {
+                    var instance = Activator.CreateInstance(statusEffectTypes[newIndex]);
+                    statusEffectRef.managedReferenceValue = instance;
+                }
+                else
+                {
+                    statusEffectRef.managedReferenceValue = null;
+                }
+            }
+
+            // Draw status effect properties if one is selected
+            if (statusEffectRef.managedReferenceValue != null)
+            {
+                DrawStatusEffectProperties(statusEffectRef);
+            }
+        }
+
+        // Draw all other properties
+        var fields = effectType.GetFields(BindingFlags.Public | BindingFlags.Instance)
+            .Where(field => field.IsPublic || field.GetCustomAttribute<SerializeField>() != null)
+            .Where(field => field.GetCustomAttribute<HideInInspector>() == null)
+            .Where(field => field.Name != "statusEffect"); // Skip statusEffect as we handle it specially
 
         foreach (var field in fields)
         {
@@ -35,19 +102,6 @@ public class CardEditor : Editor
             {
                 string niceName = ObjectNames.NicifyVariableName(field.Name);
                 EditorGUILayout.PropertyField(prop, new GUIContent(niceName));
-            }
-        }
-
-        foreach (var property in properties)
-        {
-            if (property.CanRead && property.CanWrite)
-            {
-                SerializedProperty prop = effectRef.FindPropertyRelative(property.Name);
-                if (prop != null)
-                {
-                    string niceName = ObjectNames.NicifyVariableName(property.Name);
-                    EditorGUILayout.PropertyField(prop, new GUIContent(niceName));
-                }
             }
         }
 
@@ -131,7 +185,6 @@ public class CardEditor : Editor
                     currentEffectType = null;
                 }
             }
-
 
             // Show effect-specific properties using reflection
             if (effectRef.managedReferenceValue != null)
