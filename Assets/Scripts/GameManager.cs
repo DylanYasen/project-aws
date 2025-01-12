@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     public int Gold { get; private set; }
     public event System.Action<int> OnGoldChanged;
 
-    public int PlayerHealth { get; private set; }
-    public int PlayerMaxHealth { get; private set; }
-    public event System.Action<int, int> OnPlayerHealthChanged;
 
     private void Awake()
     {
@@ -45,11 +42,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        {
-            PlayerHealth = 100;
-            PlayerMaxHealth = 100;
-        }
     }
 
 #if UNITY_EDITOR
@@ -94,8 +86,10 @@ public class GameManager : MonoBehaviour
         switch (scene.name)
         {
             case "MapScene":
+                Player.Instance.SetVisible(false);
                 break;
             case "CombatScene":
+                Player.Instance.SetVisible(true);
                 encounterManager.SpawnEncounter();
                 DeckManager.Instance.InitForCombat();
                 TurnManager.Instance.Init();
@@ -103,6 +97,18 @@ public class GameManager : MonoBehaviour
             case "RestSiteScene":
                 break;
             case "Menu":
+                break;
+            case "Mystery":
+                {
+                    MysteryEvent mysteryEvent = mysteryEventManager.GetRandomEvent();
+                    if (mysteryEvent == null)
+                    {
+                        Debug.LogError("No mystery event found.");
+                        return;
+                    }
+                    Debug.Log($"Mystery event: {mysteryEvent.eventName}");
+                    mysteryEventManager.StartEvent(mysteryEvent);
+                }
                 break;
             case "Treasure":
                 {
@@ -149,10 +155,9 @@ public class GameManager : MonoBehaviour
 
     public void OnCombatEncounterEnd()
     {
-        // @todo: save stuff
-        PlayerHealth = Player.Instance.currentHP;
-
         GenerateLoot();
+
+        Player.Instance.EndCombat();
     }
 
     public void StartRestSite()
@@ -176,14 +181,7 @@ public class GameManager : MonoBehaviour
     public void StartMysteryEvent()
     {
         Debug.Log("Starting mystery event.");
-        MysteryEvent mysteryEvent = mysteryEventManager.GetRandomEvent();
-        if (mysteryEvent == null)
-        {
-            Debug.LogError("No mystery event found.");
-            return;
-        }
-        Debug.Log($"Mystery event: {mysteryEvent.eventName}");
-        mysteryEventManager.StartEvent(mysteryEvent);
+        SceneManager.LoadScene("Mystery");
     }
 
     public void GameOver()
@@ -219,22 +217,11 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void ModifyPlayerHealth(int amount)
-    {
-        PlayerHealth = Mathf.Clamp(PlayerHealth + amount, 0, PlayerMaxHealth);
-        OnPlayerHealthChanged?.Invoke(PlayerHealth, PlayerMaxHealth);
-    }
-
-    public void ModifyPlayerMaxHealth(int amount)
-    {
-        PlayerMaxHealth += amount;
-        OnPlayerHealthChanged?.Invoke(PlayerHealth, PlayerMaxHealth);
-    }
-
     public void Maintance()
     {
         int healthToAdd = 10;
-        ModifyPlayerHealth(healthToAdd);
+
+        Player.Instance.SetHP(Player.Instance.currentHP + healthToAdd);
 
         // @todo: add a delay and some juice before loading the map scene
 

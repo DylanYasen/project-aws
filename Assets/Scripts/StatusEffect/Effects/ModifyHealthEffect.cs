@@ -15,23 +15,7 @@ public class ModifyHealthEffect : StatusEffect
 
     public override void OnApply(Unit unit)
     {
-        if (unit == Player.Instance)
-        {
-            if (Player.Instance)
-            {
-                Player.Instance.SetHP(Player.Instance.currentHP + hpAmount);
-                Player.Instance.SetMaxHP(Player.Instance.maxHP + maxHpAmount);
-            }
-            else
-            {
-                GameManager.Instance.ModifyPlayerHealth(hpAmount);
-                GameManager.Instance.ModifyPlayerMaxHealth(maxHpAmount);
-            }
-        }
-        else
-        {
-            unit.SetHP(unit.currentHP + hpAmount);
-            unit.SetMaxHP(unit.maxHP + maxHpAmount);
-        }
+        unit.SetHP(unit.currentHP + hpAmount);
+        unit.SetMaxHP(unit.maxHP + maxHpAmount);
     }
 }

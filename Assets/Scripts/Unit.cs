@@ -15,13 +15,18 @@ public class Unit : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
-    protected virtual void Start()
-    {
-        currentHP = maxHP;
-        currentEnergy = maxEnergy;
+    public event System.Action<int, int> OnHealthChanged;
 
+    protected virtual void Awake()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        currentHP = maxHP;
+        currentEnergy = maxEnergy;
+    }
+
+    public virtual void StartCombat()
+    {
         // @todo: improve
         {
             var pos = Camera.main.WorldToScreenPoint(transform.position - Vector3.up);
@@ -32,12 +37,22 @@ public class Unit : MonoBehaviour
 
         combatStatUI?.SetHealth(currentHP, maxHP);
         combatStatUI?.SetBlock(block);
+
+        OnHealthChanged?.Invoke(currentHP, maxHP);
+    }
+
+    public virtual void SetVisible(bool visible)
+    {
+        spriteRenderer.enabled = visible;
+        combatStatUI?.gameObject.SetActive(visible);
     }
 
     public virtual void SetHP(int amount)
     {
         currentHP = Mathf.Clamp(amount, 0, maxHP);
         combatStatUI?.SetHealth(currentHP, maxHP);
+
+        OnHealthChanged?.Invoke(currentHP, maxHP);
     }
 
     public virtual void SetMaxHP(int amount)
@@ -45,6 +60,8 @@ public class Unit : MonoBehaviour
         maxHP = amount;
         currentHP = Mathf.Min(currentHP, maxHP);
         combatStatUI?.SetHealth(currentHP, maxHP);
+
+        OnHealthChanged?.Invoke(currentHP, maxHP);
     }
 
     public virtual void TakeDamage(int damage)
@@ -53,6 +70,8 @@ public class Unit : MonoBehaviour
 
         combatStatUI?.SetHealth(currentHP, maxHP);
         combatStatUI?.SetBlock(block);
+
+        OnHealthChanged?.Invoke(currentHP, maxHP);
 
         Debug.Log($"{name} took {damage} damage. Remaining HP: {currentHP}");
 
@@ -70,6 +89,8 @@ public class Unit : MonoBehaviour
         currentHP = Mathf.Min(currentHP + amount, maxHP);
 
         combatStatUI?.SetHealth(currentHP, maxHP);
+
+        OnHealthChanged?.Invoke(currentHP, maxHP);
 
         Debug.Log($"{name} healed for {amount} HP. Current HP: {currentHP}");
     }

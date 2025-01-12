@@ -7,23 +7,39 @@ public class Player : Unit
 
     EnergyBarUI energyBarUI;
 
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
+
+
+        DontDestroyOnLoad(this);
+        SetVisible(false);
     }
 
-    protected override void Start()
+    public override void StartCombat()
     {
-        base.Start();
+        base.StartCombat();
 
-        // @todo: feels weird but this is how we preserve the player's health across scenes
-        currentHP = GameManager.Instance.PlayerHealth;
-        maxHP = GameManager.Instance.PlayerMaxHealth;
+        SetVisible(true);
+
         combatStatUI?.SetHealth(currentHP, maxHP);
 
         energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
-        energyBarUI.SetEnergy(currentEnergy);
+        energyBarUI?.SetEnergy(currentEnergy);
+    }
+
+    public void EndCombat()
+    {
+        // clear things only in combat scene
+        combatStatUI = null;
+        energyBarUI = null;
     }
 
     public override void StartTurn()
@@ -62,13 +78,13 @@ public class Player : Unit
     public override void AddEnergy(int amount)
     {
         base.AddEnergy(amount);
-        energyBarUI.SetEnergy(currentEnergy);
+        energyBarUI?.SetEnergy(currentEnergy);
     }
 
     public override void Die()
     {
         GameManager.Instance.GameOver();
-        
+
         base.Die();
     }
 

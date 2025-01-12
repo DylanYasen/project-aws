@@ -7,21 +7,14 @@ public class TopStatusBarUI : MonoBehaviour
     public TMP_Text goldCountText;
     public TMP_Text healthText;
 
-    void OnEnable()
+    void Start()
     {
         GameManager.Instance.OnGoldChanged += UpdateGoldText;
 
-        GameManager.Instance.OnPlayerHealthChanged += UpdateHealthText;
-        CombatManager.Instance.OnUnitHealthChanged += UpdatePlayerHealthText;
+        Player.Instance.OnHealthChanged += UpdateHealthText;
 
         UpdateGoldText(GameManager.Instance.Gold);
-        UpdateHealthText(GameManager.Instance.PlayerHealth, GameManager.Instance.PlayerMaxHealth);
-    }
-
-    private void UpdatePlayerHealthText(Unit unit, int currentHP, int maxHP)
-    {
-        if (unit != Player.Instance) return;
-        healthText.text = $"{currentHP} / {maxHP}";
+        UpdateHealthText(Player.Instance.currentHP, Player.Instance.maxHP);
     }
 
     void OnDisable()

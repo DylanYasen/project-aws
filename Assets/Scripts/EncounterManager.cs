@@ -72,8 +72,11 @@ public class EncounterManager
             Vector3 spawnPos = new Vector3(xPos, 0, 0);
 
             var enemyObj = GameObject.Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-            enemies.Add(enemyObj.GetComponent<Enemy>());
+            var enemy = enemyObj.GetComponent<Enemy>();
+            enemy.StartCombat();
+            enemies.Add(enemy);
         }
+        Player.Instance.StartCombat();
     }
 
     public void UnregisterEnemy(Enemy enemy)
