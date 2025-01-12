@@ -34,6 +34,19 @@ public class Unit : MonoBehaviour
         combatStatUI?.SetBlock(block);
     }
 
+    public virtual void SetHP(int amount)
+    {
+        currentHP = Mathf.Clamp(amount, 0, maxHP);
+        combatStatUI?.SetHealth(currentHP, maxHP);
+    }
+
+    public virtual void SetMaxHP(int amount)
+    {
+        maxHP = amount;
+        currentHP = Mathf.Min(currentHP, maxHP);
+        combatStatUI?.SetHealth(currentHP, maxHP);
+    }
+
     public virtual void TakeDamage(int damage)
     {
         currentHP -= damage;

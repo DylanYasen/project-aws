@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public TrinketManager trinketManager { get; private set; }
     public DeckManager deckManager { get; private set; }
     public StatusEffectManager statusEffectManager { get; private set; }
+    public MysteryEventManager mysteryEventManager { get; private set; }
 
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         trinketManager = new TrinketManager();
         deckManager = new DeckManager();
         statusEffectManager = new StatusEffectManager();
-
+        mysteryEventManager = new MysteryEventManager();
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour
         encounterManager.LoadResources();
         trinketManager.LoadResources();
         deckManager.LoadResources();
+        mysteryEventManager.LoadResources();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -174,7 +176,14 @@ public class GameManager : MonoBehaviour
     public void StartMysteryEvent()
     {
         Debug.Log("Starting mystery event.");
-        // Trigger a random event with unpredictable outcomes
+        MysteryEvent mysteryEvent = mysteryEventManager.GetRandomEvent();
+        if (mysteryEvent == null)
+        {
+            Debug.LogError("No mystery event found.");
+            return;
+        }
+        Debug.Log($"Mystery event: {mysteryEvent.eventName}");
+        mysteryEventManager.StartEvent(mysteryEvent);
     }
 
     public void GameOver()

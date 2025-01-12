@@ -101,6 +101,8 @@ public class DeckManager
     {
         AddCardToDeck("Instant Invoke", 2);
 
+        AddCardToDeck("Kernel Panic", 2);
+
         AddCardToDeck("Cold Start Strike", 1);
         AddCardToDeck("Burst Scaling", 1);
 
@@ -115,17 +117,22 @@ public class DeckManager
 
     public void AddCardToDeck(string cardName, int count)
     {
-        if (!allCardsByName.TryGetValue(cardName, out Card cardToAdd))
-        {
-            Debug.LogError("Card not found in database: " + cardName);
-            return;
-        }
-
+        Card cardToAdd = FindCardByName(cardName);
         for (int i = 0; i < count; i++)
         {
             var cardInstance = Object.Instantiate(cardToAdd);
             deck.Add(cardInstance);
         }
+    }
+
+    public Card FindCardByName(string cardName)
+    {
+        if (!allCardsByName.TryGetValue(cardName, out Card card))
+        {
+            Debug.LogError("Card not found in database: " + cardName);
+            return null;
+        }
+        return card;
     }
 
     public void AddCardToDeck(Card cardToAdd)
@@ -147,6 +154,16 @@ public class DeckManager
         hand.Remove(card);
         discardPile.Add(card);
         Debug.Log($"Card {card.cardName} discarded.");
+    }
+
+    public void RemoveCardFromDeck(Card card)
+    {
+        deck.Remove(card);
+    }
+
+    public Card GetRandomCardInDeck()
+    {
+        return deck[Random.Range(0, deck.Count)];
     }
 
     private void ReshuffleDiscardPile()

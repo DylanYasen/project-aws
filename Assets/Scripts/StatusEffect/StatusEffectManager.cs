@@ -20,7 +20,10 @@ public class StatusEffectManager
             effectsByUnit[target] = new List<StatusEffect>();
         }
 
-        effectsByUnit[target].Add(effect);
+        if (effect.lifetimeType != StatusEffectLifetimeType.OneOff)
+        {
+            effectsByUnit[target].Add(effect);
+        }
         effect.OnApply(target);
     }
 
