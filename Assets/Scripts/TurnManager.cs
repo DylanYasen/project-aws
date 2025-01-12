@@ -88,8 +88,19 @@ public class TurnManager
 
         foreach (Enemy enemy in EncounterManager.Instance.enemies)
         {
+            if (enemy.isStunned)
+            {
+                Debug.Log("Enemy " + enemy.name + " is stunned, skipping turn");
+                continue;
+            }
+
             enemy.StartTurn();
+
+            StatusEffectManager.Instance.OnTurnStart(enemy);
+
             yield return enemy.PlayTurn();
+
+            StatusEffectManager.Instance.OnTurnEnd(enemy);
         }
 
         yield return new WaitForSeconds(1.0f);
