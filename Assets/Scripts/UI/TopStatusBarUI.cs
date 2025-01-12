@@ -11,10 +11,14 @@ public class TopStatusBarUI : MonoBehaviour
     {
         GameManager.Instance.OnGoldChanged += UpdateGoldText;
 
-        Player.Instance.OnHealthChanged += UpdateHealthText;
-
         UpdateGoldText(GameManager.Instance.Gold);
-        UpdateHealthText(Player.Instance.currentHP, Player.Instance.maxHP);
+
+        // @todo: revisit
+        if (Player.Instance != null)
+        {
+            Player.Instance.OnHealthChanged += UpdateHealthText;
+            UpdateHealthText(Player.Instance.currentHP, Player.Instance.maxHP);
+        }
     }
 
     void OnDisable()
