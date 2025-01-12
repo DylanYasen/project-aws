@@ -29,8 +29,9 @@ public class Unit : MonoBehaviour
     {
         // @todo: improve
         {
-            var pos = Camera.main.WorldToScreenPoint(transform.position - Vector3.up);
-            var rootCanvas = GameObject.Find("Canvas");
+            var offset = (spriteRenderer.bounds.size.y / 2 + 0.1f);
+            var pos = Camera.main.WorldToScreenPoint(transform.position - Vector3.up * offset);
+            var rootCanvas = GameObject.Find("hp-bar-root");
             var obj = Instantiate(GameManager.Instance.combatStatsUIPrefab, pos, Quaternion.identity, rootCanvas.transform);
             combatStatUI = obj.GetComponent<CombatStatUI>();
         }
