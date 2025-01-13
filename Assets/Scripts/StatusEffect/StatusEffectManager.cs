@@ -55,8 +55,9 @@ public class StatusEffectManager
     {
         if (!effectsByUnit.ContainsKey(target)) return;
 
-        foreach (var effect in effectsByUnit[target])
+        for (int i = effectsByUnit[target].Count - 1; i >= 0; i--)
         {
+            var effect = effectsByUnit[target][i];
             effect.OnTurnStart(target);
         }
     }
