@@ -18,6 +18,11 @@ public class CombatManager
     {
         if (target == null) return;
 
+        Debug.Log($"Applying damage: {rawDamage} to {target.name}");
+        StatusEffectManager.Instance.OnPreApplyDamage(target, ref rawDamage);
+
+        Debug.Log($"Post Effect Applying damage: {rawDamage} to {target.name}");
+
         int blockConsumed = Mathf.Min(target.block, rawDamage);
         if (blockConsumed > 0)
         {

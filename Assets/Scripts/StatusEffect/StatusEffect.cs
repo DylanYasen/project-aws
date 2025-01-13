@@ -40,6 +40,7 @@ public abstract class StatusEffect
     public virtual void OnRemove(Unit target) { }
     public virtual void OnBeforeAttack(Unit source, Unit target, ref int damage) { }
     public virtual void OnTurnStart(Unit target) { }
+    public virtual void OnPreApplyDamage(Unit target, ref int damage) { }
     public virtual void OnTurnEnd(Unit target)
     {
         if (lifetimeType == StatusEffectLifetimeType.TurnBased)

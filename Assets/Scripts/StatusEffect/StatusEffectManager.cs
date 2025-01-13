@@ -83,4 +83,14 @@ public class StatusEffectManager
             effects.Clear();
         }
     }
+
+    public void OnPreApplyDamage(Unit target, ref int damage)
+    {
+        if (!effectsByUnit.ContainsKey(target)) return;
+
+        foreach (var effect in effectsByUnit[target])
+        {
+            effect.OnPreApplyDamage(target, ref damage);
+        }
+    }
 }
