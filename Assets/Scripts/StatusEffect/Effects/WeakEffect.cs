@@ -7,7 +7,7 @@ public class WeakEffect : StatusEffect
     public WeakEffect()
     {
         effectName = "Weak";
-        description = "Takes 25% less damage";
+        description = "Deals 25% less damage";
         isDebuff = true;
     }
 
