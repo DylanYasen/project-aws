@@ -17,13 +17,8 @@ public class StunEffect : StatusEffect
         unit.isStunned = true;
     }
 
-    public override void OnTurnEnd(Unit unit)
+    public override void OnRemove(Unit unit)
     {
-        duration--;
-        if (duration <= 0)
-        {
-            unit.isStunned = false;
-            StatusEffectManager.Instance.RemoveEffect(unit, this);
-        }
+        unit.isStunned = false;
     }
 }

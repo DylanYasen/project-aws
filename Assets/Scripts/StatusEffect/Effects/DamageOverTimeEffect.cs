@@ -13,13 +13,9 @@ public class DamageOverTimeEffect : StatusEffect
         damagePerTurn = 5;
     }
 
-    public override void OnTurnStart(Unit unit)
+    public override void OnApply(Unit unit)
     {
         CombatManager.Instance.ApplyDamage(null, unit, damagePerTurn);
-        duration--;
-        if (duration <= 0)
-        {
-            StatusEffectManager.Instance.RemoveEffect(unit, this);
-        }
+        Debug.Log("DamageOverTimeEffect OnApply " + unit.name);
     }
-} 
+}
