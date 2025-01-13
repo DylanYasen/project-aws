@@ -51,6 +51,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Cards
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ad8ee10556e43a428500be14434f767
+    m_Address: Assets/Encounters/1 -1x Overloaded Virus 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1f8e4ae6f2278fc4d91b78b6d1d02325
     m_Address: Assets/Cards/Healing & Specials/Lambda Invocation.asset
     m_ReadOnly: 0
@@ -99,11 +105,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Cards
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37b0254ee254e9d45aa86db3d4f19e8b
+    m_Address: Assets/Encounters/Elite-1x Malicious Bot, 1x Compliance Enforcer (Elite)
+      1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ae45b11c1cd3554da14e78c5260e522
     m_Address: Assets/Cards/Healing & Specials/Throughput Surge.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Cards
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cf4ea79f18ad054d85e3e9eeb8f4729
+    m_Address: Assets/Encounters/Elite-1x Burnout (Elite).asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e4986735cdfd1841a823b354fa1274d
     m_Address: Assets/Cards/Offensive/DDoS Barrage.asset
@@ -141,6 +160,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4bf3a133808ddbf419945ab852273773
+    m_Address: Assets/Encounters/1 -1x Packet Swarm, 1x Overloaded Virus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4caae5d34891d4ab38f546b55680746c
     m_Address: Assets/Trinkets/Error Retry Handler.asset
     m_ReadOnly: 0
@@ -152,6 +177,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - MysteryEvents
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56207629ed3b3f140960784423ee832d
+    m_Address: Assets/Encounters/2-2x Malicious Bot, 1x Packet Swarm.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 693347ca1e4174f6a9936ca099ed27f1
     m_Address: Assets/Trinkets/cardOnBlock.asset
@@ -170,6 +201,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ea7d10d0b16030438d3e9b425185dec
+    m_Address: Assets/Encounters/1 -2x Packet Swarm.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8168b6af3e0e24b0ab0600cdb3e5493a
     m_Address: Assets/Trinkets/Lambda Booster.asset
@@ -243,6 +280,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aaa14a934565fac469e47a858f246f28
+    m_Address: Assets/Encounters/Elite-1x Malicious Bot, 1x Compliance Enforcer (Elite).asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aaf23ea045bf24283ae7bb04fa826874
     m_Address: Assets/Trinkets/Overflow Circuit.asset
     m_ReadOnly: 0
@@ -261,6 +304,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b621a24f3317ac34bbe7fdb311c3dac0
+    m_Address: Assets/Encounters/1 -1x Overloaded Virus.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7f3fd4d3ecc15b4a8f374c082c5d5f5
     m_Address: Assets/Cards/Defensive/Circuit Breaker.asset
     m_ReadOnly: 0
@@ -278,6 +327,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d0e297473049343bef153263f371fc
+    m_Address: Assets/Encounters/Elite-1x Compliance Enforcer (Elite) 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c85e4363a4424224f91c4c50a1c26995
+    m_Address: Assets/Encounters/1 - 1x Malicious Bot.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce7664f56857040a9bd8e195607de2df
     m_Address: Assets/Trinkets/Draw Amplifier.asset
@@ -314,6 +375,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Trinkets
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5acb9fdb3ea525428d89460d5f786af
+    m_Address: Assets/Encounters/1 -1x Packet Swarm, 1x Data Miner.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7e8df7a8697e440c91ce3c2e1d26913
     m_Address: Assets/MysteryEvents/Corrupted Deployment.asset

@@ -14,25 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Encounters
   m_GUID: 732b77c649240cb42a7115161f060002
-  m_SerializeEntries:
-  - m_GUID: 1a0a1a60912ebd542a481f65cf19c238
-    m_Address: Assets/Scripts/Encounter/SO/Small-Bugs.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Encounters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d9021be70bfad00439ffdae88725ff15
-    m_Address: Assets/Scripts/Encounter/SO/Elite-1.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Encounters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: df008a60b65330d42967cc8b3ec7c4b4
-    m_Address: Assets/Scripts/Encounter/SO/Small-Bugs2.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Encounters
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 15b6925e3fd96a340899b65feef9657a, type: 2}
   m_SchemaSet:

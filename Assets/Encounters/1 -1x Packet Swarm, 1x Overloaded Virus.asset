@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7492cec2995f634a886dd16acb6349c, type: 3}
+  m_Name: 1 -1x Packet Swarm, 1x Overloaded Virus
+  m_EditorClassIdentifier: 
+  encounterNodeType: 0
+  enemyPrefabs:
+  - {fileID: 1793707760927693826, guid: d603f781c79158843aeea4460c94f6de, type: 3}
+  - {fileID: 1793707760927693826, guid: 9f2e87fb22615c746bdc9b3e0f614f74, type: 3}
+  goldReward: 100

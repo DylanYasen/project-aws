@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7492cec2995f634a886dd16acb6349c, type: 3}
+  m_Name: Elite-1x Malicious Bot, 1x Compliance Enforcer (Elite)
+  m_EditorClassIdentifier: 
+  encounterNodeType: 1
+  enemyPrefabs:
+  - {fileID: 1793707760927693826, guid: fab9f0e5f8cdf0b448e4cab7dd263ae8, type: 3}
+  - {fileID: 1793707760927693826, guid: 397d4ec0b0ea7ff4386a7474c9f220d2, type: 3}
+  goldReward: 200
