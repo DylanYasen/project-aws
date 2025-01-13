@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Memory Leak
   m_EditorClassIdentifier: 
   cardName: Memory Leak
-  description: Apply 5 damage at the start of each of the target's turns for 3 turns.
-  cost: 1
+  description: Apply 6 damage at the start of the target's turns for 3 turns.
+  cost: 2
   cardArt: {fileID: 21300000, guid: 61cdc6e241b3a6e41921254d097c77b7, type: 3}
   requiresTarget: 1
   price: 10
@@ -27,14 +27,16 @@ MonoBehaviour:
     - rid: 4438152529542643775
       type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         statusEffect:
           rid: 4438152529542643780
     - rid: 4438152529542643780
       type: {class: DamageOverTimeEffect, ns: , asm: Assembly-CSharp}
       data:
+        lifetimeType: 0
         duration: 3
         effectName: Damage Over Time
         description: Takes damage at the start of each turn
         isDebuff: 1
-        icon: {fileID: 0}
-        damagePerTurn: 5
+        icon: {fileID: 21300000, guid: 0f7dabb2b772ccd4caea6331b223ee6a, type: 3}
+        damagePerTurn: 6

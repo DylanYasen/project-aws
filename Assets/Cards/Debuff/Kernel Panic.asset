@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Kernel Panic
   description: Force a critical system failure. Stun an enemy, preventing their next
     action.
-  cost: 1
+  cost: 2
   cardArt: {fileID: 21300000, guid: c915dac3fde75614cb8983f25575cad7, type: 3}
   requiresTarget: 1
   price: 10
@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 4438152529542643779
       type: {class: StunEffect, ns: , asm: Assembly-CSharp}
       data:
+        lifetimeType: 0
         duration: 1
         effectName: Stunned
         description: 
