@@ -188,6 +188,8 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines(); // enemy turn coroutine is running on GM
         turnManager.currentState = TurnState.EndOfRound;
+        encounterManager.enemies.Clear();
+        encounterManager.currentEncounter = null;
         CombatSceneUIReferences.Instance.gameOverUI.SetActive(true);
     }
 
