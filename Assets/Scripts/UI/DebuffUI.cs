@@ -31,13 +31,11 @@ public class DebuffUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("buff hover");
-        TooltipUI.Instance.DisplayTooltip(effect.effectName, effect.description, transform.position);
+        TooltipUI.Instance.DisplayTooltip(effect.effectName, effect.GetDescription(), transform.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("buff hover exit");
         TooltipUI.Instance.Hide();
     }
 

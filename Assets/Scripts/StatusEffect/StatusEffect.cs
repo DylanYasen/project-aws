@@ -39,8 +39,10 @@ public abstract class StatusEffect
     }
     public virtual void OnRemove(Unit target) { }
     public virtual void OnBeforeAttack(Unit source, Unit target, ref int damage) { }
-    public virtual void OnTurnStart(Unit target) { }
-    public virtual void OnPreApplyDamage(Unit target, ref int damage) { }
+    public virtual void OnTurnStart(Unit target) { 
+        
+    }
+    public virtual void OnPreApplyDamage(Unit attacker, Unit target, ref int damage) { }
     public virtual void OnTurnEnd(Unit target)
     {
         if (lifetimeType == StatusEffectLifetimeType.TurnBased)
@@ -51,5 +53,10 @@ public abstract class StatusEffect
                 StatusEffectManager.Instance.RemoveEffect(target, this);
             }
         }
+    }
+
+    public virtual string GetDescription()
+    {
+        return description;
     }
 }
