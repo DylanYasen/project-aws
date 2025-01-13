@@ -13,9 +13,36 @@ MonoBehaviour:
   m_Name: Cold Start Strike
   m_EditorClassIdentifier: 
   cardName: Cold Start Strike
-  description: A powerful but delayed strike. Deals 10 damage after one turn.
-  cost: 1
+  description: Deals 12 damage and applies Vulnerability to the target, increasing
+    damage taken by 50% for the next 2 turns.
+  cost: 2
   cardArt: {fileID: 0}
-  requiresTarget: 0
+  requiresTarget: 1
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017142
+  - cardEffect:
+      rid: 8200514251462017143
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017142
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 12
+    - rid: 8200514251462017143
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        statusEffect:
+          rid: 8200514251462017144
+    - rid: 8200514251462017144
+      type: {class: VulnerableEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 2
+        effectName: Vulnerable
+        description: Takes 50% more damage
+        isDebuff: 1
+        icon: {fileID: 0}
+        damageIncrease: 0.5

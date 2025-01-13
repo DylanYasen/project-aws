@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Burst Scaling
   m_EditorClassIdentifier: 
   cardName: Burst Scaling
-  description: Unleash a surge of power. Deals 6 damage to all enemies.
+  description: Unleash a surge of power. Deals 8 damage to all enemies.
   cost: 1
   cardArt: {fileID: 0}
   requiresTarget: 0
@@ -27,4 +27,5 @@ MonoBehaviour:
     - rid: 4438152483666657548
       type: {class: DamageAllEffect, ns: , asm: Assembly-CSharp}
       data:
-        damageAmount: 6
+        targetType: 0
+        damageAmount: 8

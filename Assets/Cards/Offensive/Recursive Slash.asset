@@ -13,9 +13,31 @@ MonoBehaviour:
   m_Name: Recursive Slash
   m_EditorClassIdentifier: 
   cardName: Recursive Slash
-  description: Call the same function again and again. Deals 5 damage twice.
+  description: Apply 5 damage per turn to target for 3 turns
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017302
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017302
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        statusEffect:
+          rid: 8200514251462017303
+    - rid: 8200514251462017303
+      type: {class: DamageOverTimeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 3
+        effectName: Recursive Damage
+        description: Take 3 damage per turn
+        isDebuff: 1
+        isHidden: 0
+        icon: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+        damagePerTurn: 5

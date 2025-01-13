@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Event Trigger
   m_EditorClassIdentifier: 
   cardName: Event Trigger
-  description: Execute based on conditions. Gain 5 block and draw 1 card if below
-    50% HP.
+  description: 'If you''ve already played a card this turn, draw 1 card and gain
+    1 energy '
   cost: 0
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
   effects: []
+  references:
+    version: 2
+    RefIds: []

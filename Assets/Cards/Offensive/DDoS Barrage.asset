@@ -13,9 +13,26 @@ MonoBehaviour:
   m_Name: DDoS Barrage
   m_EditorClassIdentifier: 
   cardName: DDoS Barrage
-  description: Flood the enemy with requests. Deals 3 damage 5 times.
-  cost: 1
+  description: Remove all block from the target, then deal 8 damage.
+  cost: 2
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017300
+  - cardEffect:
+      rid: 8200514251462017301
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017300
+      type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        blockAmount: -99999
+    - rid: 8200514251462017301
+      type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        damage: 8

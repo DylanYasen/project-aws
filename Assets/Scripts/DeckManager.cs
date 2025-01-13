@@ -102,23 +102,15 @@ public class DeckManager
 
     public void InitStarterDeck()
     {
-        AddCardToDeck("Instant Invoke", 2);
-        AddCardToDeck("Cache Hit", 2);
-        AddCardToDeck("Throughput Surge", 2);
-        AddCardToDeck("Lambda Invocation", 2);
-
-        AddCardToDeck("Kernel Panic", 2);
-
-        AddCardToDeck("Cold Start Strike", 1);
-        AddCardToDeck("Burst Scaling", 1);
-
+        AddCardToDeck("Instant Invoke", 3);
         AddCardToDeck("Error Retry", 2);
+        AddCardToDeck("Cache Hit", 1);
         AddCardToDeck("Cloud Shield", 1);
-
+        AddCardToDeck("Lambda Invocation", 1);
+        AddCardToDeck("Cold Start Strike", 1);
+        AddCardToDeck("Function Migration", 1);
         AddCardToDeck("Auto-Scaling", 1);
-        AddCardToDeck("CloudWatch Logs", 1);
-
-        AddCardToDeck("System Reboot", 1);
+        AddCardToDeck("Event Trigger", 1);
     }
 
     public void AddCardToDeck(string cardName, int count)

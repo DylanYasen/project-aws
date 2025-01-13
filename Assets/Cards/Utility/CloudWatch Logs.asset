@@ -19,3 +19,6 @@ MonoBehaviour:
   requiresTarget: 0
   price: 10
   effects: []
+  references:
+    version: 2
+    RefIds: []

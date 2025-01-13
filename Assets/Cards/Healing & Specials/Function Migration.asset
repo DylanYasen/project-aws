@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Function Migration
   m_EditorClassIdentifier: 
   cardName: Function Migration
-  description: Replace a card in your hand with a random card.
+  description: Replace a card in your hand with a random card and gain 1 energy
   cost: 1
   cardArt: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
   requiresTarget: 0
@@ -23,6 +23,8 @@ MonoBehaviour:
       rid: 8200514251462017272
   - cardEffect:
       rid: 8200514251462017274
+  - cardEffect:
+      rid: 8200514251462017313
   references:
     version: 2
     RefIds:
@@ -38,3 +40,8 @@ MonoBehaviour:
         modificationType: 0
         amount: 1
         targetCardName: 
+    - rid: 8200514251462017313
+      type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        energyAmount: 1
