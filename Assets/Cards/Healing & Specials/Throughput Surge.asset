@@ -29,8 +29,10 @@ MonoBehaviour:
     - rid: 4438152483666657546
       type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         energyAmount: 3
     - rid: 4438152483666657547
       type: {class: HealEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         healAmount: -5

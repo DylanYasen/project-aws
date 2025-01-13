@@ -19,4 +19,36 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017279
+  - cardEffect:
+      rid: 8200514251462017280
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017279
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        drawAmount: 1
+    - rid: 8200514251462017280
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        statusEffect:
+          rid: 8200514251462017281
+    - rid: 8200514251462017281
+      type: {class: ModifyCardCostEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 1
+        effectName: Modify Card Cost
+        description: 
+        isDebuff: 0
+        isHidden: 1
+        icon: {fileID: 0}
+        modificationType: 2
+        target: 0
+        targetCardName: 
+        costChange: -999

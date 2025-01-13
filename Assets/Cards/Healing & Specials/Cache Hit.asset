@@ -29,8 +29,10 @@ MonoBehaviour:
     - rid: 4438152483666657542
       type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         drawAmount: 2
     - rid: 4438152483666657543
       type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         energyAmount: 1
