@@ -6,6 +6,7 @@ public class Unit : MonoBehaviour
     public int maxEnergy = 3;
 
     public bool isStunned = false;
+    public bool isInvulnerable = false;
 
     public int currentHP { get; protected set; }
     public int block { get; protected set; }

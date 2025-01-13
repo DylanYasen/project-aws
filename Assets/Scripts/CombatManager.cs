@@ -19,6 +19,13 @@ public class CombatManager
         if (target == null) return;
 
         Debug.Log($"Applying damage: {rawDamage} to {target.name}");
+
+        if (target.isInvulnerable)
+        {
+            Debug.Log($"{target.name} is invulnerable, damage not applied");
+            return;
+        }
+
         StatusEffectManager.Instance.OnPreApplyDamage(attacker, target, ref rawDamage);
 
         Debug.Log($"Post Effect Applying damage: {rawDamage} to {target.name}");
