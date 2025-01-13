@@ -38,6 +38,8 @@ public class StatusEffectManager
                 effect.OnRemove(target);
             }
         }
+
+        target.combatStatUI?.SetDebuffs(effectsByUnit[target]);
     }
 
     public List<StatusEffect> GetEffects(Unit target)
@@ -88,13 +90,13 @@ public class StatusEffectManager
         }
     }
 
-    public void OnPreApplyDamage(Unit target, ref int damage)
+    public void OnPreApplyDamage(Unit attacker, Unit target, ref int damage)
     {
         if (!effectsByUnit.ContainsKey(target)) return;
 
         foreach (var effect in effectsByUnit[target])
         {
-            effect.OnPreApplyDamage(target, ref damage);
+            effect.OnPreApplyDamage(attacker, target, ref damage);
         }
     }
 }

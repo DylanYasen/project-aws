@@ -17,7 +17,7 @@ public class VulnerableEffect : StatusEffect
         Debug.Log($"Applied Vulnerable to {target.name}");
     }
 
-    public override void OnPreApplyDamage(Unit target, ref int damage)
+    public override void OnPreApplyDamage(Unit attacker, Unit target, ref int damage)
     {
         int newDamage = (int)((float)damage * (float)(1 + damageIncrease));
         Debug.Log($"Vulnerable damage increase: {damage} -> {newDamage} to {target.name}");

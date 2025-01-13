@@ -19,7 +19,7 @@ public class CombatManager
         if (target == null) return;
 
         Debug.Log($"Applying damage: {rawDamage} to {target.name}");
-        StatusEffectManager.Instance.OnPreApplyDamage(target, ref rawDamage);
+        StatusEffectManager.Instance.OnPreApplyDamage(attacker, target, ref rawDamage);
 
         Debug.Log($"Post Effect Applying damage: {rawDamage} to {target.name}");
 
