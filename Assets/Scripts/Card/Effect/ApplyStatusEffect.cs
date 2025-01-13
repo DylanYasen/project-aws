@@ -7,9 +7,7 @@ public class ApplyStatusEffect : CardEffect
 
     public override void Execute(Unit source, Unit target)
     {
-        if (target != null && statusEffect != null)
-        {
-            StatusEffectManager.Instance.AddEffect(target, statusEffect);
-        }
+        Unit actualTarget = GetTarget(source, target);
+        StatusEffectManager.Instance.AddEffect(actualTarget, statusEffect);
     }
 } 
