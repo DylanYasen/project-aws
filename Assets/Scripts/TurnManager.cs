@@ -51,6 +51,7 @@ public class TurnManager
         currentState = TurnState.PlayerTurn;
         OnPlayerTurnStart?.Invoke();
 
+        StatusEffectManager.Instance.OnTurnStart(Player.Instance);
 
         Player.Instance.StartTurn();
         Debug.Log("Player turn started.");
@@ -78,6 +79,8 @@ public class TurnManager
 
         Debug.Log("Player turn ended.");
         GameManager.Instance.StartCoroutine(EnemyTurn());
+
+        StatusEffectManager.Instance.OnTurnEnd(Player.Instance);
     }
 
     private IEnumerator EnemyTurn()
