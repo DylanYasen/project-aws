@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1 -2x Packet Swarm
   m_EditorClassIdentifier: 
   encounterNodeType: 0
+  minRequiredLevel: 1
   enemyPrefabs:
   - {fileID: 1793707760927693826, guid: d603f781c79158843aeea4460c94f6de, type: 3}
   - {fileID: 1793707760927693826, guid: d603f781c79158843aeea4460c94f6de, type: 3}

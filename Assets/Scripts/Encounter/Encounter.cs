@@ -8,6 +8,9 @@ public class Encounter : ScriptableObject
 {
     public NodeType encounterNodeType;
 
+    [Tooltip("Player needs to be at least passed this number of nodes to unlock this encounter")]
+    public int minRequiredLevel;
+
     [Header("Enemies")]
     public List<GameObject> enemyPrefabs = new();
 

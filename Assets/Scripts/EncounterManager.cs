@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Map;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -48,7 +49,10 @@ public class EncounterManager
     public void SpawnEncounter()
     {
         var encounters = nodeTypeToEncounters[currentEncounterNodeType];
-        var encounter = encounters[Random.Range(0, encounters.Count)];
+
+        var eligibleEncounters = encounters.Where(encounter => encounter.minRequiredLevel <= GameManager.Instance.traveledNodeCount).ToList();
+
+        var encounter = eligibleEncounters[Random.Range(0, eligibleEncounters.Count)];
 
         currentEncounter = encounter;
 

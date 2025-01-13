@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int Gold { get; private set; }
     public event System.Action<int> OnGoldChanged;
 
+    public int traveledNodeCount = -1;
 
     private void Awake()
     {
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour
     public void EnterMapScene()
     {
         SceneManager.LoadScene("MapScene");
+        traveledNodeCount++;
     }
 
     public void StartCombatEncounter(Map.NodeType nodeType)
@@ -197,8 +199,8 @@ public class GameManager : MonoBehaviour
     {
         // @todo: kinda weird to clear map here but it's a quick workaround
         PlayerPrefs.DeleteKey("Map");
-
         SceneManager.LoadScene("Menu");
+        traveledNodeCount = -1;
     }
 
     public void AddGold(int amount)

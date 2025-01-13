@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Elite-1x Malicious Bot, 1x Compliance Enforcer (Elite)
   m_EditorClassIdentifier: 
   encounterNodeType: 1
+  minRequiredLevel: 3
   enemyPrefabs:
   - {fileID: 1793707760927693826, guid: fab9f0e5f8cdf0b448e4cab7dd263ae8, type: 3}
   - {fileID: 1793707760927693826, guid: 397d4ec0b0ea7ff4386a7474c9f220d2, type: 3}

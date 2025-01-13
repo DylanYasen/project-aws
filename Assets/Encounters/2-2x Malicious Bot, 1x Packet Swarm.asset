@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 2-2x Malicious Bot, 1x Packet Swarm
   m_EditorClassIdentifier: 
   encounterNodeType: 0
+  minRequiredLevel: 2
   enemyPrefabs:
   - {fileID: 1793707760927693826, guid: 397d4ec0b0ea7ff4386a7474c9f220d2, type: 3}
   - {fileID: 1793707760927693826, guid: 397d4ec0b0ea7ff4386a7474c9f220d2, type: 3}
