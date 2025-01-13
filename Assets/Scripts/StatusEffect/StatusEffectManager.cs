@@ -25,6 +25,8 @@ public class StatusEffectManager
             effectsByUnit[target].Add(effect);
         }
         effect.OnApply(target);
+
+        target.combatStatUI?.SetDebuffs(effectsByUnit[target]);
     }
 
     public void RemoveEffect(Unit target, StatusEffect effect)
@@ -70,6 +72,8 @@ public class StatusEffectManager
                 RemoveEffect(target, effect);
             }
         }
+
+        target.combatStatUI?.SetDebuffs(effectsByUnit[target]);
     }
 
     public void ClearAllEffects(Unit target)

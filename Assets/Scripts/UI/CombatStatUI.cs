@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,8 +11,26 @@ public class CombatStatUI : MonoBehaviour
 
     public Image healthBar;
 
+    public DebuffUI[] debuffs;
+
+
     private void Awake()
     {
+        
+    }
+
+    public void SetDebuffs(List<StatusEffect> effects)
+    {
+        for (int i = 0; i < effects.Count; i++)
+        {
+            debuffs[i].SetEffect(effects[i]);
+            debuffs[i].ToggleVisibility(true);
+        }
+
+        for (int i = effects.Count; i < debuffs.Length; i++)
+        {
+            debuffs[i].ToggleVisibility(false);
+        }
     }
 
     public void SetHealth(int currHealth, int maxHealth)

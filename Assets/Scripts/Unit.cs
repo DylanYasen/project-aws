@@ -11,7 +11,7 @@ public class Unit : MonoBehaviour
     public int block { get; protected set; }
     public int currentEnergy { get; protected set; }
 
-    protected CombatStatUI combatStatUI;
+    public CombatStatUI combatStatUI;
 
     SpriteRenderer spriteRenderer;
 
