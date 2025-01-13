@@ -9,7 +9,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public TMP_Text descriptionText;
     public Image cardArtImage;
 
-    private Card card;
+    public Card card;
 
     private Vector3 originalScale;
     private Vector3 originalPosition;
@@ -148,5 +148,11 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void Destroy()
+    {
+        // @todo: polish with some fancy animation if time allows
+        GameObject.Destroy(gameObject);
     }
 }

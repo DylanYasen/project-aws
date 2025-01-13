@@ -17,6 +17,8 @@ public class DeckManager
 
     public Card lastDrawnCard{ get; private set; }
 
+    public Dictionary<Card, CardUI> handCardUIsByCard = new();
+
     public event System.Action<Card> OnCardPlayed;
     public event System.Action<Card> OnCardDrawn;
 
@@ -95,6 +97,8 @@ public class DeckManager
             CardUI cardUI = cardObject.GetComponent<CardUI>();
             cardUI.Setup(drawnCard);
 
+            handCardUIsByCard[drawnCard] = cardUI;
+
             OnCardDrawn?.Invoke(drawnCard);
             lastDrawnCard = drawnCard;
         }
@@ -143,6 +147,12 @@ public class DeckManager
         Assert.IsTrue(hand.Contains(card), "Trying to remove Card not in hand from hand");
         hand.Remove(card);
         discardPile.Add(card);
+
+        if (handCardUIsByCard.TryGetValue(card, out CardUI cardUI))
+        {
+            cardUI.Destroy();
+            handCardUIsByCard.Remove(card);
+        }
     }
 
     public void AddCardToDeck(Card cardToAdd)
@@ -169,6 +179,14 @@ public class DeckManager
     public void RemoveCardFromDeck(Card card)
     {
         deck.Remove(card);
+    }
+
+    public void RemoveAllCardsFromHand()
+    {
+        for (int i = hand.Count - 1; i >= 0; i--)
+        {
+            RemoveCardFromHand(hand[i]);
+        }
     }
 
     public Card GetRandomCardInDeck()

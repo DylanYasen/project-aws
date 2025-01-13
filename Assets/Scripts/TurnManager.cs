@@ -78,9 +78,12 @@ public class TurnManager
         OnEnemyTurnStart?.Invoke();
 
         Debug.Log("Player turn ended.");
-        GameManager.Instance.StartCoroutine(EnemyTurn());
 
         StatusEffectManager.Instance.OnTurnEnd(Player.Instance);
+
+        DeckManager.Instance.RemoveAllCardsFromHand();
+
+        GameManager.Instance.StartCoroutine(EnemyTurn());
     }
 
     private IEnumerator EnemyTurn()
