@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7492cec2995f634a886dd16acb6349c, type: 3}
-  m_Name: Elite-1x Malicious Bot, 1x Compliance Enforcer (Elite) 1
+  m_Name: Elite-1x overloaded virus, 1x Compliance Enforcer (Elite) 1
   m_EditorClassIdentifier: 
   encounterNodeType: 1
   minRequiredLevel: 3
