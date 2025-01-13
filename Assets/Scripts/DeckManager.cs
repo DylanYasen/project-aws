@@ -15,6 +15,8 @@ public class DeckManager
     public List<Card> hand = new();
     public List<Card> discardPile = new();
 
+    public Card lastDrawnCard{ get; private set; }
+
     public event System.Action<Card> OnCardPlayed;
     public event System.Action<Card> OnCardDrawn;
 
@@ -94,12 +96,16 @@ public class DeckManager
             cardUI.Setup(drawnCard);
 
             OnCardDrawn?.Invoke(drawnCard);
+            lastDrawnCard = drawnCard;
         }
     }
 
     public void InitStarterDeck()
     {
         AddCardToDeck("Instant Invoke", 2);
+        AddCardToDeck("Cache Hit", 2);
+        AddCardToDeck("Throughput Surge", 2);
+        AddCardToDeck("Lambda Invocation", 2);
 
         AddCardToDeck("Kernel Panic", 2);
 
@@ -135,6 +141,18 @@ public class DeckManager
         return card;
     }
 
+    public Card FindCardInHandByName(string cardName)
+    {
+        return hand.Find(card => card.cardName == cardName);
+    }
+
+    public void RemoveCardFromHand(Card card)
+    {
+        Assert.IsTrue(hand.Contains(card), "Trying to remove Card not in hand from hand");
+        hand.Remove(card);
+        discardPile.Add(card);
+    }
+
     public void AddCardToDeck(Card cardToAdd)
     {
         if (cardToAdd == null)
@@ -164,6 +182,11 @@ public class DeckManager
     public Card GetRandomCardInDeck()
     {
         return deck[Random.Range(0, deck.Count)];
+    }
+
+    public Card GetRandomCardInHand()
+    {
+        return hand[Random.Range(0, hand.Count)];
     }
 
     private void ReshuffleDiscardPile()
