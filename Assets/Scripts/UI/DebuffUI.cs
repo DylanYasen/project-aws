@@ -9,11 +9,17 @@ public class DebuffUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Image icon;
     public TMP_Text durationText;
 
+    private StatusEffect effect;
+
     public void SetEffect(StatusEffect effect)
     {
-        icon.sprite = effect.icon;
+        if (effect != null)
+        {
+            icon.sprite = effect.icon;
+            durationText.text = effect.duration > 1 ? effect.duration.ToString() : "";
+        }
 
-        durationText.text = effect.duration > 1 ? effect.duration.ToString() : "";
+        this.effect = effect;
     }
 
     public void ToggleVisibility(bool visible)
@@ -26,11 +32,13 @@ public class DebuffUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("buff hover");
+        TooltipUI.Instance.DisplayTooltip(effect.effectName, effect.description, transform.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("buff hover exit");
+        TooltipUI.Instance.Hide();
     }
 
 }

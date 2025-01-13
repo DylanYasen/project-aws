@@ -29,6 +29,7 @@ public class CombatStatUI : MonoBehaviour
 
         for (int i = effects.Count; i < debuffs.Length; i++)
         {
+            debuffs[i].SetEffect(null);
             debuffs[i].ToggleVisibility(false);
         }
     }
