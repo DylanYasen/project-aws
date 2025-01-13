@@ -91,6 +91,8 @@ public class TurnManager
             if (enemy.isStunned)
             {
                 Debug.Log("Enemy " + enemy.name + " is stunned, skipping turn");
+                StatusEffectManager.Instance.OnTurnStart(enemy);
+                StatusEffectManager.Instance.OnTurnEnd(enemy);
                 continue;
             }
 
