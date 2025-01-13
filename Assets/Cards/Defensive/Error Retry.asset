@@ -27,4 +27,5 @@ MonoBehaviour:
     - rid: 4438152529542643772
       type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         blockAmount: 8

@@ -13,10 +13,38 @@ MonoBehaviour:
   m_Name: Load Balancer
   m_EditorClassIdentifier: 
   cardName: Load Balancer
-  description: Distribute the incoming load. Gain 7 block and reflect 3 damage to
-    the attacker.
+  description: Distribute the incoming load. Gain 7 block and reflect 50% damage
+    to the attacker for 1 turn
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 91f3a59db48995646a98d1c1658bb71e, type: 3}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017239
+  - cardEffect:
+      rid: 8200514251462017240
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017239
+      type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        blockAmount: 7
+    - rid: 8200514251462017240
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        statusEffect:
+          rid: 8200514251462017243
+    - rid: 8200514251462017243
+      type: {class: DamageReflectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 1
+        effectName: Damage Reflect
+        description: Reflect 50% damage to the attacker
+        isDebuff: 0
+        icon: {fileID: 21300000, guid: f8a1f73cbdc7f314681392d797c3c18a, type: 3}
+        reflectPercentage: 0.5

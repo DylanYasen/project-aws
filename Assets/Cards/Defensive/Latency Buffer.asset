@@ -12,11 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46207e6d22cc3634a9a824dbbc466d5d, type: 3}
   m_Name: Latency Buffer
   m_EditorClassIdentifier: 
-  cardName: Load Balancer
+  cardName: Latency Buffer
   description: Delay the impact of attacks. Gain 6 block this turn and 6 block next
     turn.
   cost: 1
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514251462017230
+  - cardEffect:
+      rid: 8200514251462017235
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514251462017230
+      type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        blockAmount: 6
+    - rid: 8200514251462017235
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        statusEffect:
+          rid: 8200514251462017237
+    - rid: 8200514251462017237
+      type: {class: DelayedBlockEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 1
+        effectName: Delayed Block
+        description: 
+        isDebuff: 0
+        icon: {fileID: 21300000, guid: f8a1f73cbdc7f314681392d797c3c18a, type: 3}
+        blockAmount: 6

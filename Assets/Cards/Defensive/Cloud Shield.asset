@@ -29,8 +29,10 @@ MonoBehaviour:
     - rid: 4438152529542643773
       type: {class: BlockEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         blockAmount: 5
     - rid: 4438152529542643774
       type: {class: HealEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 1
         healAmount: 3
