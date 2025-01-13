@@ -8,6 +8,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public TMP_Text cardNameText;
     public TMP_Text descriptionText;
     public Image cardArtImage;
+    public TMP_Text costText;
 
     public Card card;
 
@@ -34,6 +35,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         {
             cardArtImage.sprite = card.cardArt;
         }
+        costText.text = card.cost.ToString();
     }
 
     public void OnCardClicked()
