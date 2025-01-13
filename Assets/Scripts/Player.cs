@@ -67,7 +67,7 @@ public class Player : Unit
             energyBarUI.SetEnergy(currentEnergy);
         }
 
-        var target = targetObj ? targetObj.GetComponent<Unit>() : null;
+        var target = targetObj ? targetObj.GetComponent<Unit>() : this;  // @todo: might be better to add a "TargetSelf" flag
 
         ApplyCardEffect(card, this, target);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
