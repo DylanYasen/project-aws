@@ -11,7 +11,9 @@ public enum StatusEffectLifetimeType
 public enum CardModificationType
 {
     Random,     // Modify a random card
-    Specific    // Modify a specific card by name
+    Specific,    // Modify a specific card by name,
+    LastDrawn,    // Modify the last drawn card,
+    All,         // Modify all cards
 }
 
 public enum CardModificationTarget
@@ -28,6 +30,7 @@ public abstract class StatusEffect
     public string effectName;
     public string description;
     public bool isDebuff;
+    public bool isHidden;
     public Sprite icon;
 
     public StatusEffect()

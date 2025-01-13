@@ -21,13 +21,16 @@ public class CombatStatUI : MonoBehaviour
 
     public void SetDebuffs(List<StatusEffect> effects)
     {
-        for (int i = 0; i < effects.Count; i++)
+        int index = 0;
+        foreach (var effect in effects)
         {
-            debuffs[i].SetEffect(effects[i]);
-            debuffs[i].ToggleVisibility(true);
+            if (effect.isHidden) continue;
+            debuffs[index].SetEffect(effect);
+            debuffs[index].ToggleVisibility(true);
+            index++;
         }
 
-        for (int i = effects.Count; i < debuffs.Length; i++)
+        for (int i = index; i < debuffs.Length; i++)
         {
             debuffs[i].SetEffect(null);
             debuffs[i].ToggleVisibility(false);
