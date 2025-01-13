@@ -13,6 +13,15 @@ public class StatusEffectManager
         Instance = this;
     }
 
+    public List<StatusEffect> GetEffectsForUnit(Unit target)
+    {
+        if (effectsByUnit.TryGetValue(target, out var effects))
+        {
+            return new List<StatusEffect>(effects);
+        }
+        return new List<StatusEffect>();
+    }
+
     public void AddEffect(Unit target, StatusEffect effect)
     {
         if (!effectsByUnit.ContainsKey(target))
