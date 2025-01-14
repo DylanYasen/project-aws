@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -29,6 +30,7 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public void Setup(Card cardData)
     {
         card = cardData;
+        card.OnCostChanged += OnCostChanged;
         cardNameText.text = card.cardName;
         descriptionText.text = card.description;
         if (card.cardArt != null)
@@ -36,6 +38,11 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
             cardArtImage.sprite = card.cardArt;
         }
         costText.text = card.cost.ToString();
+    }
+
+    private void OnCostChanged(int newCost)
+    {
+        costText.text = newCost.ToString();
     }
 
     public void OnCardClicked()
@@ -156,5 +163,10 @@ public class CardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     {
         // @todo: polish with some fancy animation if time allows
         GameObject.Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        card.OnCostChanged -= OnCostChanged;
     }
 }

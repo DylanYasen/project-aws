@@ -34,8 +34,10 @@ public class ModifyCardCostEffect : StatusEffect
             foreach (var targetCard in deck.hand)
             {
                 modificationRecords.Add(new ModificationRecord { card = targetCard, originalCost = targetCard.cost });
-                targetCard.cost = Mathf.Max(0, targetCard.cost + costChange);
+                targetCard.ModifyCost(costChange);
                 Debug.Log($"Modified {targetCard.name}'s cost by {costChange}. New cost: {targetCard.cost}");
+
+                deck.RefreshCardUI(targetCard);
             }
         }
         else
@@ -71,8 +73,11 @@ public class ModifyCardCostEffect : StatusEffect
 
 
             // Modify the card's cost
-            targetCard.cost = Mathf.Max(0, targetCard.cost + costChange);
+            targetCard.ModifyCost(costChange);
             Debug.Log($"Modified {targetCard.name}'s cost by {costChange}. New cost: {targetCard.cost}");
+
+            deck.RefreshCardUI(targetCard);
+
         }
 
     }
@@ -84,6 +89,7 @@ public class ModifyCardCostEffect : StatusEffect
         foreach (var record in modificationRecords)
         {
             record.card.cost = record.originalCost;
+            DeckManager.Instance.RefreshCardUI(record.card);
         }
     }
 }

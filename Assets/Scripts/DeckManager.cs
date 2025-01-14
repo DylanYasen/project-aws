@@ -199,6 +199,15 @@ public class DeckManager
         return hand[Random.Range(0, hand.Count)];
     }
 
+    public void RefreshCardUI(Card card)
+    {
+        if (handCardUIsByCard.TryGetValue(card, out CardUI cardUI))
+        {
+            Debug.Log($"Refreshing card UI for {card.cardName}");
+            cardUI.Setup(card);
+        }
+    }
+
     private void ReshuffleDiscardPile()
     {
         deck.AddRange(discardPile);
