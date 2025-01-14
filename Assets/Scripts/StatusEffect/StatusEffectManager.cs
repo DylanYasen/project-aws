@@ -89,6 +89,7 @@ public class StatusEffectManager
             effect.OnTurnEnd(target);
             if (effect.duration <= 0)
             {
+                Debug.Log($"duration depleted, removing effect {effect.effectName} from {target.name}");
                 RemoveEffect(target, effect);
             }
         }
@@ -102,6 +103,7 @@ public class StatusEffectManager
         {
             foreach (var effect in effects)
             {
+                Debug.Log($"clearing effect {effect.effectName} from {target.name}");
                 effect.OnRemove(target);
             }
             effects.Clear();
@@ -110,11 +112,20 @@ public class StatusEffectManager
 
     public void OnPreApplyDamage(Unit attacker, Unit target, ref int damage)
     {
-        if (!effectsByUnit.ContainsKey(target)) return;
-
-        foreach (var effect in effectsByUnit[target])
+        if (attacker != null && effectsByUnit.ContainsKey(attacker))
         {
-            effect.OnPreApplyDamage(attacker, target, ref damage);
+            foreach (var effect in effectsByUnit[attacker])
+            {
+                effect.OnPreApplyDamage(attacker, target, ref damage);
+            }
+        }
+
+        if (target != null && effectsByUnit.ContainsKey(target))
+        {
+            foreach (var effect in effectsByUnit[target])
+            {
+                effect.OnPreApplyDamage(attacker, target, ref damage);
+            }
         }
     }
 }
