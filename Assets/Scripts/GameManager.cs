@@ -74,6 +74,13 @@ public class GameManager : MonoBehaviour
         {
             StartMysteryEvent();
         }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            foreach (var enemy in encounterManager.enemies)
+            {
+                enemy.Die();
+            }
+        }
     }
 #endif
     void Start()
