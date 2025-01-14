@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        Gold = 100; // Starting gold amount
+        Gold = 0; // Starting gold amount
         turnManager = new TurnManager();
         combatManager = new CombatManager();
         encounterManager = new EncounterManager();
@@ -80,6 +80,10 @@ public class GameManager : MonoBehaviour
             {
                 enemy.Die();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            Player.Instance.Die();
         }
     }
 #endif
@@ -174,9 +178,17 @@ public class GameManager : MonoBehaviour
 
     public void OnCombatEncounterEnd()
     {
-        GenerateLoot();
+        if (encounterManager.currentEncounter.encounterNodeType == Map.NodeType.Boss)
+        {
+            CombatSceneUIReferences.Instance.gameWonUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            GenerateLoot();
 
-        Player.Instance.EndCombat();
+            Player.Instance.EndCombat();
+        }
+
     }
 
     public void StartRestSite()
