@@ -51,9 +51,11 @@ public class TurnManager
         currentState = TurnState.PlayerTurn;
         OnPlayerTurnStart?.Invoke();
 
-        StatusEffectManager.Instance.OnTurnStart(Player.Instance);
 
         Player.Instance.StartTurn();
+
+        StatusEffectManager.Instance.OnTurnStart(Player.Instance);
+        
         Debug.Log("Player turn started.");
     }
 
