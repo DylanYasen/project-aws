@@ -24,9 +24,9 @@ public class ShopTrinketUI : MonoBehaviour
         purchaseButton.onClick.AddListener(() => purchaseCallback?.Invoke(this));
     }
 
-    public void SetSold()
+    public void Purchased()
     {
         purchaseButton.interactable = false;
-        priceText.text = "SOLD";
+        priceText.text = "Purchased";
     }
 }

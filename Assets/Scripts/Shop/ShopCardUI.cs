@@ -24,4 +24,10 @@ public class ShopCardUI : MonoBehaviour
         purchaseButton.onClick.RemoveAllListeners();
         purchaseButton.onClick.AddListener(() => purchaseCallback?.Invoke(this));
     }
+
+    public void Purchased()
+    {
+        purchaseButton.interactable = false;
+        priceText.text = "Purchased";
+    }
 }

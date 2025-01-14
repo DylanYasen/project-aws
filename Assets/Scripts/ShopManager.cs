@@ -40,6 +40,8 @@ public class ShopManager : MonoBehaviour
         if (GameManager.Instance.SpendGold(cardUI.card.price))
         {
             Debug.Log($"Purchased {cardUI.card.name} for {cardUI.card.price} gold.");
+            cardUI.Purchased();
+            DeckManager.Instance.AddCardToDeck(cardUI.card);
         }
         else
         {
@@ -52,6 +54,8 @@ public class ShopManager : MonoBehaviour
         if (GameManager.Instance.SpendGold(trinketUI.trinket.price))
         {
             Debug.Log($"Purchased {trinketUI.trinket.name} for {trinketUI.trinket.price} gold.");
+            trinketUI.Purchased();
+            TrinketManager.Instance.AddTrinketToPlayer(trinketUI.trinket);
         }
         else
         {

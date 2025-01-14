@@ -18,7 +18,6 @@ public class TrinketManager
         playerTrinkets = new List<Trinket>();
     }
 
-    // Add these new methods to manage player trinkets
     public void AddTrinketToPlayer(Trinket trinket)
     {
         if (trinket != null)
