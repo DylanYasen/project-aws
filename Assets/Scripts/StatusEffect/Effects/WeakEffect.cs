@@ -11,9 +11,11 @@ public class WeakEffect : StatusEffect
         isDebuff = true;
     }
 
-    public override void OnApply(Unit target)
+   
+    public override void OnPreApplyDamage(Unit attacker, Unit target, ref int damage)
     {
-        // Will implement damage reduction logic when we hook it up
-        Debug.Log($"Applied Weak to {target.name}");
+        int weakenedDamage = (int)((float)damage * (1.0f - damageReduction));
+        Debug.Log($"Weakened damage for {attacker.name} from {damage} to {weakenedDamage}");
+        damage = weakenedDamage;
     }
 }
