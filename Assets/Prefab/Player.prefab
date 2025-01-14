@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7797ff9565d954480afe1f1710eba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 80
+  maxHP: 25
   maxEnergy: 3
   isStunned: 0
-  maxHandSize: 5
+  isInvulnerable: 0
+  combatStatUI: {fileID: 0}
+  maxTurnStartDrawCount: 5

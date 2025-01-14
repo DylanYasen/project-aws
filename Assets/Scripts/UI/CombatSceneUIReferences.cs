@@ -9,6 +9,7 @@ public class CombatSceneUIReferences : MonoBehaviour
     public GameObject gameOverUI;
     public EnergyBarUI energyBar;
     public LootUI lootUI;
+    public UIGameWon gameWonUI;
 
     private void Awake()
     {
