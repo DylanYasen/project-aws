@@ -238,14 +238,8 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void Maintance()
+    public void MaintanceComplete()
     {
-        int healthToAdd = 10;
-
-        Player.Instance.SetHP(Player.Instance.currentHP + healthToAdd);
-
-        // @todo: add a delay and some juice before loading the map scene
-
         SceneManager.LoadScene("MapScene");
     }
 
