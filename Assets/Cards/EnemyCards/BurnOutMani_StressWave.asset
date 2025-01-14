@@ -19,6 +19,9 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: ca98aa70f80ca3c46989e4a2c13ab780, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197255
@@ -47,7 +50,7 @@ MonoBehaviour:
         description: all cards in hand cost 1 more energy
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 3d87ba54d8c79f84aa6c6ce4b3848b0a, type: 3}
+        icon: {fileID: 21300000, guid: 4fa6b97ce84936c4d8276c5c2d303dfa, type: 3}
         applicationType: 0
         modificationType: 3
         target: 0

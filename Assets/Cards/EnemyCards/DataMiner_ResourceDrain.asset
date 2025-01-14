@@ -18,6 +18,9 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197255
@@ -46,6 +49,6 @@ MonoBehaviour:
         description: Lose 10 gold
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 01cb54d1458fc4008a655dad9e2cd803, type: 3}
+        icon: {fileID: 21300000, guid: a4cf15d0246d54741ba8d8c34894f91f, type: 3}
         applicationType: 2
         goldAmount: -10

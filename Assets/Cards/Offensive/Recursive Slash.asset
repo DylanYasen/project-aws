@@ -41,6 +41,6 @@ MonoBehaviour:
         description: Take 3 damage per turn
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+        icon: {fileID: 21300000, guid: ad8cf96c26d67254096a78dd66fbe4db, type: 3}
         applicationType: 0
         damagePerTurn: 5

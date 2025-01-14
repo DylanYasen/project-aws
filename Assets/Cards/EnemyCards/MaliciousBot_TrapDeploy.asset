@@ -18,6 +18,9 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197255
@@ -35,11 +38,11 @@ MonoBehaviour:
       data:
         lifetimeType: 0
         duration: 1
-        effectName: Modify Card Cost
-        description: 
+        effectName: Entrapped
+        description: One random card in hand cost +1
         isDebuff: 0
         isHidden: 0
-        icon: {fileID: 0}
+        icon: {fileID: 21300000, guid: 12ca54ba357f8404fb621879ee775b2f, type: 3}
         applicationType: 2
         modificationType: 0
         target: 0

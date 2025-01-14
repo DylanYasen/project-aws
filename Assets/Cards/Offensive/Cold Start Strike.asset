@@ -49,6 +49,6 @@ MonoBehaviour:
         description: Takes 50% more damage
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 0}
+        icon: {fileID: 21300000, guid: e5f5ff0de20c61244af080e937f6eece, type: 3}
         applicationType: 0
         damageIncrease: 0.5

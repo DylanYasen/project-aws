@@ -20,6 +20,8 @@ MonoBehaviour:
   requiresTarget: 1
   price: 10
   cooldown: 1
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197334
@@ -48,6 +50,6 @@ MonoBehaviour:
         description: Draw 1 less card on turn start
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: ce3e47a1f6038d7458e5fdf7a431f186, type: 3}
+        icon: {fileID: 21300000, guid: 753ce31440da1164597cf4097735e582, type: 3}
         applicationType: 0
         drawCountModifier: -1

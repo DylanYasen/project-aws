@@ -18,6 +18,9 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197255
@@ -39,6 +42,6 @@ MonoBehaviour:
         description: Takes damage at the end of each turn
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 3afe9266576aa4041b27d5775e70022c, type: 3}
+        icon: {fileID: 21300000, guid: b6dc01cf411a0114e91cf8d22f75414c, type: 3}
         applicationType: 2
         damagePerTurn: 5

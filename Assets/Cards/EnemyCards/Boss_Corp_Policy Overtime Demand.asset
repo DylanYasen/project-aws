@@ -20,6 +20,8 @@ MonoBehaviour:
   requiresTarget: 1
   price: 10
   cooldown: 1
+  condition: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514275583197323
@@ -48,6 +50,6 @@ MonoBehaviour:
         description: Start turn with 1 less Energy
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 41a67887632d04949917f3d951dcb57b, type: 3}
+        icon: {fileID: 21300000, guid: 3562573ae3a0c1b46905aa29d6d54d4e, type: 3}
         applicationType: 0
         energyModifier: -1

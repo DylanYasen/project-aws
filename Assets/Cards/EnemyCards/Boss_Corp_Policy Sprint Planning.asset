@@ -19,6 +19,7 @@ MonoBehaviour:
   requiresTarget: 1
   price: 10
   cooldown: 3
+  condition: 0
   unitAnimType: 7
   effects:
   - cardEffect:
@@ -41,5 +42,5 @@ MonoBehaviour:
         description: Cannot take actions this turn
         isDebuff: 1
         isHidden: 0
-        icon: {fileID: 21300000, guid: 3fb8635491c699b429679c443aa6ab0d, type: 3}
+        icon: {fileID: 21300000, guid: efb08ccd64f43d14bb00934cdbf7bb7c, type: 3}
         applicationType: 0

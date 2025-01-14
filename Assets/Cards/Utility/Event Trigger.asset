@@ -20,8 +20,23 @@ MonoBehaviour:
   requiresTarget: 0
   price: 10
   cooldown: 0
+  condition: 1
   unitAnimType: 7
-  effects: []
+  effects:
+  - cardEffect:
+      rid: 8200514295256318067
+  - cardEffect:
+      rid: 8200514295256318068
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8200514295256318067
+      type: {class: DrawCardEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        drawAmount: 1
+    - rid: 8200514295256318068
+      type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 1
+        energyAmount: 1
