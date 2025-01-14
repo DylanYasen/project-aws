@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Player : Unit
 {
-    public int maxHandSize = 5;
+    public int maxTurnStartDrawCount = 5; 
     public static Player Instance { get; private set; }
+
+    public int DamageDealtThisTurn { get; private set; }
+    public int CardsPlayedThisTurn { get; private set; }
 
     EnergyBarUI energyBarUI;
 
@@ -17,7 +20,6 @@ public class Player : Unit
             return;
         }
         Instance = this;
-
 
         DontDestroyOnLoad(this);
         SetVisible(false);
@@ -46,12 +48,16 @@ public class Player : Unit
     {
         base.StartTurn();
 
+        // Reset turn stats
+        DamageDealtThisTurn = 0;
+        CardsPlayedThisTurn = 0;
+
         currentEnergy = maxEnergy;
 
         if (!energyBarUI) energyBarUI = GameObject.Find("UI EnergyBar").GetComponent<EnergyBarUI>();
         energyBarUI.SetEnergy(currentEnergy);
 
-        DeckManager.Instance.DrawCards(maxHandSize - DeckManager.Instance.hand.Count);
+        DeckManager.Instance.DrawCards(maxTurnStartDrawCount);
     }
 
     public void PlayCard(Card card, GameObject targetObj = null)
@@ -61,6 +67,8 @@ public class Player : Unit
             Debug.Log("Not enough energy!");
             return;
         }
+
+        CardsPlayedThisTurn++;
 
         {
             currentEnergy -= card.cost;
@@ -87,6 +95,11 @@ public class Player : Unit
         GameManager.Instance.GameOver();
 
         base.Die();
+    }
+
+    public void AddDamageDealt(int damage)
+    {
+        DamageDealtThisTurn += damage;
     }
 
 }

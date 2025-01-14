@@ -6,7 +6,6 @@ public class CombatManager
     public static CombatManager Instance;
 
     public event Action<Unit, int> OnBlockConsumed;
-
     public event Action<Unit, int> OnDamageTaken;
 
     public CombatManager()
@@ -41,6 +40,12 @@ public class CombatManager
 
         target.TakeDamage(damageAfterBlock);
 
+        // Track player damage
+        if (attacker == Player.Instance)
+        {
+            Player.Instance.AddDamageDealt(damageAfterBlock);
+        }
+
         // @todo: these events are kinda messy, clean up and consolidate
         OnDamageTaken?.Invoke(target, damageAfterBlock);
 
@@ -58,10 +63,16 @@ public class CombatManager
 
     public void ApplyBlock(Unit target, int blockAmount)
     {
-        Debug.Log($"ApplyBlock called to {target.name}");
+        Debug.Log($"Applying block to {target.name}");
+
         if (target == null) return;
 
+        StatusEffectManager.Instance.OnPreGainBlock(target, ref blockAmount);
+
+        Debug.Log($"Post Effect Applying block: {blockAmount} to {target.name}");
+
         target.AddBlock(blockAmount);
+
         Debug.Log($"{target.name} gained {blockAmount} block.");
     }
 }
