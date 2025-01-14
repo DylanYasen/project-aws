@@ -21,6 +21,8 @@ public class Card : ScriptableObject
 
     public int cooldown; // used for enemy cards
 
+    public Unit.UnitAnimationType unitAnimType = Unit.UnitAnimationType.Attacking;
+
     public List<CardEffectEntry> effects = new();
 
     public Action<int> OnCostChanged;

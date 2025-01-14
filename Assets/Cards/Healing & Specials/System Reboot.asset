@@ -18,6 +18,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 1
   effects:
   - cardEffect:
       rid: 4438152483666657544
@@ -29,7 +31,9 @@ MonoBehaviour:
     - rid: 4438152483666657544
       type: {class: HealEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         healAmount: 10
     - rid: 4438152483666657545
       type: {class: EndTurnEffect, ns: , asm: Assembly-CSharp}
-      data: 
+      data:
+        targetType: 0

@@ -18,6 +18,8 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 7
   effects:
   - cardEffect:
       rid: 4438152483666657549
@@ -27,4 +29,5 @@ MonoBehaviour:
     - rid: 4438152483666657549
       type: {class: EnergyEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         energyAmount: 2

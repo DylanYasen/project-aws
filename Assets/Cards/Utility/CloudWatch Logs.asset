@@ -18,6 +18,8 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 7
   effects: []
   references:
     version: 2

@@ -19,6 +19,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 91f3a59db48995646a98d1c1658bb71e, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 3
   effects:
   - cardEffect:
       rid: 8200514251462017239
@@ -46,5 +48,7 @@ MonoBehaviour:
         effectName: Damage Reflect
         description: Reflect 50% damage to the attacker
         isDebuff: 0
+        isHidden: 0
         icon: {fileID: 21300000, guid: f8a1f73cbdc7f314681392d797c3c18a, type: 3}
+        applicationType: 0
         reflectPercentage: 0.5

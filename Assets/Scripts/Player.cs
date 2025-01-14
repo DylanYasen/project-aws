@@ -82,6 +82,7 @@ public class Player : Unit
         ApplyCardEffect(card, this, target);
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
 
+        Animate(card.unitAnimType);
     }
 
     public override void AddEnergy(int amount)

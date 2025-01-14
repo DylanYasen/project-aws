@@ -37,6 +37,11 @@ public class StatusEffectManager
         {
             effect.OnApply(target);
         }
+        
+        if(effect.isDebuff)
+        {
+            target.Animate(Unit.UnitAnimationType.Debuffing);
+        }
 
         target.combatStatUI?.SetDebuffs(effectsByUnit[target]);
     }

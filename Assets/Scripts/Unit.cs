@@ -29,7 +29,9 @@ public class Unit : MonoBehaviour
         Healing,
         Blocking,
         TakingDamage,
-        Death
+        Death,
+        Debuffing,
+        BasicAction
     }
 
     protected virtual void Awake()
@@ -170,12 +172,44 @@ public class Unit : MonoBehaviour
             case UnitAnimationType.Attacking:
                 LeanTween.cancel(gameObject);
                 
-                // Forward lunge - multiply by direction
-                LeanTween.moveLocalX(gameObject, transform.localPosition.x + (0.2f * directionMultiplier), 0.2f)
+                Vector3 startPos = transform.position;
+                
+                // Create slash blur effect first
+                GameObject blurObj = new GameObject("AttackBlur");
+                blurObj.transform.SetParent(transform);
+                blurObj.transform.localPosition = Vector3.zero;
+                
+                SpriteRenderer blurSprite = blurObj.AddComponent<SpriteRenderer>();
+                blurSprite.sprite = spriteRenderer.sprite;
+                blurSprite.color = new Color(1f, 1f, 1f, 0.3f);
+                blurSprite.sortingOrder = spriteRenderer.sortingOrder - 1; // Behind the main sprite
+                
+                // Ultra-fast forward slash
+                LeanTween.moveX(gameObject, startPos.x + (0.4f * directionMultiplier), 0.06f) // Extremely quick
+                    .setEaseInExpo(); // Sharp acceleration
+                
+                // Slight upward arc during slash
+                LeanTween.moveY(gameObject, startPos.y + 0.05f, 0.06f)
                     .setEaseOutQuad()
                     .setOnComplete(() => {
-                        LeanTween.moveLocalX(gameObject, originalPosition.x, 0.3f)
-                            .setEaseOutBounce();
+                        // Instant return to original position
+                        LeanTween.moveX(gameObject, startPos.x, 0.04f)
+                            .setEaseOutQuad();
+                        LeanTween.moveY(gameObject, startPos.y, 0.04f)
+                            .setEaseOutQuad();
+                    });
+                
+                // Aggressive motion blur effect
+                Vector3 stretchScale = new Vector3(3f * directionMultiplier, 0.8f, 1f); // More horizontal stretch, slight vertical squeeze
+                blurObj.transform.localScale = Vector3.zero;
+                
+                // Quick blur appearance and fade
+                LeanTween.scale(blurObj, stretchScale, 0.06f)
+                    .setEaseOutExpo();
+                LeanTween.alpha(blurObj, 0f, 0.1f)
+                    .setEaseLinear()
+                    .setOnComplete(() => {
+                        Destroy(blurObj);
                     });
                 break;
 
@@ -265,6 +299,71 @@ public class Unit : MonoBehaviour
                             
                         LeanTween.alpha(gameObject, 0f, 0.5f)
                             .setEaseInQuad();
+                    });
+                break;
+
+            case UnitAnimationType.Debuffing:
+                LeanTween.cancel(gameObject);
+                
+                // Initial darkening and shrink
+                LeanTween.scale(gameObject, originalScale * 0.9f, 0.3f)
+                    .setEaseOutQuad();
+                
+                // Purple tint and fade
+                Color debuffColor = new Color(0.5f, 0f, 0.5f, 0.7f); // Purple with 70% opacity
+                LeanTween.color(gameObject, debuffColor, 0.3f)
+                    .setEaseOutQuad()
+                    .setOnComplete(() => {
+                        // Create ripple effect using a sequence of scale/fade operations
+                        GameObject rippleObj = new GameObject("Ripple");
+                        rippleObj.transform.SetParent(transform);
+                        rippleObj.transform.localPosition = Vector3.zero;
+                        
+                        SpriteRenderer rippleSprite = rippleObj.AddComponent<SpriteRenderer>();
+                        rippleSprite.sprite = spriteRenderer.sprite;
+                        rippleSprite.color = new Color(0.5f, 0f, 0.5f, 0.3f);
+                        
+                        // Start ripple small and invisible
+                        rippleObj.transform.localScale = originalScale;
+                        
+                        // Grow and fade ripple
+                        LeanTween.scale(rippleObj, originalScale * 1.5f, 0.5f)
+                            .setEaseOutQuad();
+                        
+                        LeanTween.alpha(rippleObj, 0f, 0.5f)
+                            .setEaseOutQuad()
+                            .setOnComplete(() => {
+                                Destroy(rippleObj);
+                            });
+                            
+                        // Return main sprite to normal
+                        LeanTween.scale(gameObject, originalScale, 0.3f)
+                            .setEaseOutQuad();
+                        
+                        LeanTween.color(gameObject, originalColor, 0.3f)
+                            .setEaseOutQuad();
+                    });
+                break;
+
+            case UnitAnimationType.BasicAction:
+                LeanTween.cancel(gameObject);
+                
+                // Store initial position
+                Vector3 actionStartPos = transform.position;
+                
+                // Simultaneous hover and scale up
+                LeanTween.moveY(gameObject, actionStartPos.y + 0.1f, 0.2f)
+                    .setEaseOutQuad();
+                
+                LeanTween.scale(gameObject, originalScale * 1.1f, 0.2f)
+                    .setEaseOutQuad()
+                    .setOnComplete(() => {
+                        // Smooth return to original position and scale
+                        LeanTween.moveY(gameObject, actionStartPos.y, 0.3f)
+                            .setEaseInOutQuad();
+                        
+                        LeanTween.scale(gameObject, originalScale, 0.3f)
+                            .setEaseInOutQuad();
                     });
                 break;
         }

@@ -18,6 +18,8 @@ MonoBehaviour:
   cardArt: {fileID: 21300000, guid: 91f3a59db48995646a98d1c1658bb71e, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 7
   effects:
   - cardEffect:
       rid: 8200514251462017310

@@ -160,6 +160,8 @@ public class Enemy : Unit
             cardCooldowns[card] = card.cooldown;
         }
 
+        Animate(card.unitAnimType);
+    
         var target = GetTarget();
         ApplyCardEffect(card, this, target);
         Debug.Log($"Enemy {name} played {card.cardName} to target {target?.name}");
