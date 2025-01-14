@@ -49,7 +49,7 @@ public class CombatManager
         // @todo: these events are kinda messy, clean up and consolidate
         OnDamageTaken?.Invoke(target, damageAfterBlock);
 
-        Debug.Log($"{attacker.name} dealt {damageAfterBlock} damage to {target.name} (Raw: {rawDamage}, Block: {target.block}).");
+        Debug.Log($"{attacker?.name} dealt {damageAfterBlock} damage to {target.name} (Raw: {rawDamage}, Block: {target.block}).");
     }
 
     public void ApplyHealing(Unit target, int healAmount)
