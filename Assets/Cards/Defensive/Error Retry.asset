@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Error Retry
   description: Shield yourself from failure. Gain 8 block.
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: c941d21fcbc756a4587f2f7288e56626, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

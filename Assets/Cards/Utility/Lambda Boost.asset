@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Execute your function efficiently. Reduce the cost of all cards in
     hand by 1 this turn.
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 09bf0f054a69f5a4aaef5b3a5dd783e4, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Function Migration
   description: Replace a card in your hand with a random card and gain 1 energy
   cost: 1
-  cardArt: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+  cardArt: {fileID: 21300000, guid: 06f04597b65d65c44adb006f275f043b, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

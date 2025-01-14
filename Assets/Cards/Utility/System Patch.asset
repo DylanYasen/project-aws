@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: System Patch
   description: Apply a quick fix. Remove 1 random debuff from yourself.
   cost: 1
-  cardArt: {fileID: 21300000, guid: c49b2065b3c936d4399fa60b4a58a051, type: 3}
+  cardArt: {fileID: 21300000, guid: 582827656032de94989186f522d183c3, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

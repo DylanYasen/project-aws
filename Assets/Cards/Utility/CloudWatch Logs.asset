@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: CloudWatch Logs
   description: Analyze enemy activity. Reveal their next action.
   cost: 0
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 7f4375023b0e0684c9cae6e886904281, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

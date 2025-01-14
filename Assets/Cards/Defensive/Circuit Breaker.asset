@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: 'Circuit Breaker  '
   description: Stop the attack flow. Block all damage for 1 turn.
   cost: 2
-  cardArt: {fileID: 21300000, guid: ca98aa70f80ca3c46989e4a2c13ab780, type: 3}
+  cardArt: {fileID: 21300000, guid: 8edad885be43b6346af12dd793415ee5, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

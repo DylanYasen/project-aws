@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Delay the impact of attacks. Gain 6 block this turn and 6 block next
     turn.
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: ea820104ebc92c848b43aeace75e12dd, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

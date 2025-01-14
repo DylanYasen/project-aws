@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Invoke powerful functions. Draw 1 card and reduce its cost to 0 this
     turn.
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: f95a958a39e53074a878e1721b1cb863, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

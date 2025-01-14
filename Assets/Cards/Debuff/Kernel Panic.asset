@@ -16,9 +16,11 @@ MonoBehaviour:
   description: Force a critical system failure. Stun an enemy, preventing their next
     action.
   cost: 2
-  cardArt: {fileID: 21300000, guid: c915dac3fde75614cb8983f25575cad7, type: 3}
+  cardArt: {fileID: 21300000, guid: 338ff1c069ce8da47b636ddd2e10773a, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 4438152529542643775
@@ -28,6 +30,7 @@ MonoBehaviour:
     - rid: 4438152529542643775
       type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         statusEffect:
           rid: 4438152529542643779
     - rid: 4438152529542643779
@@ -38,4 +41,6 @@ MonoBehaviour:
         effectName: Stunned
         description: 
         isDebuff: 1
+        isHidden: 0
         icon: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+        applicationType: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Auto-Scaling
   description: Adapt to increased demand. Gain 2 energy for this turn.
   cost: 0
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 7c1b5fbce3471874ebb214e72a6865ee, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

@@ -15,9 +15,11 @@ MonoBehaviour:
   cardName: Recursive Slash
   description: Apply 5 damage per turn to target for 3 turns
   cost: 1
-  cardArt: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+  cardArt: {fileID: 21300000, guid: 42df85f3a2e75864ab4b68272f3c9ea6, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514251462017302
@@ -40,4 +42,5 @@ MonoBehaviour:
         isDebuff: 1
         isHidden: 0
         icon: {fileID: 21300000, guid: 71cc6a123601cfb4a900b8fbc771374f, type: 3}
+        applicationType: 0
         damagePerTurn: 5

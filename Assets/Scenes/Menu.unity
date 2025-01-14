@@ -1210,7 +1210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2defd9a42f47500438832db3e63d8d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideEncounter: {fileID: 0}
   combatStatsUIPrefab: {fileID: 7522464617445258991, guid: 54f816940ed62454a916f496a46af3a0, type: 3}
+  traveledNodeCount: -1
 --- !u!4 &1991026089
 Transform:
   m_ObjectHideFlags: 0

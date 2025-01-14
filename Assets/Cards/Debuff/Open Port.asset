@@ -16,9 +16,11 @@ MonoBehaviour:
   description: Exploit a critical vulnerability, increase the target's damage taken
     by 50% for 2 turns.
   cost: 1
-  cardArt: {fileID: 21300000, guid: c915dac3fde75614cb8983f25575cad7, type: 3}
+  cardArt: {fileID: 21300000, guid: 554254dccd3fa0a4dab3c4ad2022d234, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 4438152529542643775
@@ -28,6 +30,7 @@ MonoBehaviour:
     - rid: 4438152529542643775
       type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         statusEffect:
           rid: 4438152529542643778
     - rid: 4438152529542643778
@@ -38,5 +41,7 @@ MonoBehaviour:
         effectName: Vulnerable
         description: 
         isDebuff: 1
+        isHidden: 0
         icon: {fileID: 21300000, guid: c915dac3fde75614cb8983f25575cad7, type: 3}
+        applicationType: 0
         damageIncrease: 0.5

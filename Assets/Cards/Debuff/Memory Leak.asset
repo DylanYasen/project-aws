@@ -15,9 +15,11 @@ MonoBehaviour:
   cardName: Memory Leak
   description: Apply 6 damage at the start of the target's turns for 3 turns.
   cost: 2
-  cardArt: {fileID: 21300000, guid: 61cdc6e241b3a6e41921254d097c77b7, type: 3}
+  cardArt: {fileID: 21300000, guid: ed6d9eacde33d9643901f9236b063626, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 4438152529542643775
@@ -38,5 +40,7 @@ MonoBehaviour:
         effectName: Damage Over Time
         description: Takes damage at the start of each turn
         isDebuff: 1
+        isHidden: 0
         icon: {fileID: 21300000, guid: 0f7dabb2b772ccd4caea6331b223ee6a, type: 3}
+        applicationType: 0
         damagePerTurn: 6

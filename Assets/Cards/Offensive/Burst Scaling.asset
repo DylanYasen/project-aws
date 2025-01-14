@@ -15,9 +15,11 @@ MonoBehaviour:
   cardName: Burst Scaling
   description: Unleash a surge of power. Deals 8 damage to all enemies.
   cost: 1
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: bb1de77e5b1cdaa41b59fa4bcb1ece77, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 4438152483666657548

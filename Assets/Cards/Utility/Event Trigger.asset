@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 'If you''ve already played a card this turn, draw 1 card and gain
     1 energy '
   cost: 0
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 4bf3dc21c7e26044e9cb9fcf6ec76975, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

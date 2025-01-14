@@ -15,9 +15,11 @@ MonoBehaviour:
   cardName: DDoS Barrage
   description: Remove all block from the target, then deal 8 damage.
   cost: 2
-  cardArt: {fileID: 0}
+  cardArt: {fileID: 21300000, guid: 980f22c98dc44ce45bf6360f9df0c2ab, type: 3}
   requiresTarget: 0
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 8200514251462017300

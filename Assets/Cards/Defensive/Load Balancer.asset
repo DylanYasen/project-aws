@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Distribute the incoming load. Gain 7 block and reflect 50% damage
     to the attacker for 1 turn
   cost: 1
-  cardArt: {fileID: 21300000, guid: 91f3a59db48995646a98d1c1658bb71e, type: 3}
+  cardArt: {fileID: 21300000, guid: 88204e158db55be49ad6e2d708d87a77, type: 3}
   requiresTarget: 0
   price: 10
   cooldown: 0

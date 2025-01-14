@@ -15,9 +15,11 @@ MonoBehaviour:
   cardName: Instant Invoke
   description: A swift execution. Deals 10 damage.
   cost: 1
-  cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
+  cardArt: {fileID: 21300000, guid: 13d00b4561b275b43bfa5359d6f2432c, type: 3}
   requiresTarget: 1
   price: 10
+  cooldown: 0
+  unitAnimType: 0
   effects:
   - cardEffect:
       rid: 4438152483666657541
@@ -27,4 +29,5 @@ MonoBehaviour:
     - rid: 4438152483666657541
       type: {class: AttackEffect, ns: , asm: Assembly-CSharp}
       data:
+        targetType: 0
         damage: 10
