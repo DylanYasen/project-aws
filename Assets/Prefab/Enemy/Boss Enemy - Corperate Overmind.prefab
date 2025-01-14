@@ -104,9 +104,22 @@ MonoBehaviour:
   maxHP: 300
   maxEnergy: 3
   isStunned: 0
+  isInvulnerable: 0
+  combatStatUI: {fileID: 0}
+  type: 2
   aICardWeights:
-  - card: {fileID: 11400000, guid: a3871c71874284f42b050725a9316a02, type: 2}
-    weight: 1
+  - card: {fileID: 11400000, guid: ffd8a33c1d3aa1e4c92972072fd946f8, type: 2}
+    weight: 0
+  - card: {fileID: 11400000, guid: 716c63a4be01f4a41baa9c40afa8f46c, type: 2}
+    weight: 0
+  - card: {fileID: 11400000, guid: a134e5a5d6feccb4aaa36d8323b66f0b, type: 2}
+    weight: 0
+  - card: {fileID: 11400000, guid: 4abc96e309ba55b43bdb8d905c159504, type: 2}
+    weight: 0
+  - card: {fileID: 11400000, guid: 0f985c30137abb64d93636bc4f75ebdd, type: 2}
+    weight: 0
+  - card: {fileID: 11400000, guid: 16bfa765af930984599b873cb32c5a1a, type: 2}
+    weight: 0
 --- !u!61 &2140739506307141282
 BoxCollider2D:
   m_ObjectHideFlags: 0

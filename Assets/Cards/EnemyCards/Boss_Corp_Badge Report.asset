@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46207e6d22cc3634a9a824dbbc466d5d, type: 3}
+  m_Name: Boss_Corp_Badge Report
+  m_EditorClassIdentifier: 
+  cardName: Badge Report
+  description: Applies a Missed Attendance debuff to player, increasing energy costs
+    by +1 for all cards in hand for 1 turn
+  cost: 2
+  cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
+  requiresTarget: 1
+  price: 10
+  cooldown: 2
+  effects:
+  - cardEffect:
+      rid: 8200514275583197255
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514275583197255
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        statusEffect:
+          rid: 8200514275583197333
+    - rid: 8200514275583197333
+      type: {class: ModifyCardCostEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: -1
+        effectName: Missed Attendance
+        description: 'increasing energy costs by 1 for all cards in hand '
+        isDebuff: 1
+        isHidden: 0
+        icon: {fileID: 21300000, guid: ce3e47a1f6038d7458e5fdf7a431f186, type: 3}
+        applicationType: 2
+        modificationType: 3
+        target: 0
+        targetCardName: 
+        costChange: 1
