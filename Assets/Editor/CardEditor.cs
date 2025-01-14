@@ -5,6 +5,7 @@ using System;
 using System.Reflection;
 
 [CustomEditor(typeof(Card))]
+[CanEditMultipleObjects]
 public class CardEditor : Editor
 {
     private void DrawStatusEffectProperties(SerializedProperty statusEffectRef)
