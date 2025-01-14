@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: API Monetizer
   description: Gain 1 gold every time you play a 0-cost card.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 257d05db56985a34bb5277cc4ed7ffc0, type: 3}
   price: 50
   rarity: 0
   behavior: {fileID: 11400000, guid: 630b6200e7be1436bb268eb471fd13ca, type: 2}

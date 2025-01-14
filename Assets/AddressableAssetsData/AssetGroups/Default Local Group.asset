@@ -154,12 +154,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4be3cc672014a44d391470011fafceab
-    m_Address: Assets/Trinkets/gold on card played.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Trinkets
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4bf3a133808ddbf419945ab852273773
     m_Address: Assets/Encounters/1 -1x Packet Swarm, 1x Overloaded Virus.asset
     m_ReadOnly: 0
@@ -183,12 +177,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Encounters
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 693347ca1e4174f6a9936ca099ed27f1
-    m_Address: Assets/Trinkets/cardOnBlock.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Trinkets
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d885e09a8f984a2b9f437caa9d2ad47
     m_Address: Assets/Trinkets/Latency Reducer.asset

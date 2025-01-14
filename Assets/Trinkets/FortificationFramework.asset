@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Fortification Framework
   description: Gain an additional 2 block whenever you gain block.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9d20c344823feb344b03d612b16073f0, type: 3}
   price: 80
   rarity: 1
   behavior: {fileID: 11400000, guid: 0e532f10f14bd47718853914ce9f32c6, type: 2}

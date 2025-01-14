@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: CloudFormation Shield
   description: Gain 5 block at the start of each combat.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3d61aa621545ea347af03833e4ce544b, type: 3}
   price: 75
   rarity: 1
   behavior: {fileID: 11400000, guid: ebb46d02e133d410189ac75e56520c8d, type: 2}

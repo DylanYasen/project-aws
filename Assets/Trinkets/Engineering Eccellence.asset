@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Engineering Excellence
   description: Doubles recovery effects during maintenance, ensuring peak performance
     through optimized processes.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 134ec874f3fa79c42a7f7a5a54bc14be, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: 9ff96a61aaccc4d03852090df568280d, type: 2}

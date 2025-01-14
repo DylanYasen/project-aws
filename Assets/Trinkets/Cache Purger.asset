@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Cache Purger
   description: Remove all debuffs at the start of your turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 370ff27ebb273cb44be1e5a79e14e4c5, type: 3}
   price: 80
   rarity: 1
   behavior: {fileID: 11400000, guid: c4cf6c3b50add407c9d43821d26236bd, type: 2}

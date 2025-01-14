@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Latency Reducer
   description: Reduce the cost of a random card in your hand by  1 at the start of
     each turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ab38817d5e76a554281d36483a329de4, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: d5735e5e762f84aca80b73c903a77d0b, type: 2}

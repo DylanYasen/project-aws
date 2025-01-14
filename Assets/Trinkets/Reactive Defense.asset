@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Reactive Defense
   description: Deal 3 damage to all enemies when block is consumed.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a1dc610d419bfd541b6f4037a6f216b9, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: 3b0939a1c11ea494398951b689191e29, type: 2}

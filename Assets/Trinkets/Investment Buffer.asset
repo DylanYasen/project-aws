@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Investment Buffer
   description: Gain 10 gold at the start of combat but lose 5 gold if you end with
     unspent energy.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 52927ecb61ad5474ab2c15f30158812d, type: 3}
   price: 75
   rarity: 1
   behavior: {fileID: 11400000, guid: b0b85d917ad4b402dba9cfdcd989b0e3, type: 2}

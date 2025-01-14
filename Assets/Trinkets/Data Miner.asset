@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Data Miner
   description: Gain 2 gold for every card drawn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1292b7c2a15215341ad455db7dd7ef03, type: 3}
   price: 75
   rarity: 1
   behavior: {fileID: 11400000, guid: e86be487dee2f402a8989965cd69bed2, type: 2}

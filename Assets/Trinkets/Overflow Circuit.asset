@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Overflow Circuit
   description: Gain 1 block for every unspent energy at the end of your turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8edad885be43b6346af12dd793415ee5, type: 3}
   price: 50
   rarity: 0
   behavior: {fileID: 11400000, guid: 0add9d995e8674e8897cc936ae53cc92, type: 2}

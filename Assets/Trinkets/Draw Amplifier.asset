@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Draw Amplifier
   description: Whenever you draw a card, gain 1 gold.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f95a958a39e53074a878e1721b1cb863, type: 3}
   price: 70
   rarity: 1
   behavior: {fileID: 11400000, guid: 4afafb565c0c64af4bef89128571356f, type: 2}

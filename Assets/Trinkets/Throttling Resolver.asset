@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Throttling Resolver
   description: If an enemy attack exceeds 10 damage, reduce it by 3.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dbacb7b9c4f12b94eaa819d2e52638c1, type: 3}
   price: 75
   rarity: 1
   behavior: {fileID: 11400000, guid: d3e5698a8f22d46ec87be5f64b335d2c, type: 2}

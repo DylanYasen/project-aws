@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Load Balancer
   description: Whenever you discard a card, gain 2 block.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: da9a5427816d74e469e675bf68999e19, type: 3}
   price: 50
   rarity: 0
   behavior: {fileID: 11400000, guid: 6b68bfa0e90754ca7acc082b82a13566, type: 2}

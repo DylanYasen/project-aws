@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Adaptive Shield
   description: Gain 1 block for each card drawn on your turn.
-  icon: {fileID: 21300000, guid: 5b9cbacba10bc274b895c469542d7e24, type: 3}
+  icon: {fileID: 21300000, guid: f9e93f972e31ae346ad3ae123c3d820b, type: 3}
   price: 75
   rarity: 1
   behavior: {fileID: 11400000, guid: 7f73e540a2e224060bea6090c5659760, type: 2}

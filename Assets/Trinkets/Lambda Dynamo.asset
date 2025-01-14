@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Lambda Dynamo
   description: Start combat with 1 additional energy.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c6988d87a7c510c4692d4f8e58ffcdb7, type: 3}
   price: 110
   rarity: 2
   behavior: {fileID: 11400000, guid: d15bc6a0c904546fabde7012b4018d87, type: 2}

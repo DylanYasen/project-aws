@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Service Tax
   description: Gain 1 gold for every enemy attack targeting you.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a4cf15d0246d54741ba8d8c34894f91f, type: 3}
   price: 50
   rarity: 0
   behavior: {fileID: 11400000, guid: c0f18c0958c5f420c9dbdf34b36303f4, type: 2}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Lambda Booster
   description: Gain 5 gold every time you use all available energy in a turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: dd8b366fde28b9e4185911b32f8e51b9, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: ddb158a16eedb406db125e837ee96fa7, type: 2}

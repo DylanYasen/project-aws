@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Service Watcher
   description: Gain 1 block whenever an enemy plays a debuff.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3d3a4f09bd2fb504ea8b18a89a28a398, type: 3}
   price: 50
   rarity: 0
   behavior: {fileID: 11400000, guid: f3b0b01bddb0c476a8bd456b6e8030a0, type: 2}

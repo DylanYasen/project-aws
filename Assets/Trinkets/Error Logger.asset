@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Error Logger
   description: Each time you take damage, draw 1 card.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 44a5b088a9377a84b95fc4f8aa5f9eef, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: ebf211076f1254b1cbdc8d186e49f083, type: 2}

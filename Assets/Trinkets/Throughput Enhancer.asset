@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Throughput Enhancer
   description: Gain 1 energy every third card you play in a turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cc4296df9aebccb40a198114e3867c26, type: 3}
   price: 140
   rarity: 3
   behavior: {fileID: 11400000, guid: a3ec0b7c56e2849e69e101630e28a93e, type: 2}

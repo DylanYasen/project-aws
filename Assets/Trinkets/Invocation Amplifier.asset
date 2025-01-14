@@ -15,7 +15,7 @@ MonoBehaviour:
   displayName: Invocation Amplifier
   description: When you use an ability that targets all enemies, deal 2 additional
     damage to each.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 447d556e72709834e8726f5f52760f71, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: b57f7440479714c039f705c432bdea9a, type: 2}

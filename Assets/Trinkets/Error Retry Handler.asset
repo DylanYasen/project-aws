@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Error Retry Handler
   description: Shuffle a random discarded card back into your deck each turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e81525d76cef6ab4787aede57bab1b9e, type: 3}
   price: 100
   rarity: 2
   behavior: {fileID: 11400000, guid: 111bbfd256ba8464cbfb026e61b9169d, type: 2}

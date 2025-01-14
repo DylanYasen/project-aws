@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Auto-Scaling Relic
   description: Gain 2 block for every enemy on the field at the start of your turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 00b28c87c2c524c418cc740806823044, type: 3}
   price: 80
   rarity: 1
   behavior: {fileID: 11400000, guid: b95b8eb5a8783461eafa92ac2be447f6, type: 2}
