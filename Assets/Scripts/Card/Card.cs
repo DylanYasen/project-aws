@@ -9,6 +9,12 @@ public class CardEffectEntry
     public CardEffect cardEffect;
 }
 
+public enum CardConditon
+{
+    None,
+    CardPlayedThisTurn
+}
+
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject
 {
@@ -21,6 +27,8 @@ public class Card : ScriptableObject
 
     public int cooldown; // used for enemy cards
 
+    public CardConditon condition;
+
     public Unit.UnitAnimationType unitAnimType = Unit.UnitAnimationType.Attacking;
 
     public List<CardEffectEntry> effects = new();
@@ -31,5 +39,18 @@ public class Card : ScriptableObject
     {
         cost = Mathf.Max(0, cost + addition);
         OnCostChanged?.Invoke(cost);
+    }
+
+    public bool IsConditionMet()
+    {
+        switch (condition)
+        {
+            case CardConditon.None:
+                return true;
+            case CardConditon.CardPlayedThisTurn:
+                return Player.Instance.CardsPlayedThisTurn > 0;
+            default:
+                return true;
+        }
     }
 }

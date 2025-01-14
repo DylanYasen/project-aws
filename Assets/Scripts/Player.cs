@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : Unit
 {
-    public int maxTurnStartDrawCount = 5; 
+    public int maxTurnStartDrawCount = 5;
     public static Player Instance { get; private set; }
 
     public int DamageDealtThisTurn { get; private set; }
@@ -68,7 +68,6 @@ public class Player : Unit
             return;
         }
 
-        CardsPlayedThisTurn++;
 
         {
             currentEnergy -= card.cost;
@@ -79,8 +78,13 @@ public class Player : Unit
 
         var target = targetObj ? targetObj.GetComponent<Unit>() : this;  // @todo: might be better to add a "TargetSelf" flag
 
-        ApplyCardEffect(card, this, target);
+        if (card.IsConditionMet())
+        {
+            ApplyCardEffect(card, this, target);
+        }
         Debug.Log($"Card played: {card.cardName} to target {target?.name}");
+
+        CardsPlayedThisTurn++;
 
         Animate(card.unitAnimType);
     }
