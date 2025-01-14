@@ -178,6 +178,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Encounters
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60f1e964dc147434388594b7464b1853
+    m_Address: Assets/Encounters/Boss -  Corperate Overmind.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Encounters
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d885e09a8f984a2b9f437caa9d2ad47
     m_Address: Assets/Trinkets/Latency Reducer.asset
     m_ReadOnly: 0

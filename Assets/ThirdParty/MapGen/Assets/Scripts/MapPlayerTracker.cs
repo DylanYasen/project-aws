@@ -83,6 +83,7 @@ namespace Map
                     GameManager.Instance.StartShop();
                     break;
                 case NodeType.Boss:
+                    GameManager.Instance.StartCombatEncounter(mapNode.Node.nodeType);
                     break;
                 case NodeType.Mystery:
                     GameManager.Instance.StartMysteryEvent();
