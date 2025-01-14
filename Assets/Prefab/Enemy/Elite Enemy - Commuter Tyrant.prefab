@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6823583eb0a05d94db6d632b80a3b909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 150
+  maxHP: 75
   maxEnergy: 3
   isStunned: 0
   isInvulnerable: 0
