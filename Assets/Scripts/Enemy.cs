@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -14,6 +15,8 @@ public struct AICardWeight
 public class Enemy : Unit
 {
     public AICardWeight[] aICardWeights;
+
+    List<Card> playedCards = new();
 
     Card GetWeightedRandomCardToPlay()
     {
@@ -38,11 +41,6 @@ public class Enemy : Unit
         return aICardWeights[0].card;
     }
 
-    Card GetRandomCardToPlay()
-    {
-        return aICardWeights[Random.Range(0, aICardWeights.Length)].card;
-    }
-
     Card GetCardOfEnergyCost(int cost)
     {
         foreach (AICardWeight cardWeight in aICardWeights)
@@ -60,26 +58,54 @@ public class Enemy : Unit
     {
         base.StartTurn();
 
-        // var card = GetRandomCardToPlay();
-        // if (card != null)
-        // {
-        //     PlayCard(card);
-        // }
+        playedCards.Clear();
+    }
+
+    public Card GetRandomEligibleCardToPlay()
+    {
+        var eligbleActions = aICardWeights
+        .Where(cardWeight => !playedCards.Contains(cardWeight.card))
+        .Where(cardWeight => cardWeight.card.cost <= currentEnergy)
+        .ToList();
+
+        if (eligbleActions.Count == 0)
+        {
+            return null;
+        }
+
+        int totalWeight = eligbleActions.Sum(cardWeight => cardWeight.weight);
+        int randomWeight = Random.Range(0, totalWeight);
+        foreach (AICardWeight cardWeight in eligbleActions)
+        {
+            randomWeight -= cardWeight.weight;
+            if (randomWeight < 0)
+            {
+                return cardWeight.card;
+            }
+        }
+
+        return eligbleActions[Random.Range(0, eligbleActions.Count)].card;
+   
     }
 
     public IEnumerator PlayTurn()
     {
         while (currentEnergy > 0)
         {
-            var card = GetRandomCardToPlay();
+            var card = GetRandomEligibleCardToPlay();
             if (card != null)
             {
                 PlayCard(card);
 
                 LeanTween.moveLocal(gameObject, -transform.right * 0.5f, 0.25f).setEasePunch();
-            }
 
-            yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(2f);
+            }
+            else
+            {
+                Debug.Log("No eligible cards to play");
+                break;
+            }
         }
 
         yield return null;
@@ -99,6 +125,8 @@ public class Enemy : Unit
             Debug.Log("Not enough energy!");
             return;
         }
+
+        playedCards.Add(card);
 
         currentEnergy -= card.cost;
 
