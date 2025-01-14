@@ -106,6 +106,8 @@ MonoBehaviour:
   isStunned: 0
   isInvulnerable: 0
   combatStatUI: {fileID: 0}
+  displayName: Malicous Bot
+  type: 0
   aICardWeights:
   - card: {fileID: 11400000, guid: bb4310d70fe5d2f4d860d1b01a21ec2b, type: 2}
     weight: 1

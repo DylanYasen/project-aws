@@ -8,6 +8,7 @@ public class CombatStatUI : MonoBehaviour
 {
     public TMP_Text blockAmountText;
     public TMP_Text healthText;
+    public TMP_Text displayNameText;
 
     public Image healthBar;
 

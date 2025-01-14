@@ -20,6 +20,7 @@ public enum EnemyType
 
 public class Enemy : Unit
 {
+    public string displayName;
     public EnemyType type;
     public AICardWeight[] aICardWeights;
 
@@ -161,7 +162,7 @@ public class Enemy : Unit
         }
 
         Animate(card.unitAnimType);
-    
+
         var target = GetTarget();
         ApplyCardEffect(card, this, target);
         Debug.Log($"Enemy {name} played {card.cardName} to target {target?.name}");
@@ -281,7 +282,10 @@ public class Enemy : Unit
         foreach (var cardWeight in aICardWeights)
         {
             cardCooldowns[cardWeight.card] = 0;
-
         }
+
+
+        combatStatUI.displayNameText.text = displayName;
+        combatStatUI.transform.position -= Vector3.up * 0.3f;
     }
 }

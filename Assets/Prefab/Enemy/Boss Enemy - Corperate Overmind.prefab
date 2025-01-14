@@ -106,6 +106,7 @@ MonoBehaviour:
   isStunned: 0
   isInvulnerable: 0
   combatStatUI: {fileID: 0}
+  displayName: Corperate Overmind
   type: 2
   aICardWeights:
   - card: {fileID: 11400000, guid: ffd8a33c1d3aa1e4c92972072fd946f8, type: 2}

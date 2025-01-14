@@ -8,10 +8,34 @@ public class UnitEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        DrawDefaultInspector();
-
         Unit unit = (Unit)target;
         
+        // Only show the display name button for Enemy components
+        if (unit is Enemy enemy)
+        {
+            EditorGUILayout.Space();
+            if (GUILayout.Button("Set Display Name from GameObject"))
+            {
+                string objName = enemy.gameObject.name;
+                
+                // Split on dash and take the last part
+                int dashIndex = objName.LastIndexOf('-');
+                if (dashIndex >= 0)
+                {
+                    enemy.displayName = objName.Substring(dashIndex + 1).Trim();
+                }
+                else
+                {
+                    enemy.displayName = objName;
+                }
+                
+                // Mark the object as dirty to ensure Unity saves the change
+                EditorUtility.SetDirty(enemy);
+            }
+        }
+
+        DrawDefaultInspector();
+
         EditorGUILayout.Space();
         EditorGUILayout.LabelField($"Type: {unit.GetType().Name}");
         

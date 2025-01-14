@@ -106,6 +106,8 @@ MonoBehaviour:
   isStunned: 0
   isInvulnerable: 0
   combatStatUI: {fileID: 0}
+  displayName: Data Miner
+  type: 0
   aICardWeights:
   - card: {fileID: 11400000, guid: 359704edff1003f48bb9e0d5bd7c3709, type: 2}
     weight: 2

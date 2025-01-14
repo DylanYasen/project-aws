@@ -104,6 +104,10 @@ MonoBehaviour:
   maxHP: 180
   maxEnergy: 3
   isStunned: 0
+  isInvulnerable: 0
+  combatStatUI: {fileID: 0}
+  displayName: Compliance Enforcer
+  type: 0
   aICardWeights:
   - card: {fileID: 11400000, guid: a3871c71874284f42b050725a9316a02, type: 2}
     weight: 1
