@@ -31,7 +31,7 @@ public class DebuffUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TooltipUI.Instance.DisplayTooltip(effect.effectName, effect.GetDescription(), transform.position);
+        TooltipUI.Instance.DisplayTooltip(effect.effectName, effect.GetDescription(), eventData.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)

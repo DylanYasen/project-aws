@@ -71,36 +71,9 @@ public class TooltipUI : MonoBehaviour
         containerRect.sizeDelta = new Vector2(width, height);
 
         // Position tooltip
-        SetPosition(position);
-    }
-
-    private void SetPosition(Vector2 position)
-    {
-        // Convert screen position to local position
-        Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            transform.parent.GetComponent<RectTransform>(),
-            position,
-            null,
-            out localPoint
-        );
-
-        containerRect.anchoredPosition = localPoint;
-
-        // Keep tooltip on screen
-        Vector2 size = containerRect.sizeDelta;
-        Vector2 screenBounds = new Vector2(Screen.width, Screen.height);
-        
-        if (localPoint.x + size.x > screenBounds.x)
-            localPoint.x = screenBounds.x - size.x;
-        if (localPoint.y + size.y > screenBounds.y)
-            localPoint.y = screenBounds.y - size.y;
-        if (localPoint.x < 0)
-            localPoint.x = 0;
-        if (localPoint.y < 0)
-            localPoint.y = 0;
-
-        containerRect.anchoredPosition = localPoint;
+        // offset based on size so its not on top of the mouse position
+        Vector2 offset = new Vector2(width, 0);
+        containerRect.position = position + offset;
     }
 
     public void Hide()
