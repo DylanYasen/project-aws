@@ -46,13 +46,16 @@ public class EncounterManager
         }
     }
 
-    public void SpawnEncounter()
+    public void SpawnEncounter(Encounter encounter = null)
     {
-        var encounters = nodeTypeToEncounters[currentEncounterNodeType];
+        if (encounter == null)
+        {
+            var encounters = nodeTypeToEncounters[currentEncounterNodeType];
 
-        var eligibleEncounters = encounters.Where(encounter => encounter.minRequiredLevel <= GameManager.Instance.traveledNodeCount).ToList();
+            var eligibleEncounters = encounters.Where(encounter => encounter.minRequiredLevel <= GameManager.Instance.traveledNodeCount).ToList();
 
-        var encounter = eligibleEncounters[Random.Range(0, eligibleEncounters.Count)];
+            encounter = eligibleEncounters[Random.Range(0, eligibleEncounters.Count)];
+        }
 
         currentEncounter = encounter;
 

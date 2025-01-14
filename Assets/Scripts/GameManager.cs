@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     public StatusEffectManager statusEffectManager { get; private set; }
     public MysteryEventManager mysteryEventManager { get; private set; }
 
+
+#if UNITY_EDITOR
+    public Encounter overrideEncounter;
+#endif
+
     [Header("UI Prefab")]
     public GameObject combatStatsUIPrefab;
 
@@ -91,7 +96,12 @@ public class GameManager : MonoBehaviour
                 break;
             case "CombatScene":
                 Player.Instance.SetVisible(true);
+
+#if UNITY_EDITOR
+                encounterManager.SpawnEncounter(overrideEncounter);
+#else
                 encounterManager.SpawnEncounter();
+#endif
                 DeckManager.Instance.InitForCombat();
                 TurnManager.Instance.Init();
                 break;
