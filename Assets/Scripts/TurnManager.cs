@@ -51,11 +51,17 @@ public class TurnManager
         currentState = TurnState.PlayerTurn;
         OnPlayerTurnStart?.Invoke();
 
+        if (Player.Instance.isStunned)
+        {
+            Debug.Log("Player is stunned, skipping turn");
+            StatusEffectManager.Instance.OnTurnStart(Player.Instance);
+            EndPlayerTurn();
+            return;
+        }
 
         Player.Instance.StartTurn();
 
         StatusEffectManager.Instance.OnTurnStart(Player.Instance);
-        
         Debug.Log("Player turn started.");
     }
 
