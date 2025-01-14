@@ -5,7 +5,7 @@ public class TrinketBehavior_LoadBalancer : TrinketBehavior
 {
     private void OnCardDiscarded(Card card)
     {
-        Player.Instance.AddBlock(2);
+        CombatManager.Instance.ApplyBlock(Player.Instance, 2);
     }
 
     public override void OnAcquired()

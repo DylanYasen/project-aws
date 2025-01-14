@@ -5,7 +5,7 @@ public class TrinketBehavior_CloudFormationShield : TrinketBehavior
 {
     private void OnCombatStart()
     {
-        Player.Instance.AddBlock(5);
+        CombatManager.Instance.ApplyBlock(Player.Instance, 5);
     }
 
     public override void OnAcquired()

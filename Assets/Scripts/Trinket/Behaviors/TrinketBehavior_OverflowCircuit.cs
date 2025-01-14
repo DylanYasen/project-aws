@@ -5,7 +5,7 @@ public class TrinketBehavior_OverflowCircuit : TrinketBehavior
 {
     private void OnTurnEnd()
     {
-        Player.Instance.AddBlock(Player.Instance.currentEnergy);
+        CombatManager.Instance.ApplyBlock(Player.Instance,Player.Instance.currentEnergy);
     }
 
     public override void OnAcquired()

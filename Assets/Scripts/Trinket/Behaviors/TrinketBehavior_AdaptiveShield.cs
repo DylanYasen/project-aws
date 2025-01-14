@@ -6,7 +6,7 @@ public class TrinketBehavior_AdaptiveShield : TrinketBehavior
 {
     private void OnCardDrawn(Card card)
     {
-        Player.Instance.AddBlock(1);
+        CombatManager.Instance.ApplyBlock(Player.Instance,1);
     }
 
     public override void OnAcquired()

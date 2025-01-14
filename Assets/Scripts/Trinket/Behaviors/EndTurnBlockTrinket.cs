@@ -20,6 +20,6 @@ public class EndTurnBlockTrinket : TrinketBehavior
     private void HandleTurnEnd()
     {
         // Add block to player
-        Player.Instance.AddBlock(blockAmount);
+        CombatManager.Instance.ApplyBlock(Player.Instance, blockAmount);
     }
 } 

@@ -8,7 +8,7 @@ public class TrinketBehavior_AutoScaling : TrinketBehavior
     private void OnTurnStart()
     {
         var enemyCount = EncounterManager.Instance.enemies.Count;
-        Player.Instance.AddBlock(enemyCount * blockPerEnemy);
+        CombatManager.Instance.ApplyBlock(Player.Instance, enemyCount * blockPerEnemy);
     }
 
     public override void OnAcquired()

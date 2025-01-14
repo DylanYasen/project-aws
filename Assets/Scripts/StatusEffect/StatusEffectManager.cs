@@ -130,4 +130,29 @@ public class StatusEffectManager
             }
         }
     }
+
+    public void OnPreGainBlock(Unit target, ref int blockAmount)
+    {
+        if (!effectsByUnit.ContainsKey(target)) return;
+
+        foreach (var effect in effectsByUnit[target])
+        {
+            effect.OnPreGainBlock(target, ref blockAmount);
+        }
+    }
+
+    public bool UnitHasDebuff(Unit target)
+    {
+        if (effectsByUnit.TryGetValue(target, out var effects))
+        {
+            foreach (var effect in effects)
+            {
+                if (effect.isDebuff)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

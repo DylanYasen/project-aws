@@ -59,6 +59,8 @@ public abstract class StatusEffect
     {
     }
 
+    public virtual void OnPreGainBlock(Unit target, ref int blockAmount) { }
+
     public virtual string GetDescription()
     {
         return description;
