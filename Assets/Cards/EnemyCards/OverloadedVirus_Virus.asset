@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46207e6d22cc3634a9a824dbbc466d5d, type: 3}
+  m_Name: OverloadedVirus_Virus
+  m_EditorClassIdentifier: 
+  cardName: Virus
+  description: 
+  cost: 2
+  cardArt: {fileID: 21300000, guid: b5f5839c0c638184d90210de34685b87, type: 3}
+  requiresTarget: 1
+  price: 10
+  effects:
+  - cardEffect:
+      rid: 8200514275583197255
+  references:
+    version: 2
+    RefIds:
+    - rid: 8200514275583197255
+      type: {class: ApplyStatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        targetType: 0
+        statusEffect:
+          rid: 8200514275583197287
+    - rid: 8200514275583197287
+      type: {class: DamageOverTimeEffect, ns: , asm: Assembly-CSharp}
+      data:
+        lifetimeType: 0
+        duration: 3
+        effectName: Damage Over Time
+        description: Takes damage at the end of each turn
+        isDebuff: 1
+        isHidden: 0
+        icon: {fileID: 21300000, guid: 3afe9266576aa4041b27d5775e70022c, type: 3}
+        applicationType: 2
+        damagePerTurn: 5

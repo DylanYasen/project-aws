@@ -15,5 +15,5 @@ MonoBehaviour:
   encounterNodeType: 0
   minRequiredLevel: 0
   enemyPrefabs:
-  - {fileID: 1793707760927693826, guid: 397d4ec0b0ea7ff4386a7474c9f220d2, type: 3}
+  - {fileID: 1793707760927693826, guid: 4c108f26ef975344e9b8121f9b1ffbf4, type: 3}
   goldReward: 50

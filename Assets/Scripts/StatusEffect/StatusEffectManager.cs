@@ -87,6 +87,8 @@ public class StatusEffectManager
         {
             var effect = effectsByUnit[target][i];
             effect.OnTurnEnd(target);
+
+            effect.duration--;
             if (effect.duration <= 0)
             {
                 Debug.Log($"duration depleted, removing effect {effect.effectName} from {target.name}");
