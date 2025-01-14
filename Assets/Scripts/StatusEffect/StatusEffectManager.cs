@@ -33,7 +33,10 @@ public class StatusEffectManager
         {
             effectsByUnit[target].Add(effect);
         }
-        effect.OnApply(target);
+        if (effect.applicationType == StatusEffectApplicationType.OnApply)
+        {
+            effect.OnApply(target);
+        }
 
         target.combatStatUI?.SetDebuffs(effectsByUnit[target]);
     }
@@ -68,6 +71,11 @@ public class StatusEffectManager
         {
             var effect = effectsByUnit[target][i];
             effect.OnTurnStart(target);
+
+            if (effect.applicationType == StatusEffectApplicationType.OnTurnStart)
+            {
+                effect.OnApply(target);
+            }
         }
     }
 

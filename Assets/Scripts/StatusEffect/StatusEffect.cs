@@ -22,6 +22,14 @@ public enum CardModificationTarget
     Deck        // Cards in draw pile
 }
 
+public enum StatusEffectApplicationType
+{
+    OnApply,
+    OnRemove,
+    OnTurnStart,
+    OnTurnEnd,
+}
+
 [System.Serializable]
 public abstract class StatusEffect
 {
@@ -32,6 +40,7 @@ public abstract class StatusEffect
     public bool isDebuff;
     public bool isHidden;
     public Sprite icon;
+    public StatusEffectApplicationType applicationType;
 
     public StatusEffect()
     {
