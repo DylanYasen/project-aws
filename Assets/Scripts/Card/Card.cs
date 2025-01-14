@@ -19,6 +19,8 @@ public class Card : ScriptableObject
     public bool requiresTarget;
     public int price;
 
+    public int cooldown; // used for enemy cards
+
     public List<CardEffectEntry> effects = new();
 
     public Action<int> OnCostChanged;

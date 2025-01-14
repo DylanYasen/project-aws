@@ -11,10 +11,19 @@ public struct AICardWeight
     public int weight;
 }
 
+public enum EnemyType
+{
+    Normal,
+    Elite,
+    BossCorperateOvermind,
+}
 
 public class Enemy : Unit
 {
+    public EnemyType type;
     public AICardWeight[] aICardWeights;
+
+    Dictionary<Card, int> cardCooldowns = new();
 
     List<Card> playedCards = new();
 
@@ -85,26 +94,36 @@ public class Enemy : Unit
         }
 
         return eligbleActions[Random.Range(0, eligbleActions.Count)].card;
-   
+
     }
 
     public IEnumerator PlayTurn()
     {
-        while (currentEnergy > 0)
+        TickCooldowns();
+
+        if (type == EnemyType.BossCorperateOvermind)
         {
-            var card = GetRandomEligibleCardToPlay();
-            if (card != null)
+            PlayCard(CorperateBossMove());
+            yield return new WaitForSeconds(2f);
+        }
+        else
+        {
+            while (currentEnergy > 0)
             {
-                PlayCard(card);
+                var card = GetRandomEligibleCardToPlay();
+                if (card != null)
+                {
+                    PlayCard(card);
 
-                LeanTween.moveLocal(gameObject, -transform.right * 0.5f, 0.25f).setEasePunch();
+                    LeanTween.moveLocal(gameObject, -transform.right * 0.5f, 0.25f).setEasePunch();
 
-                yield return new WaitForSeconds(2f);
-            }
-            else
-            {
-                Debug.Log("No eligible cards to play");
-                break;
+                    yield return new WaitForSeconds(2f);
+                }
+                else
+                {
+                    Debug.Log("No eligible cards to play");
+                    break;
+                }
             }
         }
 
@@ -127,8 +146,19 @@ public class Enemy : Unit
         }
 
         playedCards.Add(card);
-
         currentEnergy -= card.cost;
+
+        if (IsInCooldown(card))
+        {
+            Debug.LogError($"Card {card.cardName} is on cooldown!");
+            return;
+        }
+
+        // Set cooldown when card is played
+        if (card.cooldown > 0)
+        {
+            cardCooldowns[card] = card.cooldown;
+        }
 
         var target = GetTarget();
         ApplyCardEffect(card, this, target);
@@ -139,5 +169,117 @@ public class Enemy : Unit
     {
         EncounterManager.Instance.UnregisterEnemy(this);
         base.Die();
+    }
+
+
+    private Card CorperateBossMove()
+    {
+        // Priority 1: Check if player has no debuffs
+        if (!StatusEffectManager.Instance.UnitHasDebuff(Player.Instance))
+        {
+            var stuckInMeeting = GetPlayableCardByName("Sprint Planning");
+            if (stuckInMeeting != null)
+            {
+                Debug.Log("Player has no debuffs, playing Sprint Planning");
+                return stuckInMeeting;
+            }
+        }
+
+        // Priority 2: Player has 2+ block
+        if (Player.Instance.block >= 2)
+        {
+            var overtimeDemand = GetPlayableCardByName("Overtime Demand");
+            if (overtimeDemand != null)
+            {
+                Debug.Log("Player has 2+ block, playing Overtime Demand");
+                return overtimeDemand;
+            }
+        }
+
+        // Priority 3: Boss HP < 50%
+        if (currentHP < maxHP / 2)
+        {
+            var performanceReview = GetPlayableCardByName("Performance Review");
+            if (performanceReview != null)
+            {
+                Debug.Log("Boss HP < 50%, playing Performance Review");
+                return performanceReview;
+            }
+        }
+
+        // Priority 4: Player used 3+ cards
+        if (Player.Instance.CardsPlayedThisTurn >= 3)
+        {
+            var priorityShift = GetPlayableCardByName("Priority Shift");
+            if (priorityShift != null)
+            {
+                Debug.Log("Player used 3+ cards, playing Priority Shift");
+                return priorityShift;
+            }
+        }
+
+        // Priority 5: Player dealt 20+ damage
+        if (Player.Instance.DamageDealtThisTurn >= 20)
+        {
+            var policyEnforcement = GetPlayableCardByName("Policy Enforcement");
+            if (policyEnforcement != null)
+            {
+                Debug.Log("Player dealt 20+ damage, playing Policy Enforcement");
+                return policyEnforcement;
+            }
+        }
+
+        // Priority 6: Default actions
+        string[] defaultMoves = { "Priority Shift", "Overtime Demand", "Performance Review" };
+        var playableMoves = defaultMoves.Where(move => GetPlayableCardByName(move) != null).ToList();
+        string randomMove = playableMoves[Random.Range(0, playableMoves.Count)];
+        Debug.Log("Playing default move: " + randomMove);
+        return GetPlayableCardByName(randomMove);
+    }
+
+    private Card GetCardByName(string cardName)
+    {
+        return aICardWeights
+            .FirstOrDefault(weight => weight.card.cardName == cardName)
+            .card;
+    }
+
+    private Card GetPlayableCardByName(string cardName)
+    {
+        return aICardWeights
+            .FirstOrDefault(weight => weight.card.cardName == cardName && !IsInCooldown(weight.card))
+            .card;
+    }
+
+    void TickCooldowns()
+    {
+        // Tick all cards in cooldown
+        var keys = cardCooldowns.Keys.ToList();
+        foreach (var card in keys)
+        {
+            if (cardCooldowns[card] > 0)
+            {
+                cardCooldowns[card]--;
+                Debug.Log($"Card {card.cardName} cooldown ticked to {cardCooldowns[card]}");
+            }
+        }
+    }
+
+    bool IsInCooldown(Card card)
+    {
+        return cardCooldowns.TryGetValue(card, out int cooldown) && cooldown > 0;
+    }
+
+    public override void StartCombat()
+    {
+        base.StartCombat();
+
+        // Initialize cooldowns
+        cardCooldowns.Clear();
+        foreach (var cardWeight in aICardWeights)
+        {
+            cardCooldowns[cardWeight.card] = 0;
+
+        }
     }
 }
